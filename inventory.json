@@ -1,0 +1,13 @@
+{
+  "machines": {
+    "jon": {
+      "name": "jon"
+    },
+    "sara": {
+      "name": "sara"
+    },
+    "green": {
+      "name": "green"
+    }
+  }
+}
