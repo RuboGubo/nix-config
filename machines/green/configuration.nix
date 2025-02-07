@@ -5,7 +5,7 @@
     # this file is shared among all machines
     ../../modules/shared.nix
     # enables GNOME desktop (optional)
-    ../../modules/gnome.nix
+    # ../../modules/gnome.nix
   ];
 
   # This is your user login name.
