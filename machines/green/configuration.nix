@@ -6,6 +6,8 @@
     ../../modules/shared.nix
     # enables GNOME desktop (optional)
     # ../../modules/gnome.nix
+
+    ../../modules/server.nix
   ];
 
   # This is your user login name.
@@ -29,5 +31,5 @@
 
   # Zerotier needs one controller to accept new nodes. Once accepted
   # the controller can be offline and routing still works.
-  clan.core.networking.zerotier.controller.enable = true;
+  # clan.core.networking.zerotier.controller.enable = true;
 }
