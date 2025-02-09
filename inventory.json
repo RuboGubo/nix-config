@@ -8,6 +8,9 @@
     },
     "green": {
       "name": "green"
+    },
+    "test": {
+      "name": "test"
     }
   }
 }
