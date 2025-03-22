@@ -444,7 +444,7 @@
           "resources": [
             {
               "type": "disk_geo",
-              "cylinders": 25088,
+              "cylinders": 50688,
               "heads": 64,
               "sectors": 32,
               "size": 0,
@@ -453,7 +453,7 @@
             {
               "type": "size",
               "unit": "sectors",
-              "value_1": 51380224,
+              "value_1": 103809024,
               "value_2": 512
             }
           ],
@@ -601,14 +601,14 @@
             {
               "type": "mem",
               "base": 0,
-              "range": 1007677440,
+              "range": 2063073280,
               "enabled": true,
               "access": "read_write",
               "prefetch": "unknown"
             },
             {
               "type": "phys_mem",
-              "range": 1006632960
+              "range": 2013265920
             }
           ]
         }
@@ -1532,7 +1532,7 @@
             "name": "Multi-bit",
             "value": 6
           },
-          "max_size": 1048576,
+          "max_size": 2097152,
           "error_handle": 65534,
           "slots": 1
         }
@@ -1542,7 +1542,7 @@
           "handle": 4864,
           "array_handle": 4096,
           "start_address": 0,
-          "end_address": 1073741824,
+          "end_address": 2147483648,
           "part_width": 1
         }
       ],
@@ -1557,7 +1557,7 @@
           "error_handle": 65534,
           "width": 0,
           "ecc_bits": 0,
-          "size": 1048576,
+          "size": 2097152,
           "form_factor": {
             "hex": "0009",
             "name": "DIMM",

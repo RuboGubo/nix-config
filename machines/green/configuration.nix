@@ -6,12 +6,10 @@
     ../../modules/shared.nix
     # enables GNOME desktop (optional)
     # ../../modules/gnome.nix
-
-    ../../modules/server.nix
   ];
 
   # This is your user login name.
-  users.users.user.name = "rubogubo";
+  # users.users.user.name = "rubogubo";
 
   # Set this for clan commands use ssh i.e. `clan machines update`
   # If you change the hostname, you need to update this line to root@<new-hostname>
@@ -26,10 +24,10 @@
   # IMPORTANT! Add your SSH key here
   # e.g. > cat ~/.ssh/id_ed25519.pub
   users.users.root.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdUiRDXTrOKj5wP9Urqlg9Ke3caKaC06lRYzVmF4bpA GitLab"
-    ];
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdUiRDXTrOKj5wP9Urqlg9Ke3caKaC06lRYzVmF4bpA GitLab"
+  ];
 
   # Zerotier needs one controller to accept new nodes. Once accepted
   # the controller can be offline and routing still works.
-  # clan.core.networking.zerotier.controller.enable = true;
+  clan.core.networking.zerotier.controller.enable = true;
 }
