@@ -7,7 +7,9 @@
       "name": "sara"
     },
     "green": {
-      "name": "green"
+      "name": "green",
+      "tags": [],
+      "deploy": {}
     },
     "test": {
       "name": "test"
