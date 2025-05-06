@@ -15,7 +15,7 @@
    # Set this for clan commands that use ssh
    # If you change the hostname, you need to update this line to root@<new-hostname>
    # This only works however if you have avahi running on your admin machine else use IP
-   clan.core.networking.targetHost = "root@172.16.26.107";
+   clan.core.networking.targetHost = "root@88.80.188.61";
 
 
    # Replace this __CHANGE_ME__ with the result of the lsblk command from step 1. 
