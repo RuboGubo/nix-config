@@ -28,7 +28,6 @@
       };
     in
     {
-      # All machines managed by Clan.
       inherit (clan) nixosConfigurations clanInternals;
       # Add the Clan cli tool to the dev shell.
       # Use "nix develop" to enter the dev shell.
@@ -42,11 +41,9 @@
           ]
           (system: {
             default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
-              packages = [
-                clan-core.packages.${system}.clan-cli
-                clan-core.inputs.nixpkgs.legacyPackages.${system}.nixos-facter
-                ];
+              packages = [ clan-core.packages.${system}.clan-cli ];
             };
           });
     };
+
 }
