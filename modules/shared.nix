@@ -6,7 +6,7 @@
     # Set a root password
     clan-core.clanModules.root-password
     clan-core.clanModules.state-version
-    ../rubogubo/server.nix
+    rubogubo/server.nix
   ];
 
   # Locale service discovery and mDNS
