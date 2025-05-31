@@ -5,12 +5,11 @@
      ../../modules/disko_linode.nix
      # this file is shared among all machines
      ../../modules/shared.nix
-     ../../modules/rubogubo/server.nix
      # enables GNOME desktop (optional)
     #  ../../modules/gnome.nix
    ];
    clan.core.networking.targetHost = "root@88.80.188.61";
-
+   
    # Replace this __CHANGE_ME__ with the result of the lsblk command from step 1.
    disko.devices.disk.main.device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi-disk-0";
    disko.devices.disk.swap.device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi-disk-1";
