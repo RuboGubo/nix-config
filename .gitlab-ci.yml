@@ -6,10 +6,10 @@ include:
 .docker-base:
   parallel:
     matrix:
-      - DOCKER_FILE: "continers/certbotdocker/Dockerfile"
+      - DOCKER_FILE: "./continers/certbotdocker/Dockerfile"
         DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/certbotdocker/snapshot:$CI_COMMIT_REF_SLUG"
         DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/certbotdocker:$CI_COMMIT_REF_NAME"
-      - DOCKER_FILE: "continers/nginx/Dockerfile"
+      - DOCKER_FILE: "./continers/nginx/Dockerfile"
         DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/nginx/snapshot:$CI_COMMIT_REF_SLUG"
         DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_NAME"
 
