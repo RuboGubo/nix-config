@@ -323,7 +323,7 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/10",
+          "/dev/disk/by-diskseq/11",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi-disk-1",
           "/dev/disk/by-label/linode-swap",
           "/dev/disk/by-path/pci-0000:00:03.0-scsi-0:0:1:2",
@@ -418,11 +418,11 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/9",
+          "/dev/disk/by-diskseq/10",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi-disk-0",
           "/dev/disk/by-label/linode-root",
           "/dev/disk/by-path/pci-0000:00:02.0-scsi-0:0:0:0",
-          "/dev/disk/by-uuid/ea304da6-e511-984a-721d-3318d96acc55",
+          "/dev/disk/by-uuid/c4b52a3f-818a-c891-ac4a-b949bf511e72",
           "/dev/sda"
         ],
         "unix_device_name2": "/dev/sg0",
