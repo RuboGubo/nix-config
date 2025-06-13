@@ -7,11 +7,11 @@ include:
   parallel:
     matrix:
       - DOCKER_FILE: "continers/certbotdocker/Dockerfile"
-        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/front/snapshot:$CI_COMMIT_REF_SLUG"
-        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/front:$CI_COMMIT_REF_NAME"
+        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/certbotdocker/snapshot:$CI_COMMIT_REF_SLUG"
+        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/certbotdocker:$CI_COMMIT_REF_NAME"
       - DOCKER_FILE: "continers/nginx/Dockerfile"
-        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/back/snapshot:$CI_COMMIT_REF_SLUG"
-        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/back:$CI_COMMIT_REF_NAME"
+        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/nginx/snapshot:$CI_COMMIT_REF_SLUG"
+        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/nginx:$CI_COMMIT_REF_NAME"
 
 stages:
   - build
