@@ -1,0 +1,20 @@
+# This file is a template, and might need editing before it works on your project.
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+include:
+  - component: $CI_SERVER_FQDN/to-be-continuous/docker/gitlab-ci-docker@6.1.10
+
+.docker-base:
+  parallel:
+    matrix:
+      - DOCKER_FILE: "continers/certbotdocker/Dockerfile"
+        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/front/snapshot:$CI_COMMIT_REF_SLUG"
+        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/front:$CI_COMMIT_REF_NAME"
+      - DOCKER_FILE: "continers/nginx/Dockerfile"
+        DOCKER_SNAPSHOT_IMAGE: "$CI_REGISTRY_IMAGE/back/snapshot:$CI_COMMIT_REF_SLUG"
+        DOCKER_RELEASE_IMAGE: "$CI_REGISTRY_IMAGE/back:$CI_COMMIT_REF_NAME"
+
+stages:
+  - build
+  - package-build
+  - package-test
+  - publish
