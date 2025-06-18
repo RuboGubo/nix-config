@@ -16,6 +16,7 @@
       "input"
     ];
     uid = 1000;
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
   };
   

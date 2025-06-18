@@ -1,13 +1,17 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, self, ... }:
 {
   imports = [
     ./common.nix
     ../../modules/gnome.nix
+    
   ];
   
+  services.flatpak.enable = true;
+  
   home-manager.users."rubogubo" = {lib, ...}: {
+    imports = [ ./flatpak.nix ];
+    
     home.username = "rubogubo";
-    # imports = [ ./flatpak.nix ];
     home.packages = with pkgs; [
       firefox
       jdk

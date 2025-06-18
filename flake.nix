@@ -3,15 +3,15 @@
   inputs = {
     nixpkgs.follows = "clan-core/nixpkgs";
     clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
-  
+
   outputs =
     { self, clan-core, home-manager, nix-flatpak, ... }:
     let
@@ -20,11 +20,11 @@
         inherit self;
         # Ensure this is unique among all clans you want to use.
         meta.name = "GreenSiren";
-        
+
         modules."local/rubogubo" = import ./services/rubogubo;
         modules."local/local" = import ./services/local;
         modules."local/podman-compose" = import ./services/podman-compose;
-        
+
         inventory = {
           machines = {
             node1.tags = [ "server" ];
@@ -33,27 +33,27 @@
           instances = {
             # podman-compose = {
             #   module.name = "local/podman-compose";
-              
+
             #   roles.default.machines."node1".settings.path = ./podman-compose.yaml;
             # };
             rubogubo = {
               module.name = "local/rubogubo";
-              
+
               roles.server.tags."server" = {};
               roles.desktop.tags."desktop" = {};
             };
             local = {
               module.name = "local/local";
-              
+
               roles.server.tags."server" = {};
-              roles.desktop.tags."desktop" = {}; 
+              roles.desktop.tags."desktop" = {};
             };
             wifi = {
               module = {
                 name = "wifi";
                 input = "clan-core";
               };
-              
+
               # roles.default.settings.networks.glide = {};
               # roles.default.settings.networks.hanseo-phone = {};
               roles.default.settings.networks.rubogubo-phone = {};
@@ -67,7 +67,9 @@
             };
             # importer."flatpak" = {
             #   roles.default.tags = [ "desktop" ];
-            #   roles.default.extraModules = [ nix-flatpak.homeManagerModules.nix-flatpak ];
+            #   roles.default.extraModules = [
+                
+            #   ];
             # };
           };
         };
@@ -88,7 +90,7 @@
     in
     {
       inherit (clan) nixosConfigurations clanInternals;
-      
+
       # Add the Clan cli tool to the dev shell.
       # Use "nix develop" to enter the dev shell.
       devShells =

@@ -1,6 +1,5 @@
 { ... }:
 {
-  # imports = [ nix-flatpak.homeManagerModules.nix-flatpak ];
   services.flatpak.packages = [
     # School
     "net.ankiweb.Anki"
