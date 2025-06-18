@@ -1,4 +1,3 @@
-{ ... }:
 {
   services.flatpak.packages = [
     # School

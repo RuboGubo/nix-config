@@ -56,20 +56,24 @@
 
               # roles.default.settings.networks.glide = {};
               # roles.default.settings.networks.hanseo-phone = {};
-              roles.default.settings.networks.rubogubo-phone = {};
+              # roles.default.settings.networks.rubogubo-phone = {};
               roles.default.tags."wifi" = {};
+            };
+            "flatpak" = {
+              module = {
+                name = "importer";
+                input = "clan-core";
+              };
+              roles.default.tags."desktop" = {};
+              roles.default.extraModules = [
+                nix-flatpak.nixosModules.nix-flatpak
+              ];
             };
           };
           services = {
             importer."home-manager" = {
               roles.default.tags = [ "all" ];
               roles.default.extraModules = [ home-manager.nixosModules.home-manager ];
-            };
-            importer."flatpak" = {
-              roles.default.tags = [ "desktop" ];
-              roles.default.extraModules = [
-                ./flatpak.nix
-              ];
             };
           };
         };

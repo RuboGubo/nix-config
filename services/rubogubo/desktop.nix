@@ -3,13 +3,13 @@
   imports = [
     ./common.nix
     ../../modules/gnome.nix
-    
+    ./flatpak.nix
   ];
   
   services.flatpak.enable = true;
   
   home-manager.users."rubogubo" = {lib, ...}: {
-    imports = [ ./flatpak.nix ];
+    imports = [  ];
     
     home.username = "rubogubo";
     home.packages = with pkgs; [
