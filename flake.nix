@@ -65,12 +65,12 @@
               roles.default.tags = [ "all" ];
               roles.default.extraModules = [ home-manager.nixosModules.home-manager ];
             };
-            # importer."flatpak" = {
-            #   roles.default.tags = [ "desktop" ];
-            #   roles.default.extraModules = [
-                
-            #   ];
-            # };
+            importer."flatpak" = {
+              roles.default.tags = [ "desktop" ];
+              roles.default.extraModules = [
+                ./flatpak.nix
+              ];
+            };
           };
         };
 
