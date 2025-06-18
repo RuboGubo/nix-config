@@ -16,8 +16,11 @@
       "input"
     ];
     uid = 1000;
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
   };
+  
+  programs.zsh.enable = true;
   
   home-manager.users."rubogubo" = {
     home.stateVersion = "24.11";

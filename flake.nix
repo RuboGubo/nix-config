@@ -69,11 +69,15 @@
                 nix-flatpak.nixosModules.nix-flatpak
               ];
             };
-          };
-          services = {
-            importer."home-manager" = {
-              roles.default.tags = [ "all" ];
-              roles.default.extraModules = [ home-manager.nixosModules.home-manager ];
+            "home-manager" = {
+              module = {
+                name = "importer";
+                input = "clan-core";
+              };
+              roles.default.tags."all" = {};
+              roles.default.extraModules = [
+                home-manager.nixosModules.home-manager
+              ];
             };
           };
         };
