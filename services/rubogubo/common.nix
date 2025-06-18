@@ -72,7 +72,7 @@
       syntaxHighlighting.enable = true;
       autocd = true;
   
-      initExtra = ''
+      initContent = ''
         bindkey '^H' backward-kill-word
       '';
   
