@@ -7,6 +7,7 @@
   # can be read using `clan secrets get <machine-name>-user-password` command
   clan.user-password.user = "rubogubo";
   users.users.rubogubo = {
+    description = "RuboGubo";
     isNormalUser = true;
     extraGroups = [
       "wheel"

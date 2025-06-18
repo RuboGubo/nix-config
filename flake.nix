@@ -31,11 +31,11 @@
             green-laptop.tags = [ "desktop" "wifi" ];
           };
           instances = {
-            podman-compose = {
-              module.name = "local/podman-compose";
+            # podman-compose = {
+            #   module.name = "local/podman-compose";
               
-              roles.default.machines."node1".settings.path = ./podman-compose.yaml;
-            };
+            #   roles.default.machines."node1".settings.path = ./podman-compose.yaml;
+            # };
             rubogubo = {
               module.name = "local/rubogubo";
               
@@ -65,10 +65,10 @@
               roles.default.tags = [ "all" ];
               roles.default.extraModules = [ home-manager.nixosModules.home-manager ];
             };
-            importer."flatpak" = {
-              roles.default.tags = [ "desktop" ];
-              roles.default.extraModules = [  ];
-            };
+            # importer."flatpak" = {
+            #   roles.default.tags = [ "desktop" ];
+            #   roles.default.extraModules = [ nix-flatpak.homeManagerModules.nix-flatpak ];
+            # };
           };
         };
 
@@ -88,6 +88,7 @@
     in
     {
       inherit (clan) nixosConfigurations clanInternals;
+      
       # Add the Clan cli tool to the dev shell.
       # Use "nix develop" to enter the dev shell.
       devShells =

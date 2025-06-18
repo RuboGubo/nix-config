@@ -5,8 +5,9 @@
     ../../modules/gnome.nix
   ];
   
-  home-manager.users."rubogubo" = {
-    imports = [ ./flatpak.nix ];
+  home-manager.users."rubogubo" = {lib, ...}: {
+    home.username = "rubogubo";
+    # imports = [ ./flatpak.nix ];
     home.packages = with pkgs; [
       firefox
       jdk
@@ -18,7 +19,7 @@
       gnomeExtensions.tiling-shell
       gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording
       rustup
-      discord
+      # discord
       python3
       gcc
       seahorse
@@ -113,9 +114,9 @@
       "org/gnome/shell/extensions/system-monitor".show-swap = false;
       # set wallpapers
       "org/gnome/desktop/background" = {
-        picture-uri = "${./background/light/us.jpg}";
+        picture-uri = "${../../modules/background/light/us.jpg}";
         # picture-uri-dark = toString ./background/dark/Firefox_wallpaper.png;
-        picture-uri-dark = "${./background/dark/Starchitect.jpg}";
+        picture-uri-dark = "${../../modules/background/dark/Starchitect.jpg}";
       };
       "org/gnome/desktop".accent-color = "green";
       "org/gnome/shell/extensions/nightthemeswitcher/time" = {

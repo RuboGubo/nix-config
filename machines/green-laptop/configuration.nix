@@ -3,7 +3,7 @@
     ../../modules/shared.nix
     ../../modules/disko.nix
   ];
-  clan.core.networking.targetHost = "root@192.168.90.78";
+  clan.core.networking.targetHost = "root@172.16.2.212";
 
   disko.devices.disk.main.device = "/dev/nvme0n1";
   

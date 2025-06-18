@@ -1,12 +1,7 @@
 {
    imports = [
-     # ./hardware-configuration.nix
-     # contains your disk format and partitioning configuration.
      ../../modules/disko_swap.nix
-     # this file is shared among all machines
      ../../modules/shared.nix
-     # enables GNOME desktop (optional)
-    #  ../../modules/gnome.nix
    ];
    clan.core.networking.targetHost = "root@88.80.188.61";
    
