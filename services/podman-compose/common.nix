@@ -1,4 +1,5 @@
-{settings, pkgs, ...}: {
+{ settings, pkgs, ... }:
+{
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {
@@ -12,14 +13,20 @@
   };
 
   systemd.services."podman-compose" = {
-      path = [ pkgs.podman pkgs.podman-compose ];
-      script = ''
-        podman-compose -f "${settings.path}" up
-      '';
-      wantedBy = ["multi-user.target"];
-      # If you use podman
-      after = ["podman.service" "podman.socket"];
-      # If you use docker
-      # after = ["docker.service" "docker.socket"];
+    path = [
+      pkgs.podman
+      pkgs.podman-compose
+    ];
+    script = ''
+      podman-compose -f "${settings.path}" up
+    '';
+    wantedBy = [ "multi-user.target" ];
+    # If you use podman
+    after = [
+      "podman.service"
+      "podman.socket"
+    ];
+    # If you use docker
+    # after = ["docker.service" "docker.socket"];
   };
 }

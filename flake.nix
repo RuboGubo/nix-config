@@ -13,7 +13,14 @@
   };
 
   outputs =
-    { self, clan-core, home-manager, nix-flatpak, ... }:
+    {
+      self,
+      clan-core,
+      home-manager,
+      nix-flatpak,
+      nixpkgs,
+      ...
+    }:
     let
       # Usage see: https://docs.clan.lol
       clan = clan-core.lib.buildClan {
@@ -28,7 +35,10 @@
         inventory = {
           machines = {
             node1.tags = [ "server" ];
-            green-laptop.tags = [ "desktop" "wifi" ];
+            green-laptop.tags = [
+              "desktop"
+              "wifi"
+            ];
           };
           instances = {
             # podman-compose = {
@@ -39,14 +49,14 @@
             rubogubo = {
               module.name = "local/rubogubo";
 
-              roles.server.tags."server" = {};
-              roles.desktop.tags."desktop" = {};
+              roles.server.tags."server" = { };
+              roles.desktop.tags."desktop" = { };
             };
             local = {
               module.name = "local/local";
 
-              roles.server.tags."server" = {};
-              roles.desktop.tags."desktop" = {};
+              roles.server.tags."server" = { };
+              roles.desktop.tags."desktop" = { };
             };
             wifi = {
               module = {
@@ -57,14 +67,14 @@
               # roles.default.settings.networks.glide = {};
               # roles.default.settings.networks.hanseo-phone = {};
               # roles.default.settings.networks.rubogubo-phone = {};
-              roles.default.tags."wifi" = {};
+              roles.default.tags."wifi" = { };
             };
             "flatpak" = {
               module = {
                 name = "importer";
                 input = "clan-core";
               };
-              roles.default.tags."desktop" = {};
+              roles.default.tags."desktop" = { };
               roles.default.extraModules = [
                 nix-flatpak.nixosModules.nix-flatpak
               ];
@@ -74,7 +84,7 @@
                 name = "importer";
                 input = "clan-core";
               };
-              roles.default.tags."all" = {};
+              roles.default.tags."all" = { };
               roles.default.extraModules = [
                 home-manager.nixosModules.home-manager
               ];
@@ -111,7 +121,10 @@
           ]
           (system: {
             default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
-              packages = [ clan-core.packages.${system}.clan-cli ];
+              packages = [
+                clan-core.packages.${system}.clan-cli
+                nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
+              ];
             };
           });
     };

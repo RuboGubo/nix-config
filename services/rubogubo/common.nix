@@ -1,4 +1,9 @@
-{ config, clan-core, pkgs, ... }:
+{
+  config,
+  clan-core,
+  pkgs,
+  ...
+}:
 {
   imports = [
     clan-core.clanModules.user-password
@@ -19,9 +24,9 @@
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
   };
-  
+
   programs.zsh.enable = true;
-  
+
   home-manager.users."rubogubo" = {
     home.stateVersion = "24.11";
     home.packages = with pkgs; [
@@ -35,7 +40,7 @@
       jq
       yq
       home-manager
-      
+
       # Command Line
       eza
       git
@@ -44,15 +49,15 @@
       just
       fastfetch
       cowsay
-      
+
       # dev tools
       devenv
       direnv
-  
+
       # Rust tools
       wasm-pack
     ];
-    
+
     programs.git = {
       enable = true;
       lfs.enable = true;
@@ -64,18 +69,18 @@
         push.rebase = false;
       };
     };
-    
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-  
+
       initContent = ''
         bindkey '^H' backward-kill-word
       '';
-  
+
       plugins = [
         {
           name = "zsh-nix-shell";
@@ -88,7 +93,7 @@
           };
         }
       ];
-  
+
       oh-my-zsh = {
         enable = true;
         plugins = [

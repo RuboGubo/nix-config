@@ -17,12 +17,12 @@ in
   # Otherwise your system might not boot because of missing partitions / filesystems
   boot.loader.grub.efiSupport = lib.mkDefault true;
   boot.loader.grub.efiInstallAsRemovable = lib.mkDefault true;
-  
+
   # For Linode
   boot.loader.grub.forceInstall = true;
   boot.loader.grub.device = "nodev";
   boot.loader.timeout = 10;
-  
+
   disko.devices = {
     disk = {
       "main" = {
