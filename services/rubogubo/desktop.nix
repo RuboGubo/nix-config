@@ -8,6 +8,8 @@
 
   services.flatpak.enable = true;
 
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+
   home-manager.users."rubogubo" =
     { lib, ... }:
     {
@@ -15,6 +17,7 @@
 
       home.username = "rubogubo";
       home.packages = with pkgs; [
+        # (import ../../modules/kakao.nix)
         firefox
         jdk
         qemu

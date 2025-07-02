@@ -31,6 +31,7 @@
         modules."local/rubogubo" = import ./services/rubogubo;
         modules."local/local" = import ./services/local;
         modules."local/podman-compose" = import ./services/podman-compose;
+        modules."local/ssh-user" = import ./services/ssh-user;
 
         inventory = {
           machines = {
@@ -41,6 +42,15 @@
             ];
           };
           instances = {
+            ssh = {
+              module = {
+                name = "sshd";
+                input = "clan-core";
+              };
+
+              roles.server.tags."all" = { };
+              roles.client.tags."all" = { };
+            };
             # podman-compose = {
             #   module.name = "local/podman-compose";
 
@@ -88,6 +98,15 @@
               roles.default.extraModules = [
                 home-manager.nixosModules.home-manager
               ];
+            };
+            "ssh.rubogubo" = {
+              module.name = "local/ssh-user";
+
+              roles."ssh-from".settings.user = "rubogubo";
+              roles."ssh-to".settings.user = "rubogubo";
+
+              roles."ssh-from".tags."desktop" = { };
+              roles."ssh-to".tags."all" = { };
             };
           };
         };
