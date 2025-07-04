@@ -9,9 +9,9 @@
 
   users.users = lib.listToAttrs (
     map (to_user: {
-      name = roles."ssh-from".settings.user;
-      value.openssh.authorizedKeys.keyFiles = [
-        config.clan.core.vars.generators."key.ssh.${to_user}".files.public_key.path
+      name = to_user;
+      value.openssh.authorizedKeys.keys = [
+        config.clan.core.vars.generators."key.ssh.${roles."ssh-from".settings.user}".files.public_key.value
       ];
     }) settings.users
   );
