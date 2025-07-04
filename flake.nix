@@ -103,7 +103,7 @@
               module.name = "local/ssh-user";
 
               roles."ssh-from".settings.user = "rubogubo";
-              roles."ssh-to".settings.user = "rubogubo";
+              roles."ssh-to".settings.users = [ "rubogubo" ];
 
               roles."ssh-from".tags."desktop" = { };
               roles."ssh-to".tags."all" = { };

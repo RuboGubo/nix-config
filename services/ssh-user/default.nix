@@ -33,9 +33,9 @@
     interface =
       { lib, ... }:
       {
-        options.user = lib.mkOption {
-          type = lib.types.str;
-          description = "The user to install the public key to.";
+        options.users = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
+          description = "The users to install the public key to. You can then log into that user using the private key.";
         };
       };
 
@@ -43,13 +43,24 @@
       {
         settings,
         pkgs,
+        roles,
         ...
       }:
       {
         nixosModule =
-          { config, ... }:
+          { config, lib, ... }:
           {
-            imports = [ (import ./ssh/to.nix { inherit settings config pkgs; }) ];
+            imports = [
+              (import ./ssh/to.nix {
+                inherit
+                  settings
+                  config
+                  pkgs
+                  roles
+                  lib
+                  ;
+              })
+            ];
           };
       };
   };
