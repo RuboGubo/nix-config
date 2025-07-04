@@ -28,10 +28,10 @@
         # Ensure this is unique among all clans you want to use.
         meta.name = "GreenSiren";
 
-        modules."local/rubogubo" = import ./services/rubogubo;
-        modules."local/local" = import ./services/local;
-        modules."local/podman-compose" = import ./services/podman-compose;
-        modules."local/ssh-user" = import ./services/ssh-user;
+        modules."rubogubo" = import ./services/rubogubo;
+        modules."local" = import ./services/local;
+        modules."podman-compose" = import ./services/podman-compose;
+        modules."ssh-user" = import ./services/ssh-user;
 
         inventory = {
           machines = {
@@ -52,18 +52,24 @@
               roles.client.tags."all" = { };
             };
             # podman-compose = {
-            #   module.name = "local/podman-compose";
+            #   module.name = "podman-compose";
 
             #   roles.default.machines."node1".settings.path = ./podman-compose.yaml;
             # };
             rubogubo = {
-              module.name = "local/rubogubo";
+              module = {
+                name = "rubogubo";
+                input = "self";
+              };
 
               roles.server.tags."server" = { };
               roles.desktop.tags."desktop" = { };
             };
             local = {
-              module.name = "local/local";
+              module = {
+                name = "local";
+                input = "self";
+              };
 
               roles.server.tags."server" = { };
               roles.desktop.tags."desktop" = { };
@@ -100,7 +106,10 @@
               ];
             };
             "ssh.rubogubo" = {
-              module.name = "local/ssh-user";
+              module = {
+                name = "ssh-user";
+                input = "self";
+              };
 
               roles."ssh-from".settings.user = "rubogubo";
               roles."ssh-to".settings.users = [
