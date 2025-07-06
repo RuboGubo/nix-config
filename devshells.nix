@@ -6,6 +6,7 @@ _: {
         default = pkgs.mkShellNoCC {
           packages = [
             inputs'.clan-core.packages.default
+            pkgs.nil
           ];
         };
       };
