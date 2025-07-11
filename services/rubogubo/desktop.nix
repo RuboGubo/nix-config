@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./common.nix
@@ -18,6 +18,7 @@
       home.username = "rubogubo";
       home.packages = with pkgs; [
         # (import ../../modules/kakao.nix)
+        # kakao
         firefox
         jdk
         qemu

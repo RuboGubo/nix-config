@@ -28,9 +28,24 @@
         "x86_64-linux"
       ];
       perSystem =
-        { pkgs, ... }:
+        { pkgs, self, ... }:
         {
           formatter = pkgs.nixfmt-rfc-style;
+
+          _module.args.pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            overlays = [
+              (final: prev: {
+                kakao = import ./kakao.nix { pkgs = final; };
+              })
+            ];
+          };
+
+          packages.kakao = import ./packages/kakao.nix { inherit pkgs; };
+          apps.kakao = {
+            type = "app";
+            program = "${self.packages.x86_64-linux.kakao}/bin/kakao";
+          };
         };
     };
 }

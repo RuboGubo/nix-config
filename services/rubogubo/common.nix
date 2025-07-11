@@ -31,6 +31,7 @@
     home.stateVersion = "24.11";
     home.packages = with pkgs; [
       inotify-tools
+      hollywood
       age
       ssh-to-age
       sops
