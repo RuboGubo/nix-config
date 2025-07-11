@@ -18,11 +18,18 @@
 
     inventory = {
       machines = {
-        node1.tags = [ "server" ];
-        green-laptop.tags = [
-          "desktop"
-          "wifi"
-        ];
+        node1 = {
+          tags = [ "server" ];
+          deploy.targetHost = "root@88.80.188.61";
+        };
+        green-laptop = {
+          tags = [
+            "desktop"
+            "wifi"
+          ];
+          deploy.targetHost = "root@172.16.2.212";
+        };
+        green = { };
       };
       instances = {
         ssh = {
@@ -46,7 +53,13 @@
           };
 
           roles.server.tags."server" = { };
+          roles.server.extraModules = [
+            inputs.home-manager.nixosModules.home-manager
+          ];
           roles.desktop.tags."desktop" = { };
+          roles.desktop.extraModules = [
+            inputs.home-manager.nixosModules.home-manager
+          ];
         };
         local = {
           module = {
@@ -78,16 +91,16 @@
             inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
         };
-        "home-manager" = {
-          module = {
-            name = "importer";
-            input = "clan-core";
-          };
-          roles.default.tags."all" = { };
-          roles.default.extraModules = [
-            inputs.home-manager.nixosModules.home-manager
-          ];
-        };
+        # "home-manager" = {
+        #   module = {
+        #     name = "importer";
+        #     input = "clan-core";
+        #   };
+        #   roles.default.tags."all" = { };
+        #   roles.default.extraModules = [
+        #     inputs.home-manager.nixosModules.home-manager
+        #   ];
+        # };
         "ssh.rubogubo" = {
           module = {
             name = "ssh-user";
