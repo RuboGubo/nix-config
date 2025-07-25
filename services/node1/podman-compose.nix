@@ -151,9 +151,6 @@
   };
   virtualisation.oci-containers.containers."node1-nginx" = {
     image = "localhost/compose2nix/node1-nginx";
-    environment = {
-      "CI_JOB_TOKEN" = "";
-    };
     volumes = [
       "node1_certbot-cert:/etc/letsencrypt:ro"
       "node1_certbot-webroot:/var/www/certbot:ro"
