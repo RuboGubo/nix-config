@@ -19,6 +19,7 @@
       home.packages = with pkgs; [
         # (import ../../modules/kakao.nix)
         # kakao
+        xclip
         firefox
         jdk
         qemu
@@ -45,7 +46,6 @@
         blackbox-terminal
         nixd
         jdt-language-server
-        zed-editor
         podman-compose
 
         wireshark
@@ -54,6 +54,16 @@
         nanum
         openfortivpn
       ];
+
+      programs.zed-editor = {
+        enable = true;
+        extraPackages = with pkgs; [
+          nil
+          rust-analyzer
+          taplo-lsp
+          package-version-server
+        ];
+      };
 
       home.file."/home/rubogubo/.config/gtk-3.0/bookmarks" = {
         text = ''file:///home/rubogubo/Projects'';

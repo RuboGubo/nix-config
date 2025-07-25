@@ -1,15 +1,16 @@
 version: "3.7"
+name: node1
 
 services:
   prod-postgres:
     image: postgres
     restart: unless-stopped
     ports:
-    - 5432:5432
+      - 5432:5432
     environment:
-      POSTGRES_PASSWORD: 'Pornhub.com'
+      POSTGRES_PASSWORD: "Pornhub.com"
     volumes:
-    - postgress_db:/var/lib/postgresql/data
+      - postgress_db:/var/lib/postgresql/data
 
   # portainer:
   #   image: portainer/portainer-ee:latest
@@ -57,17 +58,18 @@ services:
     entrypoint: /cron.sh
     depends_on:
       - nextcloud
+      - nginx
 
   nginx:
-    build: nginx
+    build: ./containers/nginx
     restart: always
     ports:
       - "80:80"
       - "443:443"
       - "1935:1935"
     volumes:
-      - certbot:/var/www/certbot/:ro
-      - certbot:/etc/letsencrypt/:ro
+      - certbot-webroot:/var/www/certbot/:ro
+      - certbot-cert:/etc/letsencrypt/:ro
       # - ../docker-data/radio/:/radio/:ro
       # - ./nginx/static_websites/:/static_websites/:ro
     links:
@@ -77,16 +79,17 @@ services:
     environment:
       - CI_JOB_TOKEN=${CI_JOB_TOKEN}
 
-  # certbot:
-  #   build: certbotdocker
-  #   volumes:
-  #   - certbot:/var/www/certbot/:rw
-  #   - certbot:/etc/letsencrypt/:rw
-  #   depends_on:
-  #   - nginx
+  certbot:
+    build: ./containers/certbotdocker
+    volumes:
+      - certbot-webroot:/var/www/certbot/:rw
+      - certbot-cert:/etc/letsencrypt/:rw
+    depends_on:
+      - nginx
 
 volumes:
   postgress_db:
   nextcloud_db:
   nextcloud_html:
-  certbot:
+  certbot-webroot:
+  certbot-cert:

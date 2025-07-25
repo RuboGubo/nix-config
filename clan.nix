@@ -15,6 +15,7 @@
     modules."local" = import ./services/local;
     modules."podman-compose" = import ./services/podman-compose;
     modules."ssh-user" = import ./services/ssh-user;
+    modules."node1" = import ./services/node1;
 
     inventory = {
       machines = {
@@ -27,11 +28,23 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@172.16.2.212";
+          deploy.targetHost = "root@localhost";
         };
         green = { };
       };
       instances = {
+        # Actual useful stuff
+
+        node1 = {
+          module = {
+            name = "node1";
+            input = "self";
+          };
+
+          # roles.default.machines."green-laptop" = { };
+        };
+
+        # Server Admin
         ssh = {
           module = {
             name = "sshd";
