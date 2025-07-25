@@ -75,8 +75,8 @@ services:
       - nextcloud
     volumes_from:
       - nextcloud
-    environment:
-      - CI_JOB_TOKEN=${CI_JOB_TOKEN}
+    # environment:
+    #   - CI_JOB_TOKEN=${CI_JOB_TOKEN}
 
   certbot:
     build: ./containers/certbotdocker
