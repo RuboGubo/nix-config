@@ -31,7 +31,7 @@
           ];
           deploy.targetHost = "root@localhost";
         };
-        green = { };
+        # green = { };
       };
       instances = {
         # Actual useful stuff
