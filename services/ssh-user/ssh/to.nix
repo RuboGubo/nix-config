@@ -6,7 +6,6 @@
   ...
 }:
 {
-
   users.users = lib.listToAttrs (
     map (to_user: {
       name = to_user;

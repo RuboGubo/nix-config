@@ -19,13 +19,17 @@
       {
         settings,
         pkgs,
+        roles,
         ...
       }:
       {
         nixosModule =
           { config, ... }:
           {
-            imports = [ (import ./ssh/from.nix { inherit settings config pkgs; }) ];
+            imports = [
+              (import ./ssh/common.nix { inherit roles pkgs; })
+              (import ./ssh/from.nix { inherit settings config pkgs; })
+            ];
           };
       };
   };
@@ -51,6 +55,7 @@
           { config, lib, ... }:
           {
             imports = [
+              (import ./ssh/common.nix { inherit roles pkgs; })
               (import ./ssh/to.nix {
                 inherit
                   settings

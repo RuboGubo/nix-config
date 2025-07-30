@@ -21,7 +21,8 @@
       machines = {
         node1 = {
           tags = [ "server" ];
-          deploy.targetHost = "root@88.80.188.61";
+          deploy.targetHost = "root@176.58.117.204";
+          deploy.buildHost = "localhost";
         };
         green-laptop = {
           tags = [
@@ -129,6 +130,14 @@
           roles."ssh-from".tags."desktop" = { };
           roles."ssh-to".tags."all" = { };
         };
+        clan-cache = {
+          module = {
+            name = "trusted-nix-caches";
+            input = "clan-core";
+          };
+          roles.default.tags."all" = { };
+        };
+
       };
     };
   };

@@ -63,6 +63,10 @@
           taplo-lsp
           package-version-server
         ];
+        userSettings = {
+          lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+          autosave = "on_focus_change";
+        };
       };
 
       home.file."/home/rubogubo/.config/gtk-3.0/bookmarks" = {
