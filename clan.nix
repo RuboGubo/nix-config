@@ -30,7 +30,7 @@
             "wifi"
           ];
           deploy.targetHost = "root@192.168.226.54";
-          deploy.buildHost = "root@192.168.226.54";
+          # deploy.buildHost = "root@192.168.226.54";
         };
         # green = { };
       };
