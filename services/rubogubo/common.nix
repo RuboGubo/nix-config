@@ -53,7 +53,6 @@
 
       # dev tools
       devenv
-      direnv
 
       # Rust tools
       wasm-pack
@@ -69,6 +68,12 @@
         push.autoSetupRemote = true;
         push.rebase = false;
       };
+    };
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
     };
 
     programs.zsh = {

@@ -30,6 +30,7 @@
             "wifi"
           ];
           deploy.targetHost = "root@localhost";
+          deploy.buildHost = "localhost";
         };
         # green = { };
       };
