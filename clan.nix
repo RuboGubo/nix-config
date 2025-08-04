@@ -76,6 +76,22 @@
             inputs.home-manager.nixosModules.home-manager
           ];
         };
+        rubogubo-password = {
+          module = {
+            name = "users";
+            input = "clan-core";
+          };
+          roles.default.tags."all" = { };
+          roles.default.settings.user = "rubogubo";
+        };
+        root-password = {
+          module = {
+            name = "users";
+            input = "clan-core";
+          };
+          roles.default.tags."all" = { };
+          roles.default.settings.user = "root";
+        };
         local = {
           module = {
             name = "local";

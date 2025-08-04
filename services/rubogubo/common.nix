@@ -1,16 +1,16 @@
 {
   config,
-  clan-core,
+  # clan-core,
   pkgs,
   ...
 }:
 {
-  imports = [
-    clan-core.clanModules.user-password
-  ];
+  # imports = [
+  #   clan-core.clanModules.user-password
+  # ];
   # generate a random password for our user below
   # can be read using `clan secrets get <machine-name>-user-password` command
-  clan.user-password.user = "rubogubo";
+  # clan.user-password.user = "rubogubo";
   users.users.rubogubo = {
     description = "RuboGubo";
     isNormalUser = true;
