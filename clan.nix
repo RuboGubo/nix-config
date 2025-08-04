@@ -22,15 +22,15 @@
         node1 = {
           tags = [ "server" ];
           deploy.targetHost = "root@176.58.117.204";
-          deploy.buildHost = "localhost";
+          deploy.buildHost = "root@127.0.0.1";
         };
         green-laptop = {
           tags = [
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@localhost";
-          deploy.buildHost = "localhost";
+          deploy.targetHost = "root@192.168.226.54";
+          deploy.buildHost = "root@192.168.226.54";
         };
         # green = { };
       };

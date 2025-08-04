@@ -50,6 +50,7 @@
           apps.kakao = {
             type = "app";
             program = "${self'.packages.kakao}/bin/kakao";
+            meta.description = "The Korean Messaging App Kakao Chat";
           };
         };
     };

@@ -4,4 +4,6 @@
     ./disko.nix
   ];
   disko.devices.disk.main.device = "/dev/nvme0n1";
+
+  clan.core.settings.state-version.enable = true;
 }
