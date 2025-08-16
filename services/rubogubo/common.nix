@@ -22,11 +22,12 @@
     ];
     uid = 1000;
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
+    # openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
   };
 
   programs.zsh.enable = true;
 
+  home-manager.backupFileExtension = "bak";
   home-manager.users."rubogubo" = {
     home.stateVersion = "24.11";
     home.packages = with pkgs; [
