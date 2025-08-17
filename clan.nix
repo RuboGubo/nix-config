@@ -37,14 +37,14 @@
       instances = {
         # Actual useful stuff
 
-        node1 = {
-          module = {
-            name = "node1";
-            input = "self";
-          };
+        # node1 = {
+        #   module = {
+        #     name = "node1";
+        #     input = "self";
+        #   };
 
-          # roles.default.machines."green-laptop" = { };
-        };
+        #   # roles.default.machines."green-laptop" = { };
+        # };
 
         # Server Admin
         ssh = {

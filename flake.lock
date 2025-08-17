@@ -16,11 +16,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1755342196,
-        "narHash": "sha256-NVttlEVJnQt24lRQ5AEFGo8j/rdSfYWfJG1rPHvqxhs=",
-        "rev": "e109361e81de903a12589e8f1e7ccd11b9751525",
+        "lastModified": 1755389308,
+        "narHash": "sha256-1xXLn6HavT+PnigP56plTcUUkz5DTb2Rhx0dfbdmz6w=",
+        "rev": "3fb8b6587dd023bb91572a40efa26dfbc3463047",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/e109361e81de903a12589e8f1e7ccd11b9751525.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/3fb8b6587dd023bb91572a40efa26dfbc3463047.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -78,6 +78,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
+          "clan-core",
           "nixpkgs"
         ]
       },
@@ -98,15 +99,16 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "clan-core",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1755313937,
-        "narHash": "sha256-pQb7bNcolxYGRiylUCrTddiF+qW2wsUiM9+eRIDUrVU=",
+        "lastModified": 1755397986,
+        "narHash": "sha256-qwrF5laj6eE3Zht0wKYTmH6QzL7bdOyE2f6jd3WCO8g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2a749f4790a14f7168be67cdf6e548ef1c944e10",
+        "rev": "8b4ac149687e8520187a66f05e9d4eafebf96522",
         "type": "github"
       },
       "original": {
