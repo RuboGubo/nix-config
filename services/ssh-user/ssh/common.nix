@@ -20,7 +20,7 @@
     ];
     script = ''
       if [ ! -s "$prompts/private_key" ]; then
-        ssh-keygen -t ed25519 -f ./key -N "" -C "${roles."ssh-from".settings.user}"
+        ssh-keygen -t ed25519 -f ./key -N "" -C "${roles."ssh-from".settings.user}-clan"
         mv ./key $out/private_key
         mv ./key.pub $out/public_key
       else
