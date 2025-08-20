@@ -110,6 +110,7 @@
           # roles.default.settings.networks.glide = {};
           # roles.default.settings.networks.hanseo-phone = {};
           # roles.default.settings.networks.rubogubo-phone = {};
+          roles.default.settings.networks."Home" = {};
           roles.default.tags."wifi" = { };
         };
         "flatpak" = {

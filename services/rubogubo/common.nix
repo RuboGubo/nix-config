@@ -21,6 +21,9 @@
   home-manager.backupFileExtension = "bak";
   home-manager.users."rubogubo" = {
     home.stateVersion = "24.11";
+    
+    home.file."Projects/.keep".text = "";
+    
     home.packages = with pkgs; [
       inotify-tools
       hollywood
