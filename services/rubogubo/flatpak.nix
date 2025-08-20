@@ -1,4 +1,5 @@
 {
+  services.flatpak.enable = true;
   services.flatpak.packages = [
     # School
     "net.ankiweb.Anki"

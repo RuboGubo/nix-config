@@ -1,16 +1,8 @@
 {
-  config,
-  # clan-core,
   pkgs,
   ...
 }:
 {
-  # imports = [
-  #   clan-core.clanModules.user-password
-  # ];
-  # generate a random password for our user below
-  # can be read using `clan secrets get <machine-name>-user-password` command
-  # clan.user-password.user = "rubogubo";
   users.users.rubogubo = {
     description = "RuboGubo";
     isNormalUser = true;
@@ -22,7 +14,6 @@
     ];
     uid = 1000;
     shell = pkgs.zsh;
-    # openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
   };
 
   programs.zsh.enable = true;

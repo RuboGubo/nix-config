@@ -2,11 +2,9 @@
 {
   imports = [
     ./common.nix
-    ../../modules/gnome.nix
+    ./gnome.nix
     ./flatpak.nix
   ];
-
-  services.flatpak.enable = true;
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 

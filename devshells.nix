@@ -13,6 +13,16 @@ _: {
             pkgs.systemctl-tui
           ];
         };
+        debug = pkgs.mkShell {
+            packages = [
+                pkgs.python3
+                pkgs.helix
+            ];
+            shellHook = ''
+                    export GIT_ROOT="$(git rev-parse --show-toplevel)"
+                    export PATH=$PATH:~/Projects/clan-core/pkgs/clan-cli/bin
+            '';
+        };
       };
     };
 }
