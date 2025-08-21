@@ -145,7 +145,10 @@
             input = "self";
           };
 
-          roles."ssh-from".settings.user = "rubogubo";
+          roles."ssh-from".settings = {
+            known_hosts."gitlab.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
+            user = "rubogubo";
+          };
           roles."ssh-to".settings.users = [
             "rubogubo"
             "root"

@@ -7,6 +7,8 @@ let
   clan-config = config;
 in
 {
+  programs.ssh.knownHosts = settings.known_hosts;
+  
   home-manager.users."${settings.user}" =
     { config, ... }:
     {
