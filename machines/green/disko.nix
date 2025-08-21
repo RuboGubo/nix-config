@@ -1,9 +1,9 @@
-{ }: {
+{
   disko.devices = {
     # SSD for system, swap, and subvolume-managed root
     disk = {
       ssd = {
-        device = "/dev/sda";  # <-- replace with your 1TB SSD device
+        device = "/dev/sda"; # <-- replace with your 1TB SSD device
         type = "disk";
         content = {
           type = "gpt";
@@ -30,14 +30,25 @@
               content = {
                 type = "filesystem";
                 format = "btrfs";
-                mountpoint = "/";  # top-level mount for all subvolumes
-                mountOptions = [ "compress=zstd" "noatime" ];
+                mountpoint = "/"; # top-level mount for all subvolumes
+                mountOptions = [
+                  "compress=zstd"
+                  "noatime"
+                ];
                 # Define subvolumes
                 subvolumes = {
-                  root = { mountpoint = "/"; };
-                  home = { mountpoint = "/home"; };
-                  nix = { mountpoint = "/nix"; };
-                  var = { mountpoint = "/var"; };
+                  root = {
+                    mountpoint = "/";
+                  };
+                  home = {
+                    mountpoint = "/home";
+                  };
+                  nix = {
+                    mountpoint = "/nix";
+                  };
+                  var = {
+                    mountpoint = "/var";
+                  };
                 };
               };
             };
@@ -49,7 +60,7 @@
     # HDD for additional data / backups
     disk = {
       hdd = {
-        device = "/dev/sdb";  # <-- replace with your 128 GB HDD device
+        device = "/dev/sdb"; # <-- replace with your 128 GB HDD device
         type = "disk";
         content = {
           type = "gpt";
@@ -59,7 +70,7 @@
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/mnt/data";  # or "/var/backup"
+                mountpoint = "/mnt/data"; # or "/var/backup"
                 mountOptions = [ "defaults" ];
               };
             };
