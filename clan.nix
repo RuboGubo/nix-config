@@ -32,7 +32,13 @@
           deploy.targetHost = "root@192.168.86.243";
           # deploy.buildHost = "root@192.168.86.243";
         };
-        # green = { };
+        green = {
+          tags = [
+            "desktop"
+            "wifi"
+          ];
+          deploy.targetHost = "root@192.168.86.26";
+        };
       };
       instances = {
         # Actual useful stuff
@@ -110,7 +116,7 @@
           # roles.default.settings.networks.glide = {};
           # roles.default.settings.networks.hanseo-phone = {};
           # roles.default.settings.networks.rubogubo-phone = {};
-          roles.default.settings.networks."Home" = {};
+          roles.default.settings.networks."Home" = { };
           roles.default.tags."wifi" = { };
         };
         "flatpak" = {
