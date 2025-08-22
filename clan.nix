@@ -29,7 +29,7 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@192.168.86.243";
+          deploy.targetHost = "root@192.168.1.111";
           # deploy.buildHost = "root@192.168.86.243";
         };
         green = {
@@ -113,9 +113,8 @@
             input = "clan-core";
           };
 
-          # roles.default.settings.networks.glide = {};
           # roles.default.settings.networks.hanseo-phone = {};
-          # roles.default.settings.networks.rubogubo-phone = {};
+          roles.default.settings.networks.rubogubo-phone = { };
           roles.default.settings.networks."Home" = { };
           roles.default.tags."wifi" = { };
         };
@@ -146,7 +145,8 @@
           };
 
           roles."ssh-from".settings = {
-            known_hosts."gitlab.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
+            known_hosts."gitlab.com".publicKey =
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
             user = "rubogubo";
           };
           roles."ssh-to".settings.users = [
