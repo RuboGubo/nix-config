@@ -64,6 +64,11 @@
         userSettings = {
           lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
           autosave = "on_focus_change";
+          buffer_font_family = "JetBrainsMono Nerd Font";
+          terminal = {
+            line_height = "standard";
+            font_family = "JetBrainsMono Nerd Font";
+          };
         };
       };
 

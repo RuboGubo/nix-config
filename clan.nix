@@ -8,7 +8,7 @@
     specialArgs = {
       inherit inputs;
     };
-    # Ensure this is unique among all clans youinputs want to use.
+    # Ensure this is unique among all clans you want to use.
     meta.name = "GreenSiren";
 
     modules."rubogubo" = import ./services/rubogubo;
@@ -29,7 +29,7 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@192.168.1.111";
+          deploy.targetHost = "root@192.168.86.243";
           # deploy.buildHost = "root@192.168.86.243";
         };
         green = {
@@ -62,11 +62,6 @@
           roles.server.tags."all" = { };
           roles.client.tags."all" = { };
         };
-        # podman-compose = {
-        #   module.name = "podman-compose";
-
-        #   roles.default.machines."node1".settings.path = ./podman-compose.yaml;
-        # };
         rubogubo = {
           module = {
             name = "rubogubo";
@@ -80,6 +75,7 @@
           roles.desktop.tags."desktop" = { };
           roles.desktop.extraModules = [
             inputs.home-manager.nixosModules.home-manager
+            inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
         };
         rubogubo-password = {
@@ -118,26 +114,6 @@
           roles.default.settings.networks."Home" = { };
           roles.default.tags."wifi" = { };
         };
-        "flatpak" = {
-          module = {
-            name = "importer";
-            input = "clan-core";
-          };
-          roles.default.tags."desktop" = { };
-          roles.default.extraModules = [
-            inputs.nix-flatpak.nixosModules.nix-flatpak
-          ];
-        };
-        # "home-manager" = {
-        #   module = {
-        #     name = "importer";
-        #     input = "clan-core";
-        #   };
-        #   roles.default.tags."all" = { };
-        #   roles.default.extraModules = [
-        #     inputs.home-manager.nixosModules.home-manager
-        #   ];
-        # };
         "ssh.rubogubo" = {
           module = {
             name = "ssh-user";
@@ -164,7 +140,6 @@
           };
           roles.default.tags."all" = { };
         };
-
       };
     };
   };
