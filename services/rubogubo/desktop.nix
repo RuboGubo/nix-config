@@ -19,6 +19,7 @@
         # kakao
         xclip
         firefox
+        thunderbird
         jdk
         qemu
         gnomeExtensions.blur-my-shell
@@ -141,7 +142,7 @@
           # picture-uri-dark = toString ./background/dark/Firefox_wallpaper.png;
           picture-uri-dark = "${../../modules/background/dark/Starchitect.jpg}";
         };
-        "org/gnome/desktop/interface". accent-color = "green";
+        "org/gnome/desktop/interface".accent-color = "green";
         "org/gnome/shell/extensions/nightthemeswitcher/time" = {
           manual-schedule = true;
           # everything after is persentage of hour passed, for some reason
