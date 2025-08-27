@@ -13,7 +13,6 @@
 
     modules."rubogubo" = import ./services/rubogubo;
     modules."local" = import ./services/local;
-    modules."podman-compose" = import ./services/podman-compose;
     modules."ssh-user" = import ./services/ssh-user;
     modules."node1" = import ./services/node1;
 
