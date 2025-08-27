@@ -57,6 +57,7 @@
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        features.edit_prediction_provider = "none";
         autosave = "on_focus_change";
         buffer_font_family = "JetBrainsMono Nerd Font";
         terminal = {
