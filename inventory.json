@@ -2,6 +2,9 @@
   "machines": {
     "green-laptop": {
       "name": "green-laptop"
+    },
+    "node1": {
+      "installedAt": 1756330521
     }
   }
 }
