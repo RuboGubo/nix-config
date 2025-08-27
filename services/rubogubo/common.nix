@@ -16,14 +16,17 @@
     shell = pkgs.zsh;
   };
 
+  # Should be it's own service at some point
+  nix.settings.substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+
   programs.zsh.enable = true;
 
   home-manager.backupFileExtension = "bak";
   home-manager.users."rubogubo" = {
     home.stateVersion = "24.11";
-    
+
     home.file."Projects/.keep".text = "";
-    
+
     home.packages = with pkgs; [
       inotify-tools
       hollywood
