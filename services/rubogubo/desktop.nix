@@ -7,6 +7,7 @@
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" =
     { lib, ... }:
@@ -28,6 +29,7 @@
         gnomeExtensions.docker
         gnomeExtensions.tiling-shell
         gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording
+        gnomeExtensions.system-monitor
         rustup
         # discord
         python3
@@ -116,13 +118,13 @@
           disable-user-extensions = false;
 
           enabled-extensions = [
-            "blur-my-shell@aunetx"
-            "caffeine@patapon.info"
-            "system-monitor@gnome-shell-extensions.gcampax.github.com"
-            "nightthemeswitcher@romainvigier.fr"
-            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
-            "tilingshell@ferrarodomenico.com"
-            "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+            pkgs.gnomeExtensions.blur-my-shell.extensionUuid
+            pkgs.gnomeExtensions.caffeine.extensionUuid
+            pkgs.gnomeExtensions.night-theme-switcher.extensionUuid
+            pkgs.gnomeExtensions.docker.extensionUuid
+            pkgs.gnomeExtensions.tiling-shell.extensionUuid
+            pkgs.gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording.extensionUuid
+            pkgs.gnomeExtensions.system-monitor.extensionUuid
           ];
 
           favorite-apps = [
