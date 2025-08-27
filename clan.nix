@@ -20,8 +20,8 @@
       machines = {
         node1 = {
           tags = [ "server" ];
-          deploy.targetHost = "root@176.58.117.204";
-          deploy.buildHost = "root@127.0.0.1";
+          deploy.targetHost = "root@213.52.128.232";
+          deploy.buildHost = "root@localhost";
         };
         green-laptop = {
           tags = [
@@ -83,7 +83,10 @@
             input = "clan-core";
           };
           roles.default.tags."all" = { };
-          roles.default.settings.user = "rubogubo";
+          roles.default.settings = {
+            user = "rubogubo";
+            share = true;
+          };
         };
         root-password = {
           module = {
@@ -91,7 +94,10 @@
             input = "clan-core";
           };
           roles.default.tags."all" = { };
-          roles.default.settings.user = "root";
+          roles.default.settings = {
+            user = "root";
+            share = true;
+          };
         };
         local = {
           module = {
