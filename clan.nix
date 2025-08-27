@@ -29,7 +29,7 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@192.168.1.111";
+          deploy.targetHost = "root@localhost";
           # deploy.buildHost = "root@192.168.86.243";
         };
         green = {
