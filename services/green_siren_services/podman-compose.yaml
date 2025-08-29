@@ -78,13 +78,13 @@ services:
     # environment:
     #   - CI_JOB_TOKEN=${CI_JOB_TOKEN}
 
-  certbot:
-    build: ./containers/certbotdocker
-    volumes:
-      - certbot-webroot:/var/www/certbot/:rw
-      - certbot-cert:/etc/letsencrypt/:rw
-    depends_on:
-      - nginx
+  # certbot:
+  #   build: ./containers/certbotdocker
+  #   volumes:
+  #     - certbot-webroot:/var/www/certbot/:rw
+  #     - certbot-cert:/etc/letsencrypt/:rw
+  #   depends_on:
+  #     - nginx
 
 volumes:
   postgress_db:
