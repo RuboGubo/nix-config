@@ -17,7 +17,7 @@
         node1 = {
           tags = [ "server" ];
           deploy.targetHost = "178.79.150.220";
-          deploy.buildHost = "localhost";
+          # deploy.buildHost = "localhost";
         };
         green-laptop = {
           tags = [
@@ -38,14 +38,14 @@
       instances = {
         # Actual useful stuff
 
-        # node1 = {
-        #   module = {
-        #     name = "node1";
-        #     input = "self";
-        #   };
+        green_siren_services = {
+          module = {
+            name = "green_siren_services";
+            input = "self";
+          };
 
-        #   # roles.default.machines."green-laptop" = { };
-        # };
+          roles.default.machines."node1" = { };
+        };
 
         # Server Admin
         ssh = {

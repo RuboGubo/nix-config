@@ -1,4 +1,4 @@
-name: node1
+name: green_siren_services
 
 services:
   prod-postgres:
