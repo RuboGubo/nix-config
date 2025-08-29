@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.clan-core.flakeModules.default
+    ./services/flake-module.nix
   ];
   clan = {
     inherit self;
@@ -11,17 +12,12 @@
     # Ensure this is unique among all clans you want to use.
     meta.name = "GreenSiren";
 
-    modules."rubogubo" = import ./services/rubogubo;
-    modules."local" = import ./services/local;
-    modules."ssh-user" = import ./services/ssh-user;
-    modules."node1" = import ./services/node1;
-
     inventory = {
       machines = {
         node1 = {
           tags = [ "server" ];
-          deploy.targetHost = "root@178.79.150.220";
-          deploy.buildHost = "root@localhost";
+          deploy.targetHost = "178.79.150.220";
+          deploy.buildHost = "localhost";
         };
         green-laptop = {
           tags = [
