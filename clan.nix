@@ -20,7 +20,7 @@
       machines = {
         node1 = {
           tags = [ "server" ];
-          deploy.targetHost = "root@213.52.128.232";
+          deploy.targetHost = "root@178.79.150.220";
           deploy.buildHost = "root@localhost";
         };
         green-laptop = {
