@@ -22,7 +22,6 @@
       imports = [
         ./clan.nix
         ./devshells.nix
-        ./containers
       ];
       systems = [
         "x86_64-linux"

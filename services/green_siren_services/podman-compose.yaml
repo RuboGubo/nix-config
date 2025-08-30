@@ -60,7 +60,8 @@ services:
       - nginx
 
   nginx:
-    build: ./containers/nginx
+    # build: ./containers/nginx
+    image: "temp/temp"
     restart: always
     ports:
       - "80:80"

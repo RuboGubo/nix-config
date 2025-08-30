@@ -20,39 +20,6 @@
   virtualisation.oci-containers.backend = "podman";
 
   # Containers
-  virtualisation.oci-containers.containers."green_siren_services-certbot" = {
-    image = "localhost/compose2nix/green_siren_services-certbot";
-    volumes = [
-      "green_siren_services_certbot-cert:/etc/letsencrypt:rw"
-      "green_siren_services_certbot-webroot:/var/www/certbot:rw"
-    ];
-    dependsOn = [
-      "green_siren_services-nginx"
-    ];
-    log-driver = "journald";
-    autoStart = false;
-    extraOptions = [
-      "--network-alias=certbot"
-      "--network=green_siren_services_default"
-    ];
-  };
-  systemd.services."podman-green_siren_services-certbot" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 90 "no";
-    };
-    after = [
-      "podman-build-green_siren_services-certbot.service"
-      "podman-network-green_siren_services_default.service"
-      "podman-volume-green_siren_services_certbot-cert.service"
-      "podman-volume-green_siren_services_certbot-webroot.service"
-    ];
-    requires = [
-      "podman-build-green_siren_services-certbot.service"
-      "podman-network-green_siren_services_default.service"
-      "podman-volume-green_siren_services_certbot-cert.service"
-      "podman-volume-green_siren_services_certbot-webroot.service"
-    ];
-  };
   virtualisation.oci-containers.containers."green_siren_services-db" = {
     image = "mariadb:10.5";
     environment = {
@@ -150,7 +117,7 @@
     ];
   };
   virtualisation.oci-containers.containers."green_siren_services-nginx" = {
-    image = "localhost/compose2nix/green_siren_services-nginx";
+    image = "temp/temp";
     volumes = [
       "green_siren_services_certbot-cert:/etc/letsencrypt:ro"
       "green_siren_services_certbot-webroot:/var/www/certbot:ro"
@@ -175,13 +142,11 @@
       Restart = lib.mkOverride 90 "always";
     };
     after = [
-      "podman-build-green_siren_services-nginx.service"
       "podman-network-green_siren_services_default.service"
       "podman-volume-green_siren_services_certbot-cert.service"
       "podman-volume-green_siren_services_certbot-webroot.service"
     ];
     requires = [
-      "podman-build-green_siren_services-nginx.service"
       "podman-network-green_siren_services_default.service"
       "podman-volume-green_siren_services_certbot-cert.service"
       "podman-volume-green_siren_services_certbot-webroot.service"
@@ -291,36 +256,6 @@
     };
     script = ''
       podman volume inspect green_siren_services_postgress_db || podman volume create green_siren_services_postgress_db
-    '';
-    partOf = [ "podman-compose-green_siren_services-root.target" ];
-    wantedBy = [ "podman-compose-green_siren_services-root.target" ];
-  };
-
-  # Builds
-  systemd.services."podman-build-green_siren_services-certbot" = {
-    path = [ pkgs.podman pkgs.git ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      TimeoutSec = 300;
-    };
-    script = ''
-      cd /home/rubogubo/Projects/clan-config/containers/certbotdocker
-      podman build -t compose2nix/green_siren_services-certbot .
-    '';
-    partOf = [ "podman-compose-green_siren_services-root.target" ];
-    wantedBy = [ "podman-compose-green_siren_services-root.target" ];
-  };
-  systemd.services."podman-build-green_siren_services-nginx" = {
-    path = [ pkgs.podman pkgs.git ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      TimeoutSec = 300;
-    };
-    script = ''
-      cd /home/rubogubo/Projects/clan-config/containers/nginx
-      podman build -t compose2nix/green_siren_services-nginx .
     '';
     partOf = [ "podman-compose-green_siren_services-root.target" ];
     wantedBy = [ "podman-compose-green_siren_services-root.target" ];

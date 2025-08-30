@@ -54,6 +54,9 @@
 
       # Rust tools
       wasm-pack
+
+      # Server Admin
+      systemctl-tui
     ];
 
     programs.git = {
