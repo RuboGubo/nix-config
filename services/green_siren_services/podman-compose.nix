@@ -24,14 +24,19 @@
     image = "mariadb:10.5";
     environment = {
       "MYSQL_DATABASE" = "nextcloud";
-      "MYSQL_PASSWORD" = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
-      "MYSQL_ROOT_PASSWORD" = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
+      "MYSQL_PASSWORD" =
+        "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
+      "MYSQL_ROOT_PASSWORD" =
+        "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
       "MYSQL_USER" = "nextcloud";
     };
     volumes = [
       "green_siren_services_nextcloud_db:/var/lib/mysql:rw"
     ];
-    cmd = [ "--transaction-isolation=READ-COMMITTED" "--binlog-format=ROW" ];
+    cmd = [
+      "--transaction-isolation=READ-COMMITTED"
+      "--binlog-format=ROW"
+    ];
     log-driver = "journald";
     autoStart = false;
     extraOptions = [
@@ -57,7 +62,8 @@
     environment = {
       "MYSQL_DATABASE" = "nextcloud";
       "MYSQL_HOST" = "db";
-      "MYSQL_PASSWORD" = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
+      "MYSQL_PASSWORD" =
+        "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
       "MYSQL_USER" = "nextcloud";
     };
     volumes = [
@@ -117,7 +123,7 @@
     ];
   };
   virtualisation.oci-containers.containers."green_siren_services-nginx" = {
-    image = "temp/temp";
+    # image = "temp/temp";
     volumes = [
       "green_siren_services_certbot-cert:/etc/letsencrypt:ro"
       "green_siren_services_certbot-webroot:/var/www/certbot:ro"

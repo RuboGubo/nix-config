@@ -19,7 +19,7 @@ pkgs.dockerTools.streamLayeredImage {
 
   config = {
     Cmd = [
-      "nginx"
+      "/bin/nginx"
       "-g"
       "daemon off;"
     ];
