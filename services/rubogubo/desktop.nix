@@ -9,6 +9,7 @@
   fonts.packages = [
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
   ];
   fonts.enableDefaultPackages = true;
 
@@ -16,6 +17,7 @@
     imports = [ ];
 
     home.username = "rubogubo";
+    fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
       # (import ../../modules/kakao.nix)
       # kakao
@@ -49,6 +51,8 @@
       noto-fonts
       nanum
       openfortivpn
+
+      typewriter
     ];
 
     programs.zed-editor = {
@@ -64,10 +68,10 @@
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         features.edit_prediction_provider = "none";
         autosave = "on_focus_change";
-        buffer_font_family = "JetBrainsMono Nerd Font";
+        buffer_font_family = "JetBrainsMono NF";
         terminal = {
           line_height = "standard";
-          font_family = "JetBrainsMono Nerd Font";
+          font_family = "JetBrainsMono NF";
         };
       };
     };
