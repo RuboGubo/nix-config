@@ -6,7 +6,10 @@
     ./flatpak.nix
   ];
 
-  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  fonts.packages = [
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.noto-fonts
+  ];
   fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
@@ -43,6 +46,7 @@
       wireshark
       # Font
       nerd-fonts.jetbrains-mono
+      noto-fonts
       nanum
       openfortivpn
     ];
