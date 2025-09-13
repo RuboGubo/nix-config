@@ -32,7 +32,7 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@192.168.86.26";
+          deploy.targetHost = "root@10.136.170.4";
         };
       };
       instances = {
