@@ -4,6 +4,7 @@
     ./common.nix
     ./gnome.nix
     ./flatpak.nix
+    ./home/accounts.nix
   ];
 
   fonts.packages = [
