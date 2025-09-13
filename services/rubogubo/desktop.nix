@@ -61,6 +61,7 @@
         "nix"
         "toml"
         "html"
+        "nginx"
       ];
       extraPackages = with pkgs; [
         nil
