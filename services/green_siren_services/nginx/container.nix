@@ -23,7 +23,7 @@ pkgs.dockerTools.streamLayeredImage {
     touch var/log/nginx/access.log
   '';
 
-  runAsRoot = ''
+  fakeRootCommands = ''
     #!${pkgs.stdenv.shell}
     ${pkgs.dockerTools.shadowSetup}
     groupadd --system nginx
