@@ -62,6 +62,7 @@
         "toml"
         "html"
         "nginx"
+        "Dockerfile"
       ];
       extraPackages = with pkgs; [
         nil
