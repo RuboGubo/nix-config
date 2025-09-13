@@ -57,6 +57,11 @@
 
     programs.zed-editor = {
       enable = true;
+      extensions = [
+        "nix"
+        "toml"
+        "html"
+      ];
       extraPackages = with pkgs; [
         nil
         rust-analyzer
@@ -68,13 +73,15 @@
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         features.edit_prediction_provider = "none";
         autosave = "on_focus_change";
-        buffer_font_family = "JetBrainsMono NF";
+        buffer_font_family = "JetBrainsMono Nerd Font";
         terminal = {
           line_height = "standard";
-          font_family = "JetBrainsMono NF";
+          font_family = "JetBrainsMono Nerd Font";
         };
       };
     };
+
+    programs.firefox.profiles."default".search.default = "ddg";
 
     home.file."/home/rubogubo/.config/gtk-3.0/bookmarks" = {
       text = ''file:///home/rubogubo/Projects'';
