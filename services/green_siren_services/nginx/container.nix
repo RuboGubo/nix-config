@@ -17,6 +17,20 @@ pkgs.dockerTools.streamLayeredImage {
     rootfs
   ];
 
+  extraCommands = ''
+    mkdir -p var/log/nginx
+    touch var/log/nginx/error.log
+    touch var/log/nginx/access.log
+  '';
+
+  runAsRoot = ''
+    #!${pkgs.stdenv.shell}
+    ${pkgs.dockerTools.shadowSetup}
+    groupadd --system nginx
+    useradd --system --gid nginx nginx
+    chown -R nginx:nginx var/log/nginx
+  '';
+
   config = {
     Cmd = [
       "/bin/nginx"
