@@ -4,7 +4,6 @@
     ./common.nix
     ./gnome.nix
     ./flatpak.nix
-    ./home/accounts.nix
   ];
 
   fonts.packages = [
@@ -15,7 +14,7 @@
   fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
-    imports = [ ];
+    imports = [ ./home/accounts.nix ];
 
     home.username = "rubogubo";
     fonts.fontconfig.enable = true;
