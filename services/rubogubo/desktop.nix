@@ -71,6 +71,8 @@
         taplo-lsp
         package-version-server
         nginx-language-server
+        vscode-css-languageserver
+        vtsls
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
