@@ -30,7 +30,7 @@
     # Prime configuration for hybrid graphics
     prime = {
       # Make sure bus ID values are correct. Use lspci | grep VGA to find them
-      intelBusId = "PCI:0:1:0";
+      intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
 
       # Enable NVIDIA Optimus support (for laptops with hybrid graphics)
