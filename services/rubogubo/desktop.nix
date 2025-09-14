@@ -63,6 +63,7 @@
         "html"
         "nginx"
         "Dockerfile"
+        "git-firefly"
       ];
       extraPackages = with pkgs; [
         nil
