@@ -72,6 +72,7 @@
         package-version-server
         nginx-language-server
         vscode-css-languageserver
+        eslint
         vtsls
       ];
       userSettings = {
