@@ -44,6 +44,7 @@
       nixd
       jdt-language-server
       podman-compose
+      steam
 
       wireshark
       # Font
@@ -64,6 +65,7 @@
         "nginx"
         "Dockerfile"
         "git-firefly"
+        "Justfile"
       ];
       extraPackages = with pkgs; [
         nil

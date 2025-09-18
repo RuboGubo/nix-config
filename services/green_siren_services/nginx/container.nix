@@ -13,41 +13,29 @@ pkgs.dockerTools.streamLayeredImage {
   tag = "latest";
 
   contents = [
+    pkgs.dockerTools.fakeNss
     pkgs.nginx
     rootfs
   ];
 
   extraCommands = ''
+    mkdir -p tmp/nginx_client_body
+
     mkdir -p var/log/nginx
-    mkdir -p var/www/certbot
-    touch var/log/nginx/error.log
-    touch var/log/nginx/access.log
-    chmod 755 var/log/nginx
-    chmod 644 var/log/nginx/error.log
-    chmod 644 var/log/nginx/access.log
+    mkdir -p var/cache/nginx
   '';
 
-  fakeRootCommands = ''
-    mkdir -p etc var/cache/nginx
-
-    # Create minimal passwd and group files
-    echo "root:x:0:0:root:/root:/bin/sh" > etc/passwd
-    echo "nginx:x:101:101:nginx:/var/cache/nginx:/sbin/nologin" >> etc/passwd
-    echo "nobody:x:65534:65534:nobody:/tmp:/sbin/nologin" >> etc/passwd
-
-    echo "root:x:0:" > etc/group
-    echo "nginx:x:101:" >> etc/group
-    echo "nobody:x:65534:" >> etc/group
-
-    # Set proper ownership using numeric IDs
-    chown -R 101:101 var/log/nginx var/www/certbot var/cache/nginx
-  '';
+  # ${pkgs.dockerTools.shadowSetup}
+  # #!${pkgs.stdenv.shell}
+  # # ${pkgs.dockerTools.shadowSetup}
+  # groupadd --system nogroup
+  # useradd -r -g nobody nobody
+  fakeRootCommands = '''';
+  # useradd --system --gid nginx nginx
 
   config = {
     Cmd = [
       "/bin/nginx"
-      "-g"
-      "daemon off;"
     ];
     ExposedPorts = {
       "80/tcp" = { };
