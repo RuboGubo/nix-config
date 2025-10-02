@@ -14,7 +14,7 @@
   fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
-    imports = [ ];
+    imports = [ ./home/accounts.nix ];
 
     home.username = "rubogubo";
     fonts.fontconfig.enable = true;
@@ -44,6 +44,7 @@
       nixd
       jdt-language-server
       podman-compose
+      steam
 
       wireshark
       # Font
@@ -57,6 +58,15 @@
 
     programs.zed-editor = {
       enable = true;
+      extensions = [
+        "nix"
+        "toml"
+        "html"
+        "nginx"
+        "Dockerfile"
+        "git-firefly"
+        "Justfile"
+      ];
       extraPackages = with pkgs; [
         nil
         rust-analyzer
@@ -64,19 +74,24 @@
         package-version-server
         nginx-language-server
         tinymist
+        vscode-css-languageserver
+        eslint
+        vtsls
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         features.edit_prediction_provider = "none";
         # autosave = "on_focus_change";
         autosave.after_delay.milliseconds = 500;
-        buffer_font_family = "JetBrainsMono NF";
+        buffer_font_family = "JetBrainsMono Nerd Font";
         terminal = {
           line_height = "standard";
-          font_family = "JetBrainsMono NF";
+          font_family = "JetBrainsMono Nerd Font";
         };
       };
     };
+
+    programs.firefox.profiles."default".search.default = "ddg";
 
     home.file."/home/rubogubo/.config/gtk-3.0/bookmarks" = {
       text = ''file:///home/rubogubo/Projects'';

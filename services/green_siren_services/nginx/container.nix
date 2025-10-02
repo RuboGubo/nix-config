@@ -13,29 +13,29 @@ pkgs.dockerTools.streamLayeredImage {
   tag = "latest";
 
   contents = [
+    pkgs.dockerTools.fakeNss
     pkgs.nginx
     rootfs
   ];
 
   extraCommands = ''
+    mkdir -p tmp/nginx_client_body
+
     mkdir -p var/log/nginx
-    touch var/log/nginx/error.log
-    touch var/log/nginx/access.log
+    mkdir -p var/cache/nginx
   '';
 
-  fakeRootCommands = ''
-    #!${pkgs.stdenv.shell}
-    ${pkgs.dockerTools.shadowSetup}
-    groupadd --system nginx
-    useradd --system --gid nginx nginx
-    chown -R nginx:nginx var/log/nginx
-  '';
+  # ${pkgs.dockerTools.shadowSetup}
+  # #!${pkgs.stdenv.shell}
+  # # ${pkgs.dockerTools.shadowSetup}
+  # groupadd --system nogroup
+  # useradd -r -g nobody nobody
+  fakeRootCommands = '''';
+  # useradd --system --gid nginx nginx
 
   config = {
     Cmd = [
       "/bin/nginx"
-      "-g"
-      "daemon off;"
     ];
     ExposedPorts = {
       "80/tcp" = { };

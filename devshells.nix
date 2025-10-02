@@ -9,6 +9,7 @@ _: {
             pkgs.compose2nix
             pkgs.just
             pkgs.systemctl-tui
+            pkgs.pciutils
           ];
         };
         debug = pkgs.mkShell {
