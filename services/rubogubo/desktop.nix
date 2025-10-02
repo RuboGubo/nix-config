@@ -77,6 +77,7 @@
         vscode-css-languageserver
         eslint
         vtsls
+        typos-lsp
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
