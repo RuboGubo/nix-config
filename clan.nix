@@ -24,7 +24,8 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@localhost";
+          # Don't Specify these, as they have no stable IP
+          # deploy.targetHost = "root@localhost";
           # deploy.buildHost = "root@192.168.86.243";
         };
         green = {
@@ -32,7 +33,7 @@
             "desktop"
             "wifi"
           ];
-          deploy.targetHost = "root@10.136.170.4";
+          # deploy.targetHost = "root@10.136.170.4";
         };
       };
       instances = {
@@ -45,6 +46,9 @@
           };
 
           roles.default.machines."node1" = { };
+          roles.default.extraModules = [
+            inputs.home-manager.nixosModules.home-manager
+          ];
         };
 
         # Server Admin
@@ -129,6 +133,7 @@
           roles."ssh-to".settings.users = [
             "rubogubo"
             "root"
+            "gss"
           ];
 
           roles."ssh-from".tags."desktop" = { };

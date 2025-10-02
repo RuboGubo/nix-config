@@ -1,5 +1,5 @@
 build:
-  compose2nix -inputs ./services/green_siren_services/podman-compose.yaml -output ./services/green_siren_services/podman-compose.nix -build -auto_start=false
+  compose2nix -inputs ./services/green_siren_services/config/podman-compose.yaml -output ./services/green_siren_services/config/podman-compose.nix -build -auto_start=false
 
 deploy MACHINE: build
   clan machines update {{MACHINE}}

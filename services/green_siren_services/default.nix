@@ -6,7 +6,11 @@
   manifest.categories = [ "Services" ];
 
   roles.default.perInstance.nixosModule.imports = [
-    ./podman-compose.nix
-    ./containers.nix
+    # For now turn this off and just run it manually
+    # ./podman-compose.nix
+    # ./containers.nix]
+    ./gss_user.nix
+    ./podman.nix
+    ./deploy_files.nix
   ];
 }

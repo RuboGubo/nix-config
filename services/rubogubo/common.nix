@@ -11,6 +11,7 @@
       "networkmanager"
       "video"
       "input"
+      "podman"
     ];
     uid = 1000;
     shell = pkgs.zsh;
