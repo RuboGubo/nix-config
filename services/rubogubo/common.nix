@@ -1,11 +1,13 @@
 {
   pkgs,
+  lib,
   ...
 }:
 {
   users.users.rubogubo = {
     description = "RuboGubo";
-    isNormalUser = true;
+    isNormalUser = lib.mkForce true;
+    isSystemUser = lib.mkForce false;
     extraGroups = [
       "wheel"
       "networkmanager"

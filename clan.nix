@@ -36,17 +36,17 @@
       instances = {
         # Actual useful stuff
 
-        # green_siren_services = {
-        #   module = {
-        #     name = "green_siren_services";
-        #     input = "self";
-        #   };
+        green_siren_services = {
+          module = {
+            name = "green_siren_services";
+            input = "self";
+          };
 
-        #   roles.default.machines."node1" = { };
-        #   roles.default.extraModules = [
-        #     inputs.home-manager.nixosModules.home-manager
-        #   ];
-        # };
+          roles.default.machines."node1" = { };
+          roles.default.extraModules = [
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
 
         # Server Admin
         ssh = {

@@ -2,7 +2,8 @@
 {
   users.users.gss = {
     description = "Green Siren Services User";
-    isNormalUser = true;
+    isSystemUser = true;
+    isNormalUser = false;
     extraGroups = [
       "wheel"
       "networkmanager"
