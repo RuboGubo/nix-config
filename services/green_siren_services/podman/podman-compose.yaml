@@ -64,7 +64,7 @@ services:
     # image: "temp/temp"
     restart: always
     ports:
-      - "8080:80"
+      - "80:80"
       # - "443:443"
       - "1935:1935"
     volumes:
@@ -79,13 +79,13 @@ services:
     # environment:
     #   - CI_JOB_TOKEN=${CI_JOB_TOKEN}
 
-  # certbot:
-  #   build: ./certbotdocker
-  #   volumes:
-  #     - certbot-webroot:/var/www/certbot/:rw
-  #     - certbot-cert:/etc/letsencrypt/:rw
-  #   depends_on:
-  #     - nginx
+  certbot:
+    build: ./certbotdocker
+    volumes:
+      - certbot-webroot:/var/www/certbot/:rw
+      - certbot-cert:/etc/letsencrypt/:rw
+    depends_on:
+      - nginx
 
 volumes:
   postgress_db:

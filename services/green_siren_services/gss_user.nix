@@ -2,8 +2,8 @@
 {
   users.users.gss = {
     description = "Green Siren Services User";
-    isSystemUser = true;
-    isNormalUser = false;
+    isSystemUser = false;
+    isNormalUser = true;
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -26,7 +26,7 @@
     ];
 
     # Deploy files
-    home.file."Projects/green_siren_services" = {
+    home.file."gss" = {
       source = ./podman;
       force = true;
     };

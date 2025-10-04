@@ -15,7 +15,7 @@
     inventory = {
       machines = {
         node1 = {
-          tags = [ "server" ];
+          tags = [ "server" "gss" ];
           deploy.targetHost = "178.79.150.220";
         };
         green-laptop = {
@@ -42,7 +42,7 @@
             input = "self";
           };
 
-          roles.default.machines."node1" = { };
+          roles.default.tags."gss" = { };
           roles.default.extraModules = [
             inputs.home-manager.nixosModules.home-manager
           ];
@@ -93,6 +93,17 @@
           roles.default.tags."all" = { };
           roles.default.settings = {
             user = "root";
+            share = true;
+          };
+        };
+        gss-password = {
+          module = {
+            name = "users";
+            input = "clan-core";
+          };
+          roles.default.tags."gss" = { };
+          roles.default.settings = {
+            user = "gss";
             share = true;
           };
         };
