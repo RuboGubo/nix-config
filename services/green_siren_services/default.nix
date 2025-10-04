@@ -11,6 +11,5 @@
     # ./containers.nix]
     ./gss_user.nix
     ./podman.nix
-    ./deploy_files.nix
   ];
 }

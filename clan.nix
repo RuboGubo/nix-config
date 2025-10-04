@@ -17,39 +17,36 @@
         node1 = {
           tags = [ "server" ];
           deploy.targetHost = "178.79.150.220";
-          # deploy.buildHost = "localhost";
         };
         green-laptop = {
           tags = [
             "desktop"
             "wifi"
           ];
-          # Don't Specify these, as they have no stable IP
-          # deploy.targetHost = "root@localhost";
-          # deploy.buildHost = "root@192.168.86.243";
+          # Don't Specify deployment options, as they have no stable IP
         };
         green = {
           tags = [
             "desktop"
             "wifi"
           ];
-          # deploy.targetHost = "root@10.136.170.4";
+          # Don't Specify deployment options, as they have no stable IP
         };
       };
       instances = {
         # Actual useful stuff
 
-        green_siren_services = {
-          module = {
-            name = "green_siren_services";
-            input = "self";
-          };
+        # green_siren_services = {
+        #   module = {
+        #     name = "green_siren_services";
+        #     input = "self";
+        #   };
 
-          roles.default.machines."node1" = { };
-          roles.default.extraModules = [
-            inputs.home-manager.nixosModules.home-manager
-          ];
-        };
+        #   roles.default.machines."node1" = { };
+        #   roles.default.extraModules = [
+        #     inputs.home-manager.nixosModules.home-manager
+        #   ];
+        # };
 
         # Server Admin
         ssh = {

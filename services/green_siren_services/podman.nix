@@ -10,5 +10,4 @@
   };
 
   users.users."gss".packages = [pkgs.podman-compose];
-
 }
