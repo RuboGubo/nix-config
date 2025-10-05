@@ -61,7 +61,8 @@ a {
     width: auto;
     padding-right: 1ex;
     padding-left: 1ex;
-    border: 1px solid transparent;
+    border: 1px solid white;
+    border-radius: 5px;
     background-color: transparent;
     text-decoration: none;
     text-align: center;
@@ -71,10 +72,33 @@ a {
     transition: all 0.1s;
 }
 
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+ul {
+    > li:has(> a) {
+        margin-left: 0;
+    }
+    > li:first-child > a {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    > li:last-child > a {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    > li > a {
+        border-radius: 0;
+    }
+}
+
 a:hover {
     fill: var(--ItemHighlight);
     color: var(--ItemHighlight);
-    border-radius: 5px;
     border: 1px solid var(--ItemHighlight);
     transition: all 0.1s;
 }
