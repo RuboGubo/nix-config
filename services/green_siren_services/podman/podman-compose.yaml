@@ -49,15 +49,15 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
 
-  nextcloud-cron:
-    image: nextcloud:fpm
-    restart: always
-    volumes:
-      - nextcloud_html:/var/www/html
-    entrypoint: /cron.sh
-    depends_on:
-      - nextcloud
-      - nginx
+  # nextcloud-cron:
+  #   image: nextcloud:fpm
+  #   restart: always
+  #   volumes:
+  #     - nextcloud_html:/var/www/html
+  #   entrypoint: /cron.sh
+  #   depends_on:
+  #     - nextcloud
+  #     - nginx
 
   nginx:
     build: ./nginx
@@ -65,16 +65,14 @@ services:
     restart: always
     ports:
       - "80:80"
-      # - "443:443"
-      - "1935:1935"
+      - "443:443"
     volumes:
       - certbot-webroot:/var/www/certbot/:ro
       - certbot-cert:/etc/letsencrypt/:ro
+      - nextcloud_html:/var/www/html
       # - ../docker-data/radio/:/radio/:ro
       # - ./nginx/static_websites/:/static_websites/:ro
     links:
-      - nextcloud
-    volumes_from:
       - nextcloud
     # environment:
     #   - CI_JOB_TOKEN=${CI_JOB_TOKEN}
