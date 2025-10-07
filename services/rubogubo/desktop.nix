@@ -54,6 +54,9 @@
       openfortivpn
 
       typewriter
+
+      # COM1008 tools
+      insomnia
     ];
 
     programs.zed-editor = {
