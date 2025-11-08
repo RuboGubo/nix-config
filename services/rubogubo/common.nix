@@ -65,6 +65,14 @@
       # Server Admin
       systemctl-tui
     ];
+    
+    programs.jujutsu = {
+      enable = true;
+      settings.user = {
+        email = "ruben.john.ward@gmail.com";
+        name = "Ruben Ward";
+      };
+    };
 
     programs.git = {
       enable = true;
