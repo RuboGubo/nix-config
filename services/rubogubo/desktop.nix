@@ -82,6 +82,7 @@
         vtsls
         typos-lsp
         jdt-language-server
+        ghc
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
