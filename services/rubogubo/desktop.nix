@@ -42,7 +42,6 @@
       nfs-utils
       blackbox-terminal
       nixd
-      jdt-language-server
       podman-compose
       steam
 
@@ -60,6 +59,7 @@
     ];
 
     programs.zed-editor = {
+      package = pkgs.zed-editor-fhs;
       enable = true;
       extensions = [
         "nix"
@@ -81,7 +81,6 @@
         eslint
         vtsls
         typos-lsp
-        jdt-language-server
         ghc
       ];
       userSettings = {
