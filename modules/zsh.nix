@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -20,6 +20,16 @@
           repo = "zsh-nix-shell";
           rev = "v0.8.0";
           sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+      {
+        name = "zsh-jj";
+        file = "zsh-jj.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "RuboGubo";
+          repo = "zsh-jj";
+          tag = "v";
+          sha256 = "sha256-GDHTp53uHAcyVG+YI3Q7PI8K8M3d3i2+C52zxnKbSmw=";
         };
       }
     ];
