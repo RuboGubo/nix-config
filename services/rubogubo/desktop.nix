@@ -69,6 +69,7 @@
         "Dockerfile"
         "git-firefly"
         "Justfile"
+        "Catppuccin"
       ];
       extraPackages = with pkgs; [
         nil
@@ -92,6 +93,11 @@
         terminal = {
           line_height = "standard";
           font_family = "JetBrainsMono Nerd Font";
+        };
+        theme = {
+          mode = "system";
+          light = "Catppuccin Latte";
+          dark = "Catppuccin Mocha";
         };
       };
     };
