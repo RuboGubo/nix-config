@@ -55,6 +55,7 @@
       just
       fastfetch
       cowsay
+      tldr
 
       # dev tools
       devenv
