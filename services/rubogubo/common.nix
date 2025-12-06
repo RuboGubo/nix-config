@@ -66,12 +66,19 @@
       # Server Admin
       systemctl-tui
     ];
-    
+
     programs.jujutsu = {
       enable = true;
-      settings.user = {
-        email = "ruben.john.ward@gmail.com";
-        name = "Ruben Ward";
+      settings = {
+        ui.default-command = "log";
+        user = {
+          email = "ruben.john.ward@gmail.com";
+          name = "Ruben Ward";
+        };
+        git = {
+          push-new-bookmarks = true;
+          write-change-id-header = true;
+        };
       };
     };
 
