@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   virtualisation.podman = {
     enable = true;
     autoPrune.enable = true;
@@ -9,5 +10,5 @@
     };
   };
 
-  users.users."gss".packages = [pkgs.podman-compose];
+  users.users."gss".packages = [ pkgs.podman-compose ];
 }

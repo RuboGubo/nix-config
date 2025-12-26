@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   virtualisation.podman = {
     enable = true;
@@ -8,4 +9,6 @@
       dns_enabled = true;
     };
   };
+  
+  users.users."rubogubo".packages = [ pkgs.podman-compose ];
 }
