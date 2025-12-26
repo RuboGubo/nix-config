@@ -6,5 +6,5 @@
   manifest.categories = [ "User" ];
 
   roles.server.perInstance.nixosModule.imports = [ ./common.nix ];
-  roles.desktop.perInstance.nixosModule.imports = [ ./desktop.nix ];
+  roles.desktop.perInstance.nixosModule.imports = [ ./desktop.nix ./podman.nix ];
 }
