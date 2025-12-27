@@ -1,3 +1,4 @@
+{ ... }:
 {
   imports = [
     ../../modules/shared.nix

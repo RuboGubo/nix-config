@@ -13,7 +13,15 @@
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
     };
 
+    arion.url = "github:hercules-ci/arion";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    primes = {
+      url = "git+https://gitlab.com/client-projects19/public-projects/primesrust";
+      inputs.nixpkgs.follows = "clan-core/nixpkgs";
+    };
+
   };
 
   outputs =
@@ -22,6 +30,7 @@
       imports = [
         ./clan.nix
         ./devshells.nix
+        ./dendritic/module.nix
       ];
       systems = [
         "x86_64-linux"

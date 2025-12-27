@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./common.nix
     ./gnome.nix
     ./flatpak.nix
+    inputs.self.modules.nixos.gss
   ];
 
   fonts.packages = [
@@ -14,7 +15,10 @@
   fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
-    imports = [ ./home/accounts.nix ];
+    imports = [ 
+      ./home/accounts.nix
+      inputs.self.modules.homeManager.gss
+    ];
 
     home.username = "rubogubo";
     fonts.fontconfig.enable = true;
