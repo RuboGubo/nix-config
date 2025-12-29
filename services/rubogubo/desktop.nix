@@ -17,7 +17,7 @@
   home-manager.users."rubogubo" = {
     imports = [ 
       ./home/accounts.nix
-      inputs.self.modules.homeManager.gss
+      inputs.self.modules.home.gss
     ];
 
     home.username = "rubogubo";
@@ -78,7 +78,7 @@
       extraPackages = with pkgs; [
         nil
         rust-analyzer
-        taplo-lsp
+        taplo
         package-version-server
         nginx-language-server
         tinymist

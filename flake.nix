@@ -14,6 +14,7 @@
     };
 
     arion.url = "github:hercules-ci/arion";
+    arion.inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -21,7 +22,6 @@
       url = "git+https://gitlab.com/client-projects19/public-projects/primesrust";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
     };
-
   };
 
   outputs =

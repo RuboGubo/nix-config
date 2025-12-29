@@ -14,6 +14,7 @@
       "video"
       "input"
       "podman"
+      "docker"
     ];
     uid = 1000;
     shell = pkgs.zsh;
@@ -30,7 +31,7 @@
     imports = [
       ../../modules/zsh.nix
     ];
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.11";
 
     home.file."Projects/.keep".text = "";
 
@@ -75,8 +76,8 @@
           email = "ruben.john.ward@gmail.com";
           name = "Ruben Ward";
         };
+        remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
         git = {
-          push-new-bookmarks = true;
           write-change-id-header = true;
         };
       };
@@ -85,9 +86,9 @@
     programs.git = {
       enable = true;
       lfs.enable = true;
-      userName = "RuboGubo";
-      userEmail = "ruben.john.ward@gmail.com";
-      extraConfig = {
+      settings = {
+        user.name = "RuboGubo";
+        user.email = "ruben.john.ward@gmail.com";
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         push.rebase = false;
