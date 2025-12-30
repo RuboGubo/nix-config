@@ -35,6 +35,7 @@
               _module.args = {
                 # Pass the inputs from the calling flake
                 secret-env-path = config.clan.core.vars.generators.gss.files.secret-env.path;
+                enableCertbot = false;
                 inherit (args) inputs;
               };
             };

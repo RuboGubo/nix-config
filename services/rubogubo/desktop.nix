@@ -4,7 +4,7 @@
     ./common.nix
     ./gnome.nix
     ./flatpak.nix
-    inputs.self.modules.nixos.gss
+    # inputs.self.modules.nixos.gss
   ];
 
   fonts.packages = [

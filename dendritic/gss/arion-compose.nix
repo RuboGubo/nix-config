@@ -40,7 +40,7 @@
     };
 
     nginx.service = {
-      image = "nginx:alpine";
+      image = "nginx:latest";
       restart = "unless-stopped";
       ports = [
         "80:80"
@@ -50,9 +50,11 @@
         "${./nginx/config/nginx.conf}:/etc/nginx/nginx.conf:ro"
         "${./nginx/config/error.conf}:/etc/nginx/error.conf:ro"
         "${./nginx/config/ssl.conf}:/etc/nginx/ssl.conf:ro"
+        "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
         "${./nginx/static_websites}:/static_websites:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
+        "nextcloud_html:/var/www/html:ro"
       ];
       depends_on = [
         "primes"
@@ -60,35 +62,38 @@
       ];
     };
 
-    certbot.service = lib.mkIf enableCertbot {
-      image = "certbot/certbot:latest";
-      command = [
-        "certonly"
-        "--webroot"
-        "--expand"
-        "--agree-tos"
-        "--non-interactive"
-        "-w"
-        "/var/www/certbot/"
-        "-m"
-        "admin@greensiren.co.uk"
-        "--domains"
-        "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk"
-      ];
-      volumes = [
-        "certbot-webroot:/var/www/certbot/:rw"
-        "certbot-cert:/etc/letsencrypt/:rw"
-      ];
-      depends_on = [ "nginx" ];
-    };
+    # certbot.service = lib.mkIf enableCertbot {
+    #   image = "certbot/certbot:latest";
+    #   command = [
+    #     "certonly"
+    #     "--webroot"
+    #     "--expand"
+    #     "--agree-tos"
+    #     "--non-interactive"
+    #     "-w"
+    #     "/var/www/certbot/"
+    #     "-m"
+    #     "admin@greensiren.co.uk"
+    #     "--domains"
+    #     "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk"
+    #   ];
+    #   volumes = [
+    #     "certbot-webroot:/var/www/certbot/:rw"
+    #     "certbot-cert:/etc/letsencrypt/:rw"
+    #   ];
+    #   depends_on = [ "nginx" ];
+    # };
 
     prod-postgres.service = {
       image = "postgres:17";
       restart = "unless-stopped";
       ports = [ "5432:5432" ];
       env_file = [ secret-env-path ];
+      environment = {
+        POSTGRES_DB = "primes";
+      };
       volumes = [
-        "postgres_db:/var/lib/postgresql/data"
+        "postgres_db:/var/lib/postgresql"
       ];
     };
 
@@ -98,8 +103,8 @@
       volumes = [
         "nextcloud_html:/var/www/html"
       ];
+      env_file = [ secret-env-path ];
       environment = {
-        MYSQL_PASSWORD = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
         MYSQL_DATABASE = "nextcloud";
         MYSQL_USER = "nextcloud";
         MYSQL_HOST = "nextcloud-db";
@@ -110,16 +115,11 @@
     nextcloud-db.service = {
       image = "mariadb:10.5";
       restart = "unless-stopped";
-      command = [
-        "--transaction-isolation=READ-COMMITTED"
-        "--binlog-format=ROW"
-      ];
       volumes = [
         "nextcloud_db:/var/lib/mysql"
       ];
+      env_file = [ secret-env-path ];
       environment = {
-        MYSQL_ROOT_PASSWORD = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
-        MYSQL_PASSWORD = "hahahahahfakjhsdakj;fmvqop[i23409lckxnmvarioavokmqpoauiegvna[wos;kildz/5tklvahuipta;sjlvbihpua;kjtr]]";
         MYSQL_DATABASE = "nextcloud";
         MYSQL_USER = "nextcloud";
       };
