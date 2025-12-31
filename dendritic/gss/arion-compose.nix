@@ -47,10 +47,7 @@
         "443:443"
       ];
       volumes = [
-        "${./nginx/config/nginx.conf}:/etc/nginx/nginx.conf:ro"
-        "${./nginx/config/error.conf}:/etc/nginx/error.conf:ro"
-        "${./nginx/config/ssl.conf}:/etc/nginx/ssl.conf:ro"
-        "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
+        "${./nginx/config}:/etc/nginx:ro"
         "${./nginx/static_websites}:/static_websites:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
@@ -62,27 +59,27 @@
       ];
     };
 
-    # certbot.service = lib.mkIf enableCertbot {
-    #   image = "certbot/certbot:latest";
-    #   command = [
-    #     "certonly"
-    #     "--webroot"
-    #     "--expand"
-    #     "--agree-tos"
-    #     "--non-interactive"
-    #     "-w"
-    #     "/var/www/certbot/"
-    #     "-m"
-    #     "admin@greensiren.co.uk"
-    #     "--domains"
-    #     "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk"
-    #   ];
-    #   volumes = [
-    #     "certbot-webroot:/var/www/certbot/:rw"
-    #     "certbot-cert:/etc/letsencrypt/:rw"
-    #   ];
-    #   depends_on = [ "nginx" ];
-    # };
+    certbot.service = lib.mkIf enableCertbot {
+      image = "certbot/certbot:latest";
+      command = [
+        "certonly"
+        "--webroot"
+        "--expand"
+        "--agree-tos"
+        "--non-interactive"
+        "-w"
+        "/var/www/certbot/"
+        "-m"
+        "admin@greensiren.co.uk"
+        "--domains"
+        "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk"
+      ];
+      volumes = [
+        "certbot-webroot:/var/www/certbot/:rw"
+        "certbot-cert:/etc/letsencrypt/:rw"
+      ];
+      depends_on = [ "nginx" ];
+    };
 
     prod-postgres.service = {
       image = "postgres:17";

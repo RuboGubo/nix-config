@@ -17,7 +17,6 @@
   home-manager.users."rubogubo" = {
     imports = [ 
       ./home/accounts.nix
-      inputs.self.modules.home.gss
     ];
 
     home.username = "rubogubo";

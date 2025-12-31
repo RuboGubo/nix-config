@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 {
@@ -27,78 +28,81 @@
   programs.zsh.enable = true;
 
   home-manager.backupFileExtension = "bak";
-  home-manager.users."rubogubo" = {
-    imports = [
-      ../../modules/zsh.nix
-    ];
-    home.stateVersion = "25.11";
+  home-manager.users."rubogubo" =
+    {
+      imports = [
+        ../../modules/zsh.nix
+        inputs.self.modules.home.gss
 
-    home.file."Projects/.keep".text = "";
+      ];
+      home.stateVersion = "25.11";
 
-    home.packages = with pkgs; [
-      inotify-tools
-      hollywood
-      age
-      ssh-to-age
-      sops
-      gnupg
-      nix-output-monitor
-      pkg-config
-      jq
-      yq
-      home-manager
+      home.file."Projects/.keep".text = "";
 
-      # Command Line
-      eza
-      git
-      zip
-      bat
-      just
-      fastfetch
-      cowsay
-      tldr
+      home.packages = with pkgs; [
+        inotify-tools
+        hollywood
+        age
+        ssh-to-age
+        sops
+        gnupg
+        nix-output-monitor
+        pkg-config
+        jq
+        yq
+        home-manager
 
-      # dev tools
-      devenv
+        # Command Line
+        eza
+        git
+        zip
+        bat
+        just
+        fastfetch
+        cowsay
+        tldr
 
-      # Rust tools
-      wasm-pack
+        # dev tools
+        devenv
 
-      # Server Admin
-      systemctl-tui
-    ];
+        # Rust tools
+        wasm-pack
 
-    programs.jujutsu = {
-      enable = true;
-      settings = {
-        ui.default-command = "log";
-        user = {
-          email = "ruben.john.ward@gmail.com";
-          name = "Ruben Ward";
-        };
-        remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
-        git = {
-          write-change-id-header = true;
+        # Server Admin
+        systemctl-tui
+      ];
+
+      programs.jujutsu = {
+        enable = true;
+        settings = {
+          ui.default-command = "log";
+          user = {
+            email = "ruben.john.ward@gmail.com";
+            name = "Ruben Ward";
+          };
+          remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
+          git = {
+            write-change-id-header = true;
+          };
         };
       };
-    };
 
-    programs.git = {
-      enable = true;
-      lfs.enable = true;
-      settings = {
-        user.name = "RuboGubo";
-        user.email = "ruben.john.ward@gmail.com";
-        init.defaultBranch = "main";
-        push.autoSetupRemote = true;
-        push.rebase = false;
+      programs.git = {
+        enable = true;
+        lfs.enable = true;
+        settings = {
+          user.name = "RuboGubo";
+          user.email = "ruben.john.ward@gmail.com";
+          init.defaultBranch = "main";
+          push.autoSetupRemote = true;
+          push.rebase = false;
+        };
+      };
+
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+        enableZshIntegration = true;
       };
     };
-
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
-  };
 }
