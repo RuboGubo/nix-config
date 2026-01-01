@@ -22,6 +22,17 @@
           prompts.secret-env.type = "multiline";
           prompts.secret-env.persist = true;
         };
+        
+        virtualisation.podman = {
+          enable = true;
+          autoPrune.enable = true;
+          dockerCompat = true;
+          dockerSocket.enable = true;
+          defaultNetwork.settings = {
+            # Required for container networking to be able to use names.
+            dns_enabled = true;
+          };
+        };
 
         virtualisation.arion = {
           backend = "podman-socket";

@@ -330,11 +330,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1767236212,
-        "narHash": "sha256-53fh7zPxiEumow2CbdJ6UiEs647IGbHd3hZKEbQ/l04=",
+        "lastModified": 1767251783,
+        "narHash": "sha256-9ncG/GP0OKMxEpaDab0LsAr3UHF6NDKACr8NgqZkPYs=",
         "ref": "refs/heads/main",
-        "rev": "c97c94fc5e509fa94ae45929bc18911f7d45fcfd",
-        "revCount": 8,
+        "rev": "fbf5c62bc30f6b5d9769e254cc7f1bacf32e295f",
+        "revCount": 17,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
@@ -359,11 +359,11 @@
         "rev": "2882be68a94b1bf0de613c7032b3518364a4931e",
         "revCount": 101,
         "type": "git",
-        "url": "https://gitlab.com/client-projects19/public-projects/primesrust"
+        "url": "https://gitlab.com/client-projects19/public-projects/primesrust.git"
       },
       "original": {
         "type": "git",
-        "url": "https://gitlab.com/client-projects19/public-projects/primesrust"
+        "url": "https://gitlab.com/client-projects19/public-projects/primesrust.git"
       }
     },
     "root": {

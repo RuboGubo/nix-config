@@ -19,7 +19,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     primes = {
-      url = "git+https://gitlab.com/client-projects19/public-projects/primesrust";
+      url = "git+https://gitlab.com/client-projects19/public-projects/primesrust.git";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
     };
     

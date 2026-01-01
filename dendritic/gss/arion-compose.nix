@@ -53,6 +53,7 @@
         "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
         "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
         "${./nginx/static_websites}:/static_websites:ro"
+        # "${./nginx/static_websites}:/rubenward:ro"
         "${inputs.personal-website.packages.${pkgs.system}.rendered}:/rubenward:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
