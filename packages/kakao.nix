@@ -7,7 +7,7 @@
 let
   exe = pkgs.fetchurl {
     url = "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe";
-    sha256 = "CYC6ggYdAxtyLbMtyoCpognxDRaJy2jdnxs/GE0fBUk=";
+    sha256 = "sha256-EEePn6PZPUqc4w9KojHEw9aI+s4WifKdKyYZHhweiMU=";
   };
 in
 
