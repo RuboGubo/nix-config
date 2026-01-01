@@ -54,7 +54,7 @@
         "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
         "${./nginx/static_websites}:/static_websites:ro"
         # "${./nginx/static_websites}:/rubenward:ro"
-        "${inputs.personal-website.packages.${pkgs.system}.rendered}:/rubenward:ro"
+        "${inputs.personal-website.packages.${pkgs.system}.rendered}:/personal-website:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
         "nextcloud_html:/var/www/html:ro"
