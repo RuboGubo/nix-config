@@ -318,6 +318,31 @@
         "type": "github"
       }
     },
+    "personal-website": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "clan-core",
+          "nixpkgs"
+        ],
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1767236212,
+        "narHash": "sha256-53fh7zPxiEumow2CbdJ6UiEs647IGbHd3hZKEbQ/l04=",
+        "ref": "refs/heads/main",
+        "rev": "c97c94fc5e509fa94ae45929bc18911f7d45fcfd",
+        "revCount": 8,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/rubogubo/personal-website"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.com/rubogubo/personal-website"
+      }
+    },
     "primes": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -352,6 +377,7 @@
           "clan-core",
           "nixpkgs"
         ],
+        "personal-website": "personal-website",
         "primes": "primes"
       }
     },
@@ -419,6 +445,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

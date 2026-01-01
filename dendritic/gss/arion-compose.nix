@@ -47,8 +47,13 @@
         "443:443"
       ];
       volumes = [
-        "${./nginx/config}:/etc/nginx:ro"
+        "${./nginx/config/nginx.conf}:/etc/nginx/nginx.conf:ro"
+        "${./nginx/config/error.conf}:/etc/nginx/error.conf:ro"
+        "${./nginx/config/ssl.conf}:/etc/nginx/ssl.conf:ro"
+        "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
+        "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
         "${./nginx/static_websites}:/static_websites:ro"
+        "${inputs.personal-website.packages.${pkgs.system}.rendered}:/rubenward:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
         "nextcloud_html:/var/www/html:ro"
@@ -72,7 +77,7 @@
         "-m"
         "admin@greensiren.co.uk"
         "--domains"
-        "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk"
+        "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com"
       ];
       volumes = [
         "certbot-webroot:/var/www/certbot/:rw"
