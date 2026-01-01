@@ -15,7 +15,10 @@
     inventory = {
       machines = {
         node1 = {
-          tags = [ "server" "gss" ];
+          tags = [
+            "server"
+            "gss"
+          ];
           deploy.targetHost = "178.79.150.220";
         };
         green-laptop = {

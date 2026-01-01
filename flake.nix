@@ -24,7 +24,7 @@
     };
     
     personal-website = {
-      url = "git+ssh://git@gitlab.com/rubogubo/personal-website";
+      url = "git+ssh://git@gitlab.com/RuboGubo/personal-website.git";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };

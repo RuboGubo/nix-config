@@ -336,11 +336,11 @@
         "rev": "c97c94fc5e509fa94ae45929bc18911f7d45fcfd",
         "revCount": 8,
         "type": "git",
-        "url": "ssh://git@gitlab.com/rubogubo/personal-website"
+        "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.com/rubogubo/personal-website"
+        "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       }
     },
     "primes": {
