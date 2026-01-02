@@ -33,8 +33,6 @@
     {
       imports = [
         ../../modules/zsh.nix
-        inputs.self.modules.home.gss
-
       ];
       home.stateVersion = "25.11";
 
