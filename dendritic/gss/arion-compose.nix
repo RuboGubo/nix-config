@@ -2,7 +2,7 @@
   pkgs,
   lib,
   inputs,
-  secret-env-path,
+  vars,
   enableCertbot ? false,
   ...
 }:
@@ -16,6 +16,8 @@
     nextcloud_html = { };
     certbot-webroot = { };
     certbot-cert = { };
+    recipes-static = { };
+    recipes-media = { };
   };
 
   services = {
@@ -34,7 +36,7 @@
         useHostStore = true;
         restart = "unless-stopped";
         ports = [ "8000:8000" ];
-        env_file = [ secret-env-path ];
+        env_file = [ vars.secret-env.path ];
         depends_on = [ "prod-postgres" ];
       };
     };
@@ -62,6 +64,7 @@
       depends_on = [
         "primes"
         "nextcloud"
+        "recipes"
       ];
     };
 
@@ -78,7 +81,7 @@
         "-m"
         "admin@greensiren.co.uk"
         "--domains"
-        "greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
+        "greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
       ];
       volumes = [
         "certbot-webroot:/var/www/certbot/:rw"
@@ -91,12 +94,26 @@
       image = "postgres:17";
       restart = "unless-stopped";
       ports = [ "5432:5432" ];
-      env_file = [ secret-env-path ];
+      env_file = [ vars.secret-env.path ];
       environment = {
         POSTGRES_DB = "primes";
       };
       volumes = [
         "postgres_db:/var/lib/postgresql"
+      ];
+    };
+
+    recipes.service = {
+      restart = "always";
+      image = "vabene1111/recipes";
+      ports = [ "80" ];
+      env_file = [ vars.recipes-env.path ];
+      volumes = [
+        "recipes-static:/opt/recipes/staticfiles"
+        "recipes-media:/opt/recipes/mediafiles"
+      ];
+      depends_on = [
+        "prod-postgres"
       ];
     };
 
@@ -106,7 +123,7 @@
       volumes = [
         "nextcloud_html:/var/www/html"
       ];
-      env_file = [ secret-env-path ];
+      env_file = [ vars.secret-env.path ];
       environment = {
         MYSQL_DATABASE = "nextcloud";
         MYSQL_USER = "nextcloud";
@@ -121,7 +138,7 @@
       volumes = [
         "nextcloud_db:/var/lib/mysql"
       ];
-      env_file = [ secret-env-path ];
+      env_file = [ vars.secret-env.path ];
       environment = {
         MYSQL_DATABASE = "nextcloud";
         MYSQL_USER = "nextcloud";

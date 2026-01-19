@@ -15,14 +15,20 @@
         environment.systemPackages = [
           pkgs.docker-client
         ];
-        
+
         clan.core.vars.generators.gss = {
           share = true;
-          prompts.secret-env.description = "GSS secret.env";
-          prompts.secret-env.type = "multiline";
-          prompts.secret-env.persist = true;
+          prompts = {
+            secret-env.description = "GSS secret.env";
+            secret-env.type = "multiline";
+            secret-env.persist = true;
+
+            recipes-env.description = "Env file for the recipes service";
+            recipes-env.type = "multiline";
+            recipes-env.persist = true;
+          };
         };
-        
+
         virtualisation.podman = {
           enable = true;
           autoPrune.enable = true;
@@ -45,7 +51,7 @@
               # Pass inputs explicitly through _module.args
               _module.args = {
                 # Pass the inputs from the calling flake
-                secret-env-path = config.clan.core.vars.generators.gss.files.secret-env.path;
+                vars = config.clan.core.vars.generators.gss.files;
                 enableCertbot = true;
                 inherit (args) inputs;
               };
