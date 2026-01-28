@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  nixpkgs,
   ...
 }:
 {
@@ -16,9 +17,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # NVIDIA Graphics Configuration
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
   hardware.graphics.enable = true;
-
+  hardware.graphics.enable32Bit = true;
+  
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -50,6 +52,7 @@
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
+      offload.enable = true;
       # Make sure to use the correct Bus ID values for your system!
       intelBusId = "PCI:0:2:0"; # Fixed: was PCI:0:1:0, now matches your Intel GPU at 00:02.0
       nvidiaBusId = "PCI:1:0:0"; # Correct: matches your NVIDIA GPU at 01:00.0

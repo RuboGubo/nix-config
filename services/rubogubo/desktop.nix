@@ -47,6 +47,7 @@
       nixd
       podman-compose
       steam
+      steam-run
 
       wireshark
       # Font
