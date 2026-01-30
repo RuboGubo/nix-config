@@ -66,7 +66,7 @@
 
     # HDD for additional data / backups
     hdd = {
-      device = "/dev/sdb"; # <-- replace with your 128 GB HDD device
+      device = "/dev/sdb"; # <-- replace with your 128 GB HDD device - this is the wrong way round irl... oops
       type = "disk";
       content = {
         type = "gpt";
@@ -76,7 +76,7 @@
             content = {
               type = "filesystem";
               format = "ext4";
-              mountpoint = "/mnt/data"; # or "/var/backup"
+              mountpoint = "/home/rubogubo/data"; # or "/var/backup"
               mountOptions = [ "defaults" ];
             };
           };
