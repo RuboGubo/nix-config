@@ -362,11 +362,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1769038699,
-        "narHash": "sha256-B3Ja2T2teD/t+cOns0S88m3EdnuR/NzT5ZQfVLRMRVc=",
+        "lastModified": 1769760840,
+        "narHash": "sha256-waCB1M7+31sk+VHaCoWwv2RttQdB+cYZxxPRHfcz2H0=",
         "ref": "refs/heads/main",
-        "rev": "6e62031117a29306fc577897927db2430d4e72bc",
-        "revCount": 46,
+        "rev": "c3b5e1714ac9a8bfa6e64a944fbd51543116a180",
+        "revCount": 47,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
