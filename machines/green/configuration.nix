@@ -8,8 +8,10 @@
   imports = [
     ./disko.nix
   ];
-  networking.useNetworkd = true; # Need this to fix a very random bug.
-
+  networking.networkmanager.enable = true;
+  networking.useNetworkd = false; # Need this to fix a very random bug.
+  boot.loader.systemd-boot.configurationLimit = 5;
+  
   # UEFI bootloader configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

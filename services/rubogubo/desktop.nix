@@ -27,8 +27,6 @@
       xclip
       firefox
       thunderbird
-      jdk
-      qemu
       rustup
       # discord
       python3
@@ -55,8 +53,7 @@
       noto-fonts
       nanum
       openfortivpn
-
-      typewriter
+      networkmanager-fortisslvpn
 
       # COM1008 tools
       insomnia
