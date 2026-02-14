@@ -27,10 +27,10 @@
       xclip
       firefox
       thunderbird
-      rustup
+      # rustup
       # discord
       python3
-      gcc
+      # gcc
       seahorse
       zsh
       typescript
@@ -45,7 +45,6 @@
       nixd
       podman-compose
       steam
-      steam-run
 
       wireshark
       # Font

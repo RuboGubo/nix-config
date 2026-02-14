@@ -11,6 +11,7 @@ let
     "backend-ticket-plus.greensiren.co.uk"
     "api.primes.greensiren.co.uk"
     "swimming.greensiren.co.uk"
+    "valentines.greensiren.co.uk"
   ];
 in
 pkgs.dockerTools.streamLayeredImage {

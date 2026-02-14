@@ -60,6 +60,11 @@
       nvidiaBusId = "PCI:1:0:0"; # Correct: matches your NVIDIA GPU at 01:00.0
     };
   };
+  
+  # swapDevices = [{
+  #   device = "/var/lib/swapfile";
+  #   size = 16*1024; # 16 GB
+  # }];
 
   clan.core.settings.state-version.enable = true;
 }
