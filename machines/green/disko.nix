@@ -2,7 +2,7 @@
   disko.devices.disk = {
     # SSD for system, swap, and subvolume-managed root
     ssd = {
-      device = "/dev/sda"; # <-- replace with your 1TB SSD device
+      device = "/dev/sdb"; # <-- replace with your 1TB SSD device
       type = "disk";
       content = {
         type = "gpt";
@@ -14,13 +14,6 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-            };
-          };
-          swap = {
-            size = "40G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
             };
           };
           root = {
@@ -66,7 +59,7 @@
 
     # HDD for additional data / backups
     hdd = {
-      device = "/dev/sdb"; # <-- replace with your 128 GB HDD device - this is the wrong way round irl... oops
+      device = "/dev/sda"; # <-- replace with your 128 GB HDD device - this is the wrong way round irl... oops
       type = "disk";
       content = {
         type = "gpt";
