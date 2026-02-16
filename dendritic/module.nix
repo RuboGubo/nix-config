@@ -21,6 +21,7 @@
   imports = [
     inputs.flake-parts.flakeModules.modules
     ./gss/module.nix
+    ./gss/arion-compose.nix
     ./vpn/module.nix
   ];
 }

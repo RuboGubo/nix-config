@@ -45,7 +45,7 @@
         projects.gss = {
           serviceName = "gss";
           settings = {
-            imports = [ ./arion-compose.nix ];
+            imports = [ inputs.self.modules.arion.gss ];
 
             # Pass inputs explicitly through _module.args
             _module.args = {
@@ -67,5 +67,4 @@
 
       home.packages = [ pkgs.podman-compose ];
     };
-
 }
