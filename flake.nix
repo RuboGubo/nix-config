@@ -60,16 +60,6 @@
         {
           formatter = pkgs.nixfmt-rfc-style;
 
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [
-              (final: prev: {
-                kakao = import ./kakao.nix { pkgs = final; };
-              })
-            ];
-          };
-
-          packages.kakao = import ./packages/kakao.nix { inherit pkgs; };
           apps.kakao = {
             type = "app";
             program = "${self'.packages.kakao}/bin/kakao";
