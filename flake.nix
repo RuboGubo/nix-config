@@ -44,7 +44,7 @@
       imports = [
         ./clan.nix
         ./devshells.nix
-        (inputs.import-tree ./dendritic)
+        (inputs.import-tree ./modules)
         inputs.flake-parts.flakeModules.modules
       ];
       systems = [
