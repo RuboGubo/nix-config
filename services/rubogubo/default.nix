@@ -10,7 +10,8 @@
     {
       imports = [ ./common.nix ];
       home-manager.users."rubogubo".imports = [ 
-        inputs.self.modules.homeManager.gss 
+        inputs.self.modules.homeManager.gss
+        inputs.self.modules.homeManager.zsh
       ];
     };
   roles.desktop.perInstance.nixosModule.imports = [

@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ../../modules/shared.nix
     ./disko.nix
   ];
 
