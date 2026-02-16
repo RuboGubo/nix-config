@@ -17,6 +17,7 @@
   home-manager.users."rubogubo" = {
     imports = [ 
       ./home/accounts.nix
+      inputs.self.modules.homeManager.uni_vpn
     ];
 
     home.username = "rubogubo";
@@ -51,7 +52,6 @@
       nerd-fonts.jetbrains-mono
       noto-fonts
       nanum
-      openfortivpn
       networkmanager-fortisslvpn
 
       # COM1008 tools
