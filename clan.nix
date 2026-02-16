@@ -52,6 +52,9 @@
         };
 
         # Server Admin
+        tor = {
+          roles.server.tags."all" = { };
+        };
         ssh = {
           module = {
             name = "sshd";
