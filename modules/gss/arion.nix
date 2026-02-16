@@ -33,7 +33,7 @@
         };
 
         primes = {
-          build.image = lib.mkForce (inputs.primes.packages.${pkgs.system}.container);
+          build.image = lib.mkForce (inputs.primes.packages.${pkgs.stdenv.hostPlatform.system}.container);
           service = {
             useHostStore = true;
             restart = "unless-stopped";
@@ -57,8 +57,8 @@
             "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
             "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
             "${./nginx/static_websites}:/static_websites:ro"
-            "${inputs.valentines.packages.${pkgs.system}.default}:/valentines:ro"
-            "${inputs.personal-website.packages.${pkgs.system}.rendered}:/personal-website:ro"
+            "${inputs.valentines.packages.${pkgs.stdenv.hostPlatform.system}.default}:/valentines:ro"
+            "${inputs.personal-website.packages.${pkgs.stdenv.hostPlatform.system}.rendered}:/personal-website:ro"
             "certbot-webroot:/var/www/certbot:ro"
             "certbot-cert:/etc/letsencrypt:ro"
             "nextcloud_html:/var/www/html:ro"
