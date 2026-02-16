@@ -61,10 +61,10 @@
     };
   };
   
-  # swapDevices = [{
-  #   device = "/var/lib/swapfile";
-  #   size = 16*1024; # 16 GB
-  # }];
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16*1024; # 16 GB
+  }];
 
   clan.core.settings.state-version.enable = true;
 }
