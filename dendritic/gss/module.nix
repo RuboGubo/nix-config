@@ -59,7 +59,7 @@
       };
     };
 
-  flake.modules.home.gss =
+  flake.modules.homeManager.gss =
     { pkgs, osConfig, ... }:
     {
       home.file."services/gss/docker-compose.yaml".text =

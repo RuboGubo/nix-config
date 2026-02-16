@@ -7,7 +7,9 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "clan-core/nixpkgs";
-
+    
+    import-tree.url = "github:vic/import-tree";
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
@@ -42,7 +44,8 @@
       imports = [
         ./clan.nix
         ./devshells.nix
-        ./dendritic/module.nix
+        (inputs.import-tree ./dendritic)
+        inputs.flake-parts.flakeModules.modules
       ];
       systems = [
         "x86_64-linux"

@@ -3,7 +3,7 @@
 ## nixos.gss
 Install on node to run services
 
-## home.gss
+## homeManager.gss
 Install on user to install `docker-compose.yaml` in `~/service/gss` for `podman compose` commands to work
 
 ## gss/secret.env
