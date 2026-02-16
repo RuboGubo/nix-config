@@ -7,9 +7,9 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "clan-core/nixpkgs";
-    
+
     import-tree.url = "github:vic/import-tree";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
@@ -24,13 +24,13 @@
       url = "git+https://gitlab.com/client-projects19/public-projects/primesrust.git";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
     };
-    
+
     personal-website = {
       url = "git+ssh://git@gitlab.com/RuboGubo/personal-website.git";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-    
+
     valentines = {
       url = "git+ssh://git@gitlab.com/RuboGubo/valentines.git";
       # inputs.nixpkgs.follows = "clan-core/nixpkgs";
@@ -51,20 +51,9 @@
         "x86_64-linux"
       ];
       perSystem =
-        {
-          pkgs,
-          self',
-          system,
-          ...
-        }:
+        { pkgs, ... }:
         {
           formatter = pkgs.nixfmt-rfc-style;
-
-          apps.kakao = {
-            type = "app";
-            program = "${self'.packages.kakao}/bin/kakao";
-            meta.description = "The Korean Messaging App Kakao Chat";
-          };
         };
     };
 }
