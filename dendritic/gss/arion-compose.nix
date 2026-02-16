@@ -55,7 +55,7 @@
         "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
         "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
         "${./nginx/static_websites}:/static_websites:ro"
-        # "${./nginx/static_websites}:/rubenward:ro"
+        "${inputs.valentines.packages.${pkgs.system}.default}:/valentines:ro"
         "${inputs.personal-website.packages.${pkgs.system}.rendered}:/personal-website:ro"
         "certbot-webroot:/var/www/certbot:ro"
         "certbot-cert:/etc/letsencrypt:ro"
@@ -81,7 +81,7 @@
         "-m"
         "admin@greensiren.co.uk"
         "--domains"
-        "greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
+        "greensiren.co.uk,valentines.greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
       ];
       volumes = [
         "certbot-webroot:/var/www/certbot/:rw"

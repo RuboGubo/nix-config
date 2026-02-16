@@ -349,6 +349,38 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1769740369,
+        "narHash": "sha256-xKPyJoMoXfXpDM5DFDZDsi9PHArf2k5BJjvReYXoFpM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6308c3b21396534d8aaeac46179c14c439a89b8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "personal-website": {
       "inputs": {
         "flake-parts": [
@@ -410,7 +442,8 @@
           "nixpkgs"
         ],
         "personal-website": "personal-website",
-        "primes": "primes"
+        "primes": "primes",
+        "valentines": "valentines"
       }
     },
     "rust-flake": {
@@ -497,6 +530,24 @@
         "type": "github"
       }
     },
+    "rust-overlay_3": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1769915446,
+        "narHash": "sha256-f1F/umtX3ZD7fF9DHSloVHc0mnAT0ry0YK2jI/6E0aI=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "bc00300f010275e46feb3c3974df6587ff7b7808",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
     "sops-nix": {
       "inputs": {
         "nixpkgs": [
@@ -567,6 +618,28 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "valentines": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": "nixpkgs_4",
+        "rust-overlay": "rust-overlay_3"
+      },
+      "locked": {
+        "lastModified": 1771185447,
+        "narHash": "sha256-D0jdfPLVq2KxSyB4a/6vakp0Oq8HJhFE+Sns7sbt8mo=",
+        "ref": "refs/heads/main",
+        "rev": "74fb0b66468e5ae8073bc1d7beec1189cb8afa24",
+        "revCount": 22,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/RuboGubo/valentines.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.com/RuboGubo/valentines.git"
       }
     }
   },
