@@ -18,7 +18,6 @@
     imports = [
       ./home/accounts.nix
       inputs.self.modules.homeManager.uni_vpn
-      inputs.self.modules.homeManager.zsh
     ];
 
     home.username = "rubogubo";

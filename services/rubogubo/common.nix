@@ -31,7 +31,10 @@
   home-manager.backupFileExtension = "bak";
   home-manager.users."rubogubo" =
     {
-      imports = [];
+      imports = [
+        inputs.self.modules.homeManager.zsh
+        inputs.self.modules.homeManager.gss
+      ];
       home.stateVersion = "25.11";
 
       home.file."Projects/.keep".text = "";

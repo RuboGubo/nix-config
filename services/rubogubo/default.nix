@@ -9,9 +9,7 @@
     { inputs, ... }:
     {
       imports = [ ./common.nix ];
-      home-manager.users."rubogubo".imports = [ 
-        inputs.self.modules.homeManager.gss
-      ];
+      home-manager.users."rubogubo".imports = [];
     };
   roles.desktop.perInstance.nixosModule.imports = [
     ./desktop.nix

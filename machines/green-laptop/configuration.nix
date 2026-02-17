@@ -8,6 +8,7 @@
   disko.devices.disk.main.device = "/dev/nvme0n1";
   networking.networkmanager.enable = true;
   networking.useNetworkd = false; # Need this to fix a very random bug.
+  boot.loader.systemd-boot.configurationLimit = 2;
   
   swapDevices = [{
     device = "/var/lib/swapfile";
