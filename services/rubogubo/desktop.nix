@@ -41,7 +41,6 @@
       libreoffice-qt
       hunspell
       hunspellDicts.en_GB-ise
-      ruby
       nfs-utils
       blackbox-terminal
       nixd
@@ -84,7 +83,6 @@
         vtsls
         typos-lsp
         ghc
-        ruby-lsp
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
