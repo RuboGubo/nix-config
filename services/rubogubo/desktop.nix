@@ -15,7 +15,7 @@
   fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
-    imports = [ 
+    imports = [
       ./home/accounts.nix
       inputs.self.modules.homeManager.uni_vpn
       inputs.self.modules.homeManager.zsh
@@ -84,6 +84,7 @@
         vtsls
         typos-lsp
         ghc
+        ruby-lsp
       ];
       userSettings = {
         lsp.rust-analyzer.binary.path = "${pkgs.rust-analyzer}/bin/rust-analyzer";
@@ -106,7 +107,7 @@
     programs.firefox.profiles."default".search.default = "ddg";
 
     home.file."/home/rubogubo/.config/gtk-3.0/bookmarks" = {
-      text = ''file:///home/rubogubo/Projects'';
+      text = "file:///home/rubogubo/Projects";
       force = true;
     };
 
