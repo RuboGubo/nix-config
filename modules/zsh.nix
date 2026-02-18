@@ -57,6 +57,7 @@
           node2 = "ssh service@node2.greensiren.co.uk";
           gac = "git add . && git commit -m ";
           gp = "git push";
+          clip = "xclip -selection clipboard";
         };
       };
     };
