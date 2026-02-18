@@ -22,7 +22,13 @@
   };
 
   # Should be it's own service at some point
-  nix.settings.substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+  nix.settings.substituters = [ 
+    "https://aseipp-nix-cache.global.ssl.fastly.net" 
+    "https://nix-community.cachix.org"
+  ];
+  nix.settings.trusted-public-keys = [ 
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
   nix.settings.trusted-users = [ "rubogubo" ];
 
   programs.nix-ld.enable = true;
@@ -33,7 +39,6 @@
     {
       imports = [
         inputs.self.modules.homeManager.zsh
-        inputs.self.modules.homeManager.gss
       ];
       home.stateVersion = "25.11";
 
@@ -51,6 +56,8 @@
         jq
         yq
         home-manager
+        
+        cachix
 
         # Command Line
         eza

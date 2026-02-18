@@ -5,12 +5,10 @@
   manifest.description = "The RuboGubo User";
   manifest.categories = [ "User" ];
 
-  roles.server.perInstance.nixosModule =
-    { inputs, ... }:
-    {
-      imports = [ ./common.nix ];
-      home-manager.users."rubogubo".imports = [];
-    };
+  roles.server.perInstance.nixosModule.imports = [
+    ./common.nix 
+    ./server.nix 
+  ];
   roles.desktop.perInstance.nixosModule.imports = [
     ./desktop.nix
     ./podman.nix
