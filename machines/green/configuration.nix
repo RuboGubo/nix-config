@@ -9,7 +9,7 @@
     ./disko.nix
   ];
   networking.networkmanager.enable = true;
-  networking.useNetworkd = false; # Need this to fix a very random bug.
+  networking.useNetworkd = false;
   boot.loader.systemd-boot.configurationLimit = 5;
   
   # UEFI bootloader configuration
