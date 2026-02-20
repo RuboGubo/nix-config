@@ -7,7 +7,7 @@
   nixpkgs.config.allowUnfree = true;
   disko.devices.disk.main.device = "/dev/nvme0n1";
   networking.networkmanager.enable = true;
-  networking.useNetworkd = false; # Need this to fix a very random bug.
+  networking.useNetworkd = false;
   
   swapDevices = [{
     device = "/var/lib/swapfile";
