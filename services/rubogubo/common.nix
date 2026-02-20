@@ -77,7 +77,7 @@
             email = "ruben.john.ward@gmail.com";
             name = "Ruben Ward";
           };
-          remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
+          # remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
           git = {
             write-change-id-header = true;
           };
