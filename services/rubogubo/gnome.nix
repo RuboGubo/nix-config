@@ -41,7 +41,7 @@
             "org.gnome.Geary.desktop"
           ];
         };
-        "org/gnome/shell/extensions/system-monitor".show-swap = false;
+        "org/gnome/shell/extensions/system-monitor".show-swap = true;
         # set wallpapers
         "org/gnome/desktop/background" = {
           picture-uri = "${../../modules/background/light/us.jpg}";
@@ -51,7 +51,7 @@
         "org/gnome/desktop/interface".accent-color = "green";
         "org/gnome/shell/extensions/nightthemeswitcher/time" = {
           manual-schedule = true;
-          # everything after is persentage of hour passed, for some reason
+          # everything after is percentage of hour passed, for some reason
           sunrise = 5.25;
           sunset = 20.95;
         };
