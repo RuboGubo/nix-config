@@ -4,6 +4,12 @@
   inputs,
   ...
 }:
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+  };
+in
 {
   users.users.rubogubo = {
     description = "RuboGubo";
@@ -22,11 +28,11 @@
   };
 
   # Should be it's own service at some point
-  nix.settings.substituters = [ 
-    "https://aseipp-nix-cache.global.ssl.fastly.net" 
+  nix.settings.substituters = [
+    "https://aseipp-nix-cache.global.ssl.fastly.net"
     "https://nix-community.cachix.org"
   ];
-  nix.settings.trusted-public-keys = [ 
+  nix.settings.trusted-public-keys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
   nix.settings.trusted-users = [ "rubogubo" ];
@@ -35,85 +41,83 @@
   programs.zsh.enable = true;
 
   home-manager.backupFileExtension = "bak";
-  home-manager.users."rubogubo" =
-    {
-      imports = [
-        inputs.self.modules.homeManager.zsh
-      ];
-      home.stateVersion = "25.11";
+  home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
+  home-manager.users."rubogubo" = {
+    imports = [
+      inputs.self.modules.homeManager.zsh
+      inputs.self.modules.homeManager.devenv
+    ];
+    home.stateVersion = "25.11";
 
-      home.file."Projects/.keep".text = "";
+    home.file."Projects/.keep".text = "";
 
-      home.packages = with pkgs; [
-        inotify-tools
-        hollywood
-        age
-        ssh-to-age
-        sops
-        gnupg
-        nix-output-monitor
-        pkg-config
-        jq
-        yq
-        home-manager
-        
-        cachix
+    home.packages = with pkgs; [
+      inotify-tools
+      hollywood
+      age
+      ssh-to-age
+      sops
+      gnupg
+      nix-output-monitor
+      pkg-config
+      jq
+      yq
+      home-manager
 
-        # Command Line
-        eza
-        git
-        zip
-        bat
-        just
-        fastfetch
-        cowsay
-        tldr
+      cachix
 
-        # dev tools
-        devenv
+      # Command Line
+      eza
+      git
+      zip
+      bat
+      just
+      fastfetch
+      cowsay
+      tldr
 
-        # Rust tools
-        wasm-pack
+      # Rust tools
+      wasm-pack
 
-        # Server Admin
-        systemctl-tui
-      ];
+      # Server Admin
+      systemctl-tui
+    ];
 
-      programs.jujutsu = {
-        enable = true;
-        settings = {
-          ui.default-command = "log";
-          user = {
-            email = "ruben.john.ward@gmail.com";
-            name = "Ruben Ward";
-          };
-          templates.git_push_bookmark = ''"ruben-" ++ change_id.short()'';
-          # remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
-          git = {
-            write-change-id-header = true;
-          };
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        ui.default-command = "log";
+        user = {
+          email = "ruben.john.ward@gmail.com";
+          name = "Ruben Ward";
         };
-      };
-
-      programs.git = {
-        enable = true;
-        lfs.enable = true;
-        settings = {
-          user.name = "RuboGubo";
-          user.email = "ruben.john.ward@gmail.com";
-          init.defaultBranch = "main";
-          push.autoSetupRemote = true;
-          push.rebase = false;
-        };
-      };
-
-      programs.direnv = {
-        enable = true;
-        nix-direnv.enable = true;
-        enableZshIntegration = true;
-        config = {
-          hide_env_diff = true;
+        templates.git_push_bookmark = ''"ruben-" ++ change_id.short()'';
+        # remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
+        git = {
+          write-change-id-header = true;
         };
       };
     };
+
+    programs.git = {
+      enable = true;
+      lfs.enable = true;
+      settings = {
+        user.name = "RuboGubo";
+        user.email = "ruben.john.ward@gmail.com";
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+        push.rebase = false;
+      };
+    };
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+      config = {
+        hide_env_diff = true;
+      };
+    };
+  };
 }

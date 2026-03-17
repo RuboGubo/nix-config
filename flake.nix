@@ -2,6 +2,8 @@
   description = "RuboGubo's Clan";
   inputs = {
     nixpkgs.follows = "clan-core/nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     clan-core.inputs.flake-parts.follows = "flake-parts";
 
@@ -51,8 +53,13 @@
         "x86_64-linux"
       ];
       perSystem =
-        { pkgs, ... }:
+        { pkgs, system, ... }:
         {
+          # _module.args.pkgs-unstable = import inputs.nixpkgs-unstable {
+          #   inherit system;
+          #   config.allowUnfree = true;
+          # };
+          
           formatter = pkgs.nixfmt;
         };
     };
