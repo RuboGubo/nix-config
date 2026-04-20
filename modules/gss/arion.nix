@@ -5,7 +5,7 @@
       lib,
       inputs,
       vars,
-      enableCertbot ? false,
+      enableCertbot ? true,
       ...
     }:
     {
