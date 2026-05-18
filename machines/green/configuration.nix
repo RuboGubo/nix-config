@@ -11,7 +11,7 @@
   networking.networkmanager.enable = true;
   networking.useNetworkd = false;
   boot.loader.systemd-boot.configurationLimit = 5;
-  
+
   # UEFI bootloader configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -19,10 +19,13 @@
   nixpkgs.config.allowUnfree = true;
 
   # NVIDIA Graphics Configuration
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  
+
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -31,7 +34,7 @@
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
-    powerManagement.enable = true;
+    powerManagement.enable = false;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -49,7 +52,7 @@
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
-    
+
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
@@ -65,11 +68,13 @@
       nvidiaBusId = "PCI:1:0:0"; # Correct: matches your NVIDIA GPU at 01:00.0
     };
   };
-  
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16*1024; # 16 GB
-  }];
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GB
+    }
+  ];
 
   clan.core.settings.state-version.enable = true;
 }
