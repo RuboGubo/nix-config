@@ -211,11 +211,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779118529,
-        "narHash": "sha256-+N//FFtb7YMg25HAhCejgQIkiqF5otLQtyrDrouRxlM=",
+        "lastModified": 1779125151,
+        "narHash": "sha256-bPHT0oJAHe5a43lkkSGAiCEg/RBqpwv5xsFrcj+Bog8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7519f615df36804ef40bcb03d4114f5ec9216d40",
+        "rev": "fab3fd7327a0ac7a1fae5095bf140377704fac7f",
         "type": "github"
       },
       "original": {
@@ -409,11 +409,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1779033240,
-        "narHash": "sha256-xuyEaURcqaqcAGFC2xfzxED5VRhoRxFWOX6xM/jiIpw=",
+        "lastModified": 1779125202,
+        "narHash": "sha256-paG2Zz4SIPCiqTPDHJ6nDewtipra44Hbfhmyt9a6gmw=",
         "ref": "refs/heads/main",
-        "rev": "bfb4149fc8d2cbfd93ffbc30002e01719dd50e79",
-        "revCount": 80,
+        "rev": "5535d043c906da11ebe6d4c25989ebaeddc44e6b",
+        "revCount": 81,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
