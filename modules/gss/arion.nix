@@ -53,6 +53,7 @@
           volumes = [
             "${./nginx/config/nginx.conf}:/etc/nginx/nginx.conf:ro"
             "${./nginx/config/error.conf}:/etc/nginx/error.conf:ro"
+            "${./nginx/config/personal-website-common.conf}:/etc/nginx/personal-website-common.conf:ro"
             "${./nginx/config/ssl.conf}:/etc/nginx/ssl.conf:ro"
             "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
             "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
