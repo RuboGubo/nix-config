@@ -91,8 +91,26 @@ in
           email = "ruben.john.ward@gmail.com";
           name = "Ruben Ward";
         };
-        templates.git_push_bookmark = ''"ruben-" ++ change_id.short()'';
-        # remotes.origin.auto-track-bookmarks = "glob:ruben/*@*";
+        templates = {
+          git_push_bookmark = ''"ruben-push-" ++ change_id.short()'';
+          # Autogenerate for merge requests
+          new_description = ''
+            if(parents.len() > 1,
+              "Merge " ++ parents.skip(1).map(|p| if(
+                p.bookmarks(),
+                p.bookmarks().first().name(),
+                p.change_id().shortest(8)
+              )).join(", ") ++ " into " ++ if(
+                parents.first().bookmarks(),
+                parents.first().bookmarks().first().name(),
+                parents.first().change_id().shortest(8)
+              ) ++ "\n",
+              ""
+            )
+          '';
+        };
+        revsets.bookmark-advance-to = "@-";
+        remotes.origin.auto-track-bookmarks = "ruben-*";
         git = {
           write-change-id-header = true;
         };
