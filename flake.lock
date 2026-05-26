@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1779739485,
-        "narHash": "sha256-b8+loiiG8o+ZQtrpevQhJf5pzLBkasRz2HsGR+RpD1E=",
-        "rev": "b4d6852db0e1624965d8888b20ba9ca1e0077b4a",
+        "lastModified": 1779806281,
+        "narHash": "sha256-fV2j6d9X/aSBiwHemBZMohKl/C66hnw8CXSn9UwR8Dw=",
+        "rev": "ce84929360ae3088e520a3ea52df2ab6c6fbea0c",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/b4d6852db0e1624965d8888b20ba9ca1e0077b4a.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/ce84929360ae3088e520a3ea52df2ab6c6fbea0c.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -409,11 +409,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1779750615,
-        "narHash": "sha256-QoD7JSvjImBmtREVHWIN0dJSS/P1AJnKI+ga2I8deNs=",
+        "lastModified": 1779820348,
+        "narHash": "sha256-PH3DOMCfWycwvWGCZ1oSZrhGSPi7hyTQL5QZD325iBs=",
         "ref": "refs/heads/main",
-        "rev": "f293182d3d29fe8b7defb243ac70bfe67fd32e60",
-        "revCount": 128,
+        "rev": "fabdc9c77e2230c7cf03fbac1f79998e88993d3e",
+        "revCount": 129,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
