@@ -18,6 +18,7 @@
     imports = [
       ./home/accounts.nix
       inputs.self.modules.homeManager.uni_vpn
+      inputs.self.modules.homeManager.rubogubo-desktop
     ];
 
     home.username = "rubogubo";

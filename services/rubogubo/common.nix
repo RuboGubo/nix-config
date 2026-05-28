@@ -41,7 +41,7 @@ in
   programs.zsh.enable = true;
 
   home-manager.backupFileExtension = "bak";
-  home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
+  home-manager.extraSpecialArgs = { inherit pkgs-unstable inputs; };
   home-manager.users."rubogubo" = {
     imports = [
       inputs.self.modules.homeManager.zsh
