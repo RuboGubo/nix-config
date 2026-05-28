@@ -21,6 +21,7 @@
     arion.inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     primes = {
       url = "git+https://gitlab.com/client-projects19/public-projects/primesrust.git";
@@ -48,6 +49,7 @@
         ./devshells.nix
         (inputs.import-tree ./modules)
         inputs.flake-parts.flakeModules.modules
+        inputs.treefmt-nix.flakeModule
       ];
       systems = [
         "x86_64-linux"
@@ -59,8 +61,10 @@
           #   inherit system;
           #   config.allowUnfree = true;
           # };
-          
-          formatter = pkgs.nixfmt;
+
+          treefmt = {
+            programs.nixfmt.enable = true;
+          };
         };
     };
 }
