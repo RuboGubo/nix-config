@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.follows = "clan-core/nixpkgs";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     clan-core.inputs.flake-parts.follows = "flake-parts";
 
@@ -21,7 +21,9 @@
     arion.inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
     primes = {
       url = "git+https://gitlab.com/client-projects19/public-projects/primesrust.git";

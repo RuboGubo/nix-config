@@ -6,8 +6,8 @@
   manifest.categories = [ "User" ];
 
   roles.server.perInstance.nixosModule.imports = [
-    ./common.nix 
-    ./server.nix 
+    ./common.nix
+    ./server.nix
   ];
   roles.desktop.perInstance.nixosModule.imports = [
     ./desktop.nix

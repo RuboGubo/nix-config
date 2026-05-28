@@ -13,31 +13,32 @@
           type = lib.types.str;
           description = "The user to install the secret to.";
         };
-        options.known_hosts = lib.mkOption { # Copied directly from https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/programs/ssh.nix
+        options.known_hosts = lib.mkOption {
+          # Copied directly from https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/programs/ssh.nix
           default = { };
           type = lib.types.attrsOf (
-              lib.types.submodule (
+            lib.types.submodule (
               {
-                  name,
-                  config,
-                  options,
-                  ...
+                name,
+                config,
+                options,
+                ...
               }:
               {
-                  options = {
+                options = {
                   certAuthority = lib.mkOption {
-                      type = lib.types.bool;
-                      default = false;
-                      description = ''
+                    type = lib.types.bool;
+                    default = false;
+                    description = ''
                       This public key is an SSH certificate authority, rather than an
                       individual host's key.
-                      '';
+                    '';
                   };
                   hostNames = lib.mkOption {
-                      type = lib.types.listOf lib.types.str;
-                      default = [ name ] ++ config.extraHostNames;
-                      defaultText = lib.literalExpression "[ ${name} ] ++ config.${options.extraHostNames}";
-                      description = ''
+                    type = lib.types.listOf lib.types.str;
+                    default = [ name ] ++ config.extraHostNames;
+                    defaultText = lib.literalExpression "[ ${name} ] ++ config.${options.extraHostNames}";
+                    description = ''
                       A list of host names and/or IP numbers used for accessing
                       the host's ssh service. This list includes the name of the
                       containing `knownHosts` attribute by default
@@ -45,32 +46,32 @@
                       for the same host use multiple `knownHosts`
                       entries with different attribute names and the same
                       `hostNames` list.
-                      '';
+                    '';
                   };
                   extraHostNames = lib.mkOption {
-                      type = lib.types.listOf lib.types.str;
-                      default = [ ];
-                      description = ''
+                    type = lib.types.listOf lib.types.str;
+                    default = [ ];
+                    description = ''
                       A list of additional host names and/or IP numbers used for
                       accessing the host's ssh service. This list is ignored if
                       `hostNames` is set explicitly.
-                      '';
+                    '';
                   };
                   publicKey = lib.mkOption {
-                      default = null;
-                      type = lib.types.nullOr lib.types.str;
-                      example = "ecdsa-sha2-nistp521 AAAAE2VjZHN...UEPg==";
-                      description = ''
+                    default = null;
+                    type = lib.types.nullOr lib.types.str;
+                    example = "ecdsa-sha2-nistp521 AAAAE2VjZHN...UEPg==";
+                    description = ''
                       The public key data for the host. You can fetch a public key
                       from a running SSH server with the {command}`ssh-keyscan`
                       command. The public key should not include any host names, only
                       the key type and the key itself.
-                      '';
+                    '';
                   };
                   publicKeyFile = lib.mkOption {
-                      default = null;
-                      type = lib.types.nullOr lib.types.path;
-                      description = ''
+                    default = null;
+                    type = lib.types.nullOr lib.types.path;
+                    description = ''
                       The path to the public key file for the host. The public
                       key file is read at build time and saved in the Nix store.
                       You can fetch a public key file from a running SSH server
@@ -79,13 +80,14 @@
                       the `publicKey` option. Only a single key
                       is supported. If a host has multiple keys, use
                       {option}`programs.ssh.knownHostsFiles` instead.
-                      '';
+                    '';
                   };
-              };
-          })
-        );
+                };
+              }
+            )
+          );
+        };
       };
-    };
 
     perInstance =
       {
@@ -105,7 +107,7 @@
           };
       };
   };
-  
+
   roles."ssh-to" = {
     interface =
       { lib, ... }:

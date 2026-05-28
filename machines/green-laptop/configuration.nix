@@ -11,11 +11,12 @@
   networking.useNetworkd = false; # Need this to fix a very random bug.
   boot.loader.systemd-boot.configurationLimit = 2;
 
-  
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16*1024; # 16 GB
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GB
+    }
+  ];
 
   clan.core.settings.state-version.enable = true;
 }
