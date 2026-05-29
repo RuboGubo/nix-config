@@ -53,6 +53,7 @@
       noto-fonts
       nanum
       networkmanager-fortisslvpn
+      resources
 
       # COM1008 tools
       insomnia
