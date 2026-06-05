@@ -1,12 +1,12 @@
 {
-  lib,
   config,
-  nixpkgs,
+  inputs,
   ...
 }:
 {
   imports = [
     ./disko.nix
+    inputs.self.modules.nixos.hardware-stability
   ];
   networking.networkmanager.enable = true;
   networking.useNetworkd = false;
