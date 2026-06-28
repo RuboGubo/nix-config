@@ -58,7 +58,7 @@
             "${./nginx/config/mime.types}:/etc/nginx/mime.types:ro"
             "${./nginx/config/discontinued.conf}:/etc/nginx/discontinued.conf:ro"
             "${./nginx/static_websites}:/static_websites:ro"
-            "${inputs.valentines.packages.${pkgs.stdenv.hostPlatform.system}.default}:/valentines:ro"
+            # "${inputs.valentines.packages.${pkgs.stdenv.hostPlatform.system}.default}:/valentines:ro"
             "${
               inputs.personal-website.packages.${pkgs.stdenv.hostPlatform.system}.rendered
             }:/personal-website:ro"

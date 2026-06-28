@@ -36,11 +36,11 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    valentines = {
-      url = "git+ssh://git@gitlab.com/RuboGubo/valentines.git";
-      # inputs.nixpkgs.follows = "clan-core/nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
+    # valentines = {
+    #   url = "git+ssh://git@gitlab.com/RuboGubo/valentines.git";
+    #   # inputs.nixpkgs.follows = "clan-core/nixpkgs";
+    #   inputs.flake-parts.follows = "flake-parts";
+    # };
   };
 
   outputs =
