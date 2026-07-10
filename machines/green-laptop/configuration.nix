@@ -11,6 +11,9 @@
   networking.useNetworkd = false; # Need this to fix a very random bug.
   boot.loader.systemd-boot.configurationLimit = 2;
 
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+
   swapDevices = [
     {
       device = "/var/lib/swapfile";
