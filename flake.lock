@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783714871,
-        "narHash": "sha256-BFw3T79dwgGPO9us3L6xMPkC4JW1fBAvL51+MBB5PAQ=",
-        "rev": "815e53fe9eb1bd54c7042b786a1270f9fd5baf5b",
+        "lastModified": 1783782317,
+        "narHash": "sha256-1psEHKqZrFgnMXd2WA6bQubrgmzhRq+W/VvHmnUlkN8=",
+        "rev": "54457edaa83f37d4444877d93e3a8debe56e71b4",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/815e53fe9eb1bd54c7042b786a1270f9fd5baf5b.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/54457edaa83f37d4444877d93e3a8debe56e71b4.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783695978,
-        "narHash": "sha256-oebCL8W/Rsavu2c3KQvVl9vyjcwrfgoHw0KlFAk6/eQ=",
-        "rev": "8109f237cb7f28beaa489800c56bbd6a8657a6fb",
+        "lastModified": 1783746373,
+        "narHash": "sha256-TrzU66MJUscgNYSMkPKXI1KgBCuP+375aoQCXCt6ATQ=",
+        "rev": "d6f90c1df55935e5de087b8b560719bb0a06e6f9",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/8109f237cb7f28beaa489800c56bbd6a8657a6fb.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/d6f90c1df55935e5de087b8b560719bb0a06e6f9.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -211,11 +211,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783711151,
-        "narHash": "sha256-232L3Nku2nLch/TQHsJEIhiZJKr+VTehnVUs1NZ0SNc=",
+        "lastModified": 1783800036,
+        "narHash": "sha256-jncDHDD8REkePWvQmfH+ScPHxLL8LN4Hd/KjCdlLgD0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f938277527aa084929261879d50d9832b9eab6d3",
+        "rev": "0992a2948749a61d54065e96df26d75d1b1da50f",
         "type": "github"
       },
       "original": {
@@ -377,11 +377,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1783720325,
-        "narHash": "sha256-pANO4k4dFEGQA64Vk88ik4dKLvd0DV1K4qLDv85elZY=",
+        "lastModified": 1783734848,
+        "narHash": "sha256-nOkCPn3ry1/z7Zil0njTOswd1nQmxpCvo+UJWfMePPU=",
         "ref": "refs/heads/main",
-        "rev": "3d0cdfd2924f9760c9749921362607faa192f158",
-        "revCount": 133,
+        "rev": "1cdf3c77d01a02ac7a668271be4fce8bd4f4d632",
+        "revCount": 134,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
