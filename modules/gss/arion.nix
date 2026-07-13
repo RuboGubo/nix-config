@@ -42,9 +42,11 @@
         #     depends_on = [ "prod-postgres" ];
         #   };
         # };
-        
-         sticks-and-stones = {
-          build.image = lib.mkForce (inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.container);
+
+        sticks-and-stones = {
+          build.image = lib.mkForce (
+            inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.container
+          );
           service = {
             useHostStore = true;
             restart = "unless-stopped";
@@ -84,8 +86,6 @@
             "sticks-and-stones"
           ];
         };
-
-        
 
         certbot.service = lib.mkIf enableCertbot {
           image = "certbot/certbot:latest";

@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783782317,
-        "narHash": "sha256-1psEHKqZrFgnMXd2WA6bQubrgmzhRq+W/VvHmnUlkN8=",
-        "rev": "54457edaa83f37d4444877d93e3a8debe56e71b4",
+        "lastModified": 1783955065,
+        "narHash": "sha256-ZeBsdlg/Pk25WT3INkEbdM8ZDtC5HD6aTbvUwxtbD9g=",
+        "rev": "7d3684e97d206d958a547a7a6320b1c18d19b908",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/54457edaa83f37d4444877d93e3a8debe56e71b4.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/7d3684e97d206d958a547a7a6320b1c18d19b908.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -79,6 +79,21 @@
         "type": "github"
       }
     },
+    "crane_3": {
+      "locked": {
+        "lastModified": 1783203018,
+        "narHash": "sha256-G6R9IT/xwFuu+CYBWDUAok6AdC4ERC4ZfPPFtEpxnZE=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "80db5bdc391be8a1794f6d8a2d56e3a84ebcede2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "data-mesher": {
       "inputs": {
         "flake-parts": [
@@ -95,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783746373,
-        "narHash": "sha256-TrzU66MJUscgNYSMkPKXI1KgBCuP+375aoQCXCt6ATQ=",
-        "rev": "d6f90c1df55935e5de087b8b560719bb0a06e6f9",
+        "lastModified": 1783868715,
+        "narHash": "sha256-dGqsFXkH7WDhp3ZctS2yNCmd1SkCnblvcSownVb2QmU=",
+        "rev": "9394ba6afc2457847c41f47eeb2f526aa8c8d66b",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/d6f90c1df55935e5de087b8b560719bb0a06e6f9.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/9394ba6afc2457847c41f47eeb2f526aa8c8d66b.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -211,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783800036,
-        "narHash": "sha256-jncDHDD8REkePWvQmfH+ScPHxLL8LN4Hd/KjCdlLgD0=",
+        "lastModified": 1783963347,
+        "narHash": "sha256-r376E2XpakiXwModDHIxlvB6qLq4iFVEq730vxOO4JY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0992a2948749a61d54065e96df26d75d1b1da50f",
+        "rev": "a45a7c451455a51ae740ec3bce4024b312809c29",
         "type": "github"
       },
       "original": {
@@ -318,11 +333,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1783522502,
-        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "lastModified": 1783776592,
+        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
         "type": "github"
       },
       "original": {
@@ -377,11 +392,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1783734848,
-        "narHash": "sha256-nOkCPn3ry1/z7Zil0njTOswd1nQmxpCvo+UJWfMePPU=",
+        "lastModified": 1783803105,
+        "narHash": "sha256-T+lmMztTIS3al3a/P9/wc4Xv2gv7/MQLqT9rvWlWpc8=",
         "ref": "refs/heads/main",
-        "rev": "1cdf3c77d01a02ac7a668271be4fce8bd4f4d632",
-        "revCount": 134,
+        "rev": "11f17308f786c0e4b7c03611cf9658e638a07369",
+        "revCount": 135,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
@@ -428,7 +443,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "personal-website": "personal-website",
         "primes": "primes",
-        "treefmt-nix": "treefmt-nix_2"
+        "sticks-and-stones": "sticks-and-stones",
+        "treefmt-nix": "treefmt-nix_3"
       }
     },
     "rust-flake": {
@@ -515,6 +531,27 @@
         "type": "github"
       }
     },
+    "rust-overlay_3": {
+      "inputs": {
+        "nixpkgs": [
+          "sticks-and-stones",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783231873,
+        "narHash": "sha256-cTDI249Vl2JTQ3aicT9jeJPIBlNlodpJbdO0yLigCzU=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "cb368fd55ced25a1fa12414b9e984cdfb1681d18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
     "sops-nix": {
       "inputs": {
         "nixpkgs": [
@@ -534,6 +571,33 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
+      }
+    },
+    "sticks-and-stones": {
+      "inputs": {
+        "crane": "crane_3",
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "clan-core",
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_3",
+        "treefmt-nix": "treefmt-nix_2"
+      },
+      "locked": {
+        "lastModified": 1783983907,
+        "narHash": "sha256-Vth9/NzO99QQQ9Ieoo3YAsgY7+xyTEtcXDyddz8rEOA=",
+        "ref": "refs/heads/main",
+        "rev": "ab9461c58880315f227182e772c5ed6eec5aeb59",
+        "revCount": 88,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
       }
     },
     "systems": {
@@ -589,6 +653,27 @@
       }
     },
     "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "sticks-and-stones",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780220602,
+        "narHash": "sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "db947814a175b7ca6ded66e21383d938df01c227",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_3": {
       "inputs": {
         "nixpkgs": [
           "clan-core",
