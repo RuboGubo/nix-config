@@ -42,6 +42,17 @@
         #     depends_on = [ "prod-postgres" ];
         #   };
         # };
+        
+         sticks-and-stones = {
+          build.image = lib.mkForce (inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.container);
+          service = {
+            useHostStore = true;
+            restart = "unless-stopped";
+            ports = [ "8080:8080" ];
+            env_file = [ vars.secret-env.path ];
+            # depends_on = [ "prod-postgres" ];
+          };
+        };
 
         nginx.service = {
           image = "nginx:latest";
@@ -70,8 +81,11 @@
             # "primes"
             "nextcloud"
             "recipes"
+            "sticks-and-stones"
           ];
         };
+
+        
 
         certbot.service = lib.mkIf enableCertbot {
           image = "certbot/certbot:latest";
@@ -86,7 +100,7 @@
             "-m"
             "admin@greensiren.co.uk"
             "--domains"
-            "greensiren.co.uk,valentines.greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
+            "greensiren.co.uk,sticks-and-stones.greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
           ];
           volumes = [
             "certbot-webroot:/var/www/certbot/:rw"
