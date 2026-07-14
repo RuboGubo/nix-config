@@ -20,6 +20,7 @@
         certbot-cert = { };
         recipes-static = { };
         recipes-media = { };
+        sticks_stones_data = { };
       };
 
       services = {
@@ -44,21 +45,34 @@
         # };
 
         sticks-and-stones = {
-          build.image = lib.mkForce (
-            inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.container
-          );
           service = {
             useHostStore = true;
-            restart = "unless-stopped";
+            restart = "on-failure:5";
             ports = [ "8080:8080" ];
             env_file = [ vars.secret-env.path ];
-            # depends_on = [ "prod-postgres" ];
+
+            working_dir = "${inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin";
+
+            volumes = [
+              "sticks_stones_data:/data"
+            ];
+
+            # 2. Tell your app to create/read the DB in that writable folder
+            environment = {
+              # ?mode=rwc ensures SQLite creates the file if it doesn't exist
+              DATABASE_URL = "sqlite:///data/app.sqlite3?mode=rwc";
+            };
+
+            # Point directly to the binary from the fullstack derivation
+            command = [
+              "${inputs.sticks-and-stones.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/web"
+            ];
           };
         };
 
         nginx.service = {
           image = "nginx:latest";
-          restart = "unless-stopped";
+          restart = "on-failure:5";
           ports = [
             "80:80"
             "443:443"
@@ -111,7 +125,7 @@
 
         prod-postgres.service = {
           image = "postgres:17";
-          restart = "unless-stopped";
+          restart = "on-failure:5";
           ports = [ "5432:5432" ];
           env_file = [ vars.secret-env.path ];
           environment = {
@@ -123,7 +137,7 @@
         };
 
         recipes.service = {
-          restart = "always";
+          restart = "on-failure:5";
           image = "vabene1111/recipes";
           ports = [ "80" ];
           env_file = [ vars.recipes-env.path ];
@@ -138,7 +152,7 @@
 
         nextcloud.service = {
           image = "nextcloud:fpm";
-          restart = "unless-stopped";
+          restart = "on-failure:5";
           volumes = [
             "nextcloud_html:/var/www/html"
           ];
@@ -153,7 +167,7 @@
 
         nextcloud-db.service = {
           image = "mariadb:10.5";
-          restart = "unless-stopped";
+          restart = "on-failure:5";
           volumes = [
             "nextcloud_db:/var/lib/mysql"
           ];

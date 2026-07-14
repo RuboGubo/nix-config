@@ -587,11 +587,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1783983907,
-        "narHash": "sha256-Vth9/NzO99QQQ9Ieoo3YAsgY7+xyTEtcXDyddz8rEOA=",
+        "lastModified": 1784034108,
+        "narHash": "sha256-7HVHn82xyD6GqIImJa5pkJYnk5utV1QT4j1y/75tRIs=",
         "ref": "refs/heads/main",
-        "rev": "ab9461c58880315f227182e772c5ed6eec5aeb59",
-        "revCount": 88,
+        "rev": "c2d0018dc27a04335e4efecf843568e90f01b628",
+        "revCount": 92,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
       },
