@@ -61,6 +61,8 @@
             environment = {
               # ?mode=rwc ensures SQLite creates the file if it doesn't exist
               DATABASE_URL = "sqlite:///data/app.sqlite3?mode=rwc";
+              PORT = "8080";
+              IP = "0.0.0.0";
             };
 
             # Point directly to the binary from the fullstack derivation
@@ -107,6 +109,8 @@
             "certonly"
             "--webroot"
             "--expand"
+            "--cert-name"
+            "greensiren.co.uk"
             "--agree-tos"
             "--non-interactive"
             "-w"

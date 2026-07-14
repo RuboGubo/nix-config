@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783955065,
-        "narHash": "sha256-ZeBsdlg/Pk25WT3INkEbdM8ZDtC5HD6aTbvUwxtbD9g=",
-        "rev": "7d3684e97d206d958a547a7a6320b1c18d19b908",
+        "lastModified": 1784041468,
+        "narHash": "sha256-6Jn606FKOoM0vaH7aY3CxgVU9TFtIQLBDvRPP8DqhHA=",
+        "rev": "5e2acb0c70a64382c6822357cb698b7e39778212",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/7d3684e97d206d958a547a7a6320b1c18d19b908.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/5e2acb0c70a64382c6822357cb698b7e39778212.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783868715,
-        "narHash": "sha256-dGqsFXkH7WDhp3ZctS2yNCmd1SkCnblvcSownVb2QmU=",
-        "rev": "9394ba6afc2457847c41f47eeb2f526aa8c8d66b",
+        "lastModified": 1783973243,
+        "narHash": "sha256-uD1Kuh3YW5OJk5XxlCPgncTrUiVggyaoT+tlObEYBd0=",
+        "rev": "f5ea0a65bc886572266f816590ccbbe80dc8f3fc",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/9394ba6afc2457847c41f47eeb2f526aa8c8d66b.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/f5ea0a65bc886572266f816590ccbbe80dc8f3fc.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -333,11 +333,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1783776592,
-        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
+        "lastModified": 1784007870,
+        "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
+        "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
         "type": "github"
       },
       "original": {
@@ -587,11 +587,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1784034108,
-        "narHash": "sha256-7HVHn82xyD6GqIImJa5pkJYnk5utV1QT4j1y/75tRIs=",
+        "lastModified": 1784066530,
+        "narHash": "sha256-gRvpnTkJOZ6HYrke6C1tJNTPHBa2q3jb/hrNcIDui/M=",
         "ref": "refs/heads/main",
-        "rev": "c2d0018dc27a04335e4efecf843568e90f01b628",
-        "revCount": 92,
+        "rev": "045036c0e4645c3ce5a645acd053c2d0c67eb00b",
+        "revCount": 95,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
       },
