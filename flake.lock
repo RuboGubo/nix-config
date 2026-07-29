@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1785242001,
-        "narHash": "sha256-WDDLQBSGl3A7A8p+1z90m3liVi2P4oxdkqLEgO6UITs=",
-        "rev": "28d40f36dad65307538ef777e45c192076c1198a",
+        "lastModified": 1785269027,
+        "narHash": "sha256-8fXnTOcaRxALWV6hYZkQsHUKdwjp5hZ+5f53FuCtvbg=",
+        "rev": "b93f5fd95b1326fd0649dba8d320172de6ba2c48",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/28d40f36dad65307538ef777e45c192076c1198a.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/b93f5fd95b1326fd0649dba8d320172de6ba2c48.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -226,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785256754,
-        "narHash": "sha256-JtmCLELKd2jBBrLX1miXKW0dkNFZhvV1hEl5qW/830M=",
+        "lastModified": 1785287050,
+        "narHash": "sha256-YRrYEkxFeHzvdkosgaJPEWaPK+zAxOZFty7fthuh9To=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fe6c96269436ba80aa6453714947ce8dccdc7689",
+        "rev": "28942e2165e8555d437979620c7f1eca3f89b684",
         "type": "github"
       },
       "original": {
@@ -587,11 +587,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1785114320,
-        "narHash": "sha256-vds8bxGl4nUXM59cLKAHlwes0VLt/hiL41oSKJYwJBs=",
+        "lastModified": 1785287525,
+        "narHash": "sha256-KXzCyIN4xBTtMy+vnSnenESnLnuUycBXtHJdzNXawdU=",
         "ref": "refs/heads/main",
-        "rev": "85a787fee577b0b433bf4861d3bf3ca092b73611",
-        "revCount": 125,
+        "rev": "30c4db34efe05851da8c9f7639eb7899dfd6b750",
+        "revCount": 128,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
       },
