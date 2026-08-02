@@ -15,7 +15,7 @@
   hardware.graphics.enable32Bit = true;
 
   # Use the Goodix driver module for Dell/Goodix hardware
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
   swapDevices = [
     {
