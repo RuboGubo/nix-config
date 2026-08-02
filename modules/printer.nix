@@ -14,5 +14,5 @@
       ];
     };
     services.ipp-usb.enable = true;
-  }
+  };
 }
