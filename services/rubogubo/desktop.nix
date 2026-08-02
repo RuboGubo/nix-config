@@ -5,6 +5,7 @@
     ./gnome.nix
     ./flatpak.nix
     inputs.self.modules.nixos.printer
+    inputs.self.modules.nixos.fingerprint
     # inputs.self.modules.nixos.gss
   ];
 
