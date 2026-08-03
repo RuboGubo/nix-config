@@ -74,6 +74,17 @@ Load it from a flake-parts module:
 }
 ```
 
+Or import a complete tree, including any aggregated `flakeParts.nix` modules:
+
+```nix
+imports = [
+  inputs.aspects.flakeModules.default
+  (inputs.aspects.lib.mkTree ./aspect-modules)
+];
+```
+
+This is the intended replacement for a generic recursive import utility.
+
 A directory's `mod.nix` is merged with its discovered children and typed module
 files. It can be a plain attribute set or a function receiving `children` and
 `path`:

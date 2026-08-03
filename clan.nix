@@ -7,7 +7,7 @@
   clan = {
     inherit self;
     specialArgs = {
-      inherit inputs;
+      inherit inputs self;
     };
     # Ensure this is unique among all clans you want to use.
     meta.name = "GreenSiren";

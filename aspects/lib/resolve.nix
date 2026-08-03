@@ -31,7 +31,7 @@ let
           );
 
           includedNames =
-            if node._include == null then
+            if (node._include or null) == null then
               childNames
             else
               builtins.filter (
@@ -42,16 +42,18 @@ let
                   throw "aspects: ${lib.concatStringsSep "." path} includes missing child '${name}'"
               ) node._include;
 
-          selectedNames = builtins.filter (name: !(builtins.elem name node._exclude)) includedNames;
+          selectedNames = builtins.filter (
+            name: !(builtins.elem name (node._exclude or [ ]))
+          ) includedNames;
 
           importsFor =
             moduleType:
-            lib.optionals node._aggregate (
+            lib.optionals (node._aggregate or true) (
               map (name: children.${name}.${moduleType}) (
                 builtins.filter (name: children.${name} ? ${moduleType}) selectedNames
               )
             )
-            ++ lib.optional (node.${moduleType} != null) node.${moduleType};
+            ++ lib.optional ((node.${moduleType} or null) != null) node.${moduleType};
 
           resolvedModules = builtins.listToAttrs (
             builtins.concatMap (

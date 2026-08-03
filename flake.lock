@@ -23,6 +23,26 @@
         "type": "github"
       }
     },
+    "aspects": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs-lib": [
+          "clan-core",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./aspects",
+        "type": "path"
+      },
+      "original": {
+        "path": "./aspects",
+        "type": "path"
+      },
+      "parent": []
+    },
     "clan-core": {
       "inputs": {
         "data-mesher": "data-mesher",
@@ -431,6 +451,7 @@
     "root": {
       "inputs": {
         "arion": "arion",
+        "aspects": "aspects",
         "clan-core": "clan-core",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",

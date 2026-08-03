@@ -12,6 +12,12 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    aspects = {
+      url = "path:./aspects";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs-lib.follows = "clan-core/nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
@@ -53,6 +59,8 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        inputs.aspects.flakeModules.default
+        (inputs.aspects.lib.mkTree ./aspect-modules)
         ./clan.nix
         ./devshells.nix
         (inputs.import-tree ./modules)
