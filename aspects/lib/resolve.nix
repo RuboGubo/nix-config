@@ -2,7 +2,7 @@
 let
   moduleTypes = [
     "nixos"
-    "homeManager"
+    "home"
     "darwin"
     "flakeParts"
   ];

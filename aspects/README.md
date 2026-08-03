@@ -25,7 +25,7 @@ An ordinary flake-parts module can define an aspect at any depth:
 {
   aspects.steam = {
     nixos = { programs.steam.enable = true; };
-    homeManager = { home.sessionVariables.STEAM_FRAME_FORCE_CLOSE = "1"; };
+    home = { home.sessionVariables.STEAM_FRAME_FORCE_CLOSE = "1"; };
   };
 
   aspects.rubogubo.desktop.steam.nixos =
@@ -56,13 +56,13 @@ through `specialArgs` when an import references `self.aspects`.
 modules/
 ├── steam/
 │   ├── nixos.nix
-│   └── homeManager.nix
+│   └── home.nix
 └── rubogubo/
     └── desktop/
         ├── mod.nix
         └── steam/
             ├── nixos.nix
-            └── homeManager.nix
+            └── home.nix
 ```
 
 Load it from a flake-parts module:

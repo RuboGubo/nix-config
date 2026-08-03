@@ -1,11 +1,12 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./common.nix
-    ./gnome.nix
-    ./flatpak.nix
-    inputs.self.modules.nixos.printer
-    inputs.self.modules.nixos.fingerprint
+    inputs.self.aspects.rubogubo.common.nixos
+    inputs.self.aspects.rubogubo.gnome.nixos
+    inputs.self.aspects.rubogubo.flatpak.nixos
+    inputs.self.aspects.rubogubo.podman.nixos
+    inputs.self.aspects.hardware.printer.nixos
+    inputs.self.aspects.hardware.fingerprint.nixos
     # inputs.self.modules.nixos.gss
   ];
 
@@ -18,9 +19,9 @@
 
   home-manager.users."rubogubo" = {
     imports = [
-      ./home/accounts.nix
-      inputs.self.modules.homeManager.uni_vpn
-      inputs.self.modules.homeManager.rubogubo-desktop
+      inputs.self.aspects.rubogubo.accounts.home
+      inputs.self.aspects.vpn.uni.home
+      inputs.self.aspects.rubogubo.profile.home
     ];
 
     home.username = "rubogubo";
@@ -120,12 +121,12 @@
     };
 
     home.file."/home/rubogubo/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml" = {
-      source = ./vscode_sync_repo.yml;
+      source = ./_assets/vscode_sync_repo.yml;
       force = true;
     };
     home.file."/home/rubogubo/.config/VSCodium/User/globalStorage/zokugun.sync-settings/settings.yml" =
       {
-        source = ./vscode_sync_repo.yml;
+        source = ./_assets/vscode_sync_repo.yml;
         force = true;
       };
 

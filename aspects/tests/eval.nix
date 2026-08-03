@@ -81,11 +81,11 @@ let
   typedModulesEvaluation = lib.evalModules {
     modules = [
       result.aspects.types.nixos
-      result.aspects.types.homeManager
+      result.aspects.types.home
       result.aspects.types.darwin
       {
         options.test.nixosType = lib.mkEnableOption "NixOS endpoint";
-        options.test.homeManagerType = lib.mkEnableOption "Home Manager endpoint";
+        options.test.homeType = lib.mkEnableOption "Home Manager endpoint";
         options.test.darwinType = lib.mkEnableOption "darwin endpoint";
       }
     ];
@@ -146,7 +146,7 @@ assert !controlsEvaluation.config.test.aggregateChild;
 assert functionModEvaluation.config.test.functionMod;
 assert functionModEvaluation.config.test.functionModChild;
 assert typedModulesEvaluation.config.test.nixosType;
-assert typedModulesEvaluation.config.test.homeManagerType;
+assert typedModulesEvaluation.config.test.homeType;
 assert typedModulesEvaluation.config.test.darwinType;
 assert typedFlakePartsResult.testFlakePartsType;
 assert explicitEvaluation.config.test.explicitDefinition;

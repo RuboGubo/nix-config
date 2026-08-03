@@ -45,7 +45,7 @@ in
   home-manager.users."rubogubo" = {
     imports = [
       inputs.self.modules.homeManager.zsh
-      inputs.self.modules.homeManager.devenv
+      inputs.self.aspects.rubogubo.devenv.home
     ];
     home.stateVersion = "25.11";
 

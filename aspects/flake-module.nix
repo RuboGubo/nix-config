@@ -17,7 +17,7 @@ let
         description = "NixOS module owned by this aspect.";
       };
 
-      homeManager = mkOption {
+      home = mkOption {
         type = types.nullOr types.deferredModule;
         default = null;
         description = "Home Manager module owned by this aspect.";

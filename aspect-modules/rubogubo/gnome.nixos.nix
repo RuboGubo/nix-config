@@ -1,8 +1,24 @@
 { pkgs, ... }:
+let
+  profilePicture = ../../services/rubogubo/RuboGubo.png;
+  accountsServiceUser = pkgs.writeText "accountsservice-rubogubo" ''
+    [User]
+    Icon=/var/lib/AccountsService/icons/rubogubo
+    SystemAccount=false
+  '';
+in
 {
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
+
+  # GNOME and GDM obtain account pictures from AccountsService. Keep both the
+  # image and its account record declarative while leaving the home directory
+  # untouched.
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/AccountsService/icons/rubogubo - - - - ${profilePicture}"
+    "L+ /var/lib/AccountsService/users/rubogubo - - - - ${accountsServiceUser}"
+  ];
 
   home-manager.users."rubogubo" =
     { lib, ... }:
