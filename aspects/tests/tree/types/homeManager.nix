@@ -1,0 +1,3 @@
+{
+  test.homeManagerType = true;
+}

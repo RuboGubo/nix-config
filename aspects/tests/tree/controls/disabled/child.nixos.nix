@@ -1,0 +1,3 @@
+{
+  test.aggregateChild = true;
+}

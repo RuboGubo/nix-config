@@ -100,6 +100,10 @@ files. It can be a plain attribute set or a function receiving `children` and
 }
 ```
 
+`children` contains children discovered from both directories and dotted files.
+`path` is the logical namespace path, including expansion of dotted directory
+names.
+
 - `_include` is an allowlist of immediate children to aggregate.
 - `_exclude` removes immediate children from aggregation.
 - `_aggregate = false` disables child aggregation at that namespace.
@@ -125,9 +129,3 @@ rubogubo.desktop/steam.nixos.nix
 This defines `aspects.rubogubo.desktop.steam.nixos`. Empty components,
 underscore-prefixed components, and module-type names used as namespace
 components are rejected so path interpretation stays unambiguous.
-
-## Testing
-
-`tests/eval.nix` exercises directory discovery, `mod.nix`, arbitrary namespace
-nesting, parent aggregation, ordinary imports through `self.aspects`, equivalent
-folder/file forms, and merging both forms into the same namespace.

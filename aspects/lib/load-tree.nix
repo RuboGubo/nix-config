@@ -86,6 +86,8 @@ let
           result
       ) { } entries;
 
+      discovered = mergeNode children fileModules;
+
       modPath = directory + "/mod.nix";
       modValue =
         if builtins.pathExists modPath then
@@ -94,7 +96,7 @@ let
           in
           if builtins.isFunction imported then
             imported {
-              inherit children;
+              children = discovered;
               path = pathParts;
             }
           else
@@ -102,6 +104,6 @@ let
         else
           { };
     in
-    mergeNode (mergeNode children fileModules) modValue;
+    mergeNode discovered modValue;
 in
 root: loadDirectory [ ] root

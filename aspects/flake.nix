@@ -13,5 +13,11 @@
     {
       lib = import ./lib { lib = nixpkgs-lib.lib; };
       flakeModules.default = import ./flake-module.nix { aspectsLib = self.lib; };
+
+      tests = builtins.deepSeq (import ./tests/eval.nix {
+        aspectsLib = self.lib;
+        inherit flake-parts;
+        lib = nixpkgs-lib.lib;
+      }) true;
     };
 }
