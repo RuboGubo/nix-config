@@ -105,7 +105,29 @@ files. It can be a plain attribute set or a function receiving `children` and
 - `_aggregate = false` disables child aggregation at that namespace.
 - Directories and files prefixed with `_` are ignored by discovery.
 
+### Dotted path shorthand
+
+Dots in discovered file and directory names are namespace separators. These
+layouts are equivalent:
+
+```text
+common/nixos.nix
+common.nixos.nix
+```
+
+Likewise, `rubogubo.desktop/` is loaded as `aspects.rubogubo.desktop`.
+Shorthands can be combined:
+
+```text
+rubogubo.desktop/steam.nixos.nix
+```
+
+This defines `aspects.rubogubo.desktop.steam.nixos`. Empty components,
+underscore-prefixed components, and module-type names used as namespace
+components are rejected so path interpretation stays unambiguous.
+
 ## Testing
 
 `tests/eval.nix` exercises directory discovery, `mod.nix`, arbitrary namespace
-nesting, parent aggregation, and ordinary imports through `self.aspects`.
+nesting, parent aggregation, ordinary imports through `self.aspects`, equivalent
+folder/file forms, and merging both forms into the same namespace.

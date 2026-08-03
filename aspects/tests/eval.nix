@@ -11,7 +11,7 @@ let
     aspects = rawTree;
   };
 
-  evaluated = lib.evalModules {
+  steamEvaluation = lib.evalModules {
     specialArgs = { self = result; };
     modules = [
       result.aspects.rubogubo.desktop.nixos
@@ -21,9 +21,27 @@ let
       }
     ];
   };
+
+  formsEvaluation = lib.evalModules {
+    modules = [
+      result.aspects.forms.folder.common.nixos
+      result.aspects.forms.file.common.nixos
+      result.aspects.forms.merged.common.nixos
+      {
+        options.test.folderForm = lib.mkEnableOption "directory/module-type file form";
+        options.test.fileForm = lib.mkEnableOption "dotted module-type file form";
+        options.test.mergedFolderForm = lib.mkEnableOption "merged directory form";
+        options.test.mergedFileForm = lib.mkEnableOption "merged dotted file form";
+      }
+    ];
+  };
 in
-assert evaluated.config.test.genericSteam;
-assert evaluated.config.test.customSteam;
+assert steamEvaluation.config.test.genericSteam;
+assert steamEvaluation.config.test.customSteam;
+assert formsEvaluation.config.test.folderForm;
+assert formsEvaluation.config.test.fileForm;
+assert formsEvaluation.config.test.mergedFolderForm;
+assert formsEvaluation.config.test.mergedFileForm;
 {
   inherit rawTree;
   resolvedTree = result.aspects;

@@ -7,13 +7,6 @@ let
     "flakeParts"
   ];
 
-  moduleFileNames = builtins.listToAttrs (
-    map (moduleType: {
-      name = "${moduleType}.nix";
-      value = moduleType;
-    }) moduleTypes
-  );
-
   mergeModule = left: right: {
     imports = [
       left
@@ -37,29 +30,61 @@ let
       }
     ) left right;
 
+  parseNamespace = source: name:
+    let
+      parts = lib.splitString "." name;
+      invalidPart = builtins.any (
+        part: part == "" || builtins.elem part moduleTypes || lib.hasPrefix "_" part
+      ) parts;
+    in
+    if invalidPart then
+      throw "aspects: invalid dotted namespace '${name}' at ${toString source}"
+    else
+      parts;
+
+  insertAtPath = tree: path: value: mergeNode tree (lib.setAttrByPath path value);
+
   loadDirectory =
     pathParts: directory:
     let
       entries = builtins.readDir directory;
 
-      childDirectories = lib.filterAttrs (
-        name: type: type == "directory" && !(lib.hasPrefix "_" name)
-      ) entries;
-
-      children = lib.mapAttrs (
-        name: _: loadDirectory (pathParts ++ [ name ]) (directory + "/${name}")
-      ) childDirectories;
-
-      fileModules = lib.foldlAttrs (
-        result: fileName: moduleType:
-        let
-          path = directory + "/${fileName}";
-        in
-        if entries ? ${fileName} && entries.${fileName} == "regular" then
-          result // { ${moduleType} = import path; }
+      children = lib.foldlAttrs (
+        result: name: type:
+        if type == "directory" && !(lib.hasPrefix "_" name) then
+          let
+            namespace = parseNamespace directory name;
+            child = loadDirectory (pathParts ++ namespace) (directory + "/${name}");
+          in
+          insertAtPath result namespace child
         else
           result
-      ) { } moduleFileNames;
+      ) { } entries;
+
+      fileModules = lib.foldlAttrs (
+        result: fileName: type:
+        let
+          isCandidate =
+            type == "regular"
+            && fileName != "mod.nix"
+            && !(lib.hasPrefix "_" fileName)
+            && lib.hasSuffix ".nix" fileName;
+          stem = lib.removeSuffix ".nix" fileName;
+          parts = lib.splitString "." stem;
+          moduleType = if parts == [ ] then null else lib.last parts;
+          namespace = if parts == [ ] then [ ] else lib.init parts;
+          validNamespace = !(builtins.any (
+            part: part == "" || builtins.elem part moduleTypes || lib.hasPrefix "_" part
+          ) namespace);
+        in
+        if isCandidate && builtins.elem moduleType moduleTypes then
+          if validNamespace then
+            insertAtPath result (namespace ++ [ moduleType ]) (import (directory + "/${fileName}"))
+          else
+            throw "aspects: invalid dotted module path '${fileName}' at ${toString directory}"
+        else
+          result
+      ) { } entries;
 
       modPath = directory + "/mod.nix";
       modValue =
