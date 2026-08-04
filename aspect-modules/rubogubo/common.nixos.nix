@@ -45,7 +45,7 @@ in
   home-manager.extraSpecialArgs = { inherit pkgs-unstable inputs; };
   home-manager.users."rubogubo" = {
     imports = [
-      inputs.self.modules.homeManager.zsh
+      aspects.shell.zsh.home
       aspects.rubogubo.devenv.home
     ];
     home.stateVersion = "25.11";

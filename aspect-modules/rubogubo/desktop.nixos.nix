@@ -7,7 +7,6 @@
     aspects.rubogubo.podman.nixos
     aspects.hardware.printer.nixos
     aspects.hardware.fingerprint.nixos
-    # inputs.self.modules.nixos.gss
   ];
 
   fonts.packages = [

@@ -40,18 +40,6 @@
       instances = {
         # Actual useful stuff
 
-        green_siren_services = {
-          module = {
-            name = "green_siren_services";
-            input = "self";
-          };
-
-          roles.default.tags."gss" = { };
-          roles.default.extraModules = [
-            inputs.home-manager.nixosModules.home-manager
-          ];
-        };
-
         # Server Admin
         tor = {
           roles.server.tags."all" = { };

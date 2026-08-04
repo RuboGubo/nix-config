@@ -63,7 +63,6 @@
         (inputs.aspects.lib.mkTree ./aspect-modules)
         ./clan.nix
         ./devshells.nix
-        (inputs.import-tree ./modules)
         inputs.flake-parts.flakeModules.modules
         inputs.treefmt-nix.flakeModule
       ];
