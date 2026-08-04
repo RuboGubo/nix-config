@@ -129,9 +129,8 @@
         force = true;
       };
 
-    programs.vscode = {
+    programs.vscodium = {
       enable = true;
-      package = pkgs.vscodium;
       profiles.default.userTasks = {
         version = "2.0.0";
         tasks = [
