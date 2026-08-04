@@ -18,7 +18,6 @@
         libreoffice-qt
         hunspell
         hunspellDicts.en_GB-ise
-        blackbox-terminal
         steam
         nanum
         resources

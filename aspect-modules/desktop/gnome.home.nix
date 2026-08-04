@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    blackbox-terminal
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.night-theme-switcher
@@ -22,7 +23,7 @@
       ];
       favorite-apps = [
         "firefox.desktop"
-        "org.gnome.Console.desktop"
+        "com.raggesilver.BlackBox.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
         "org.gnome.Geary.desktop"

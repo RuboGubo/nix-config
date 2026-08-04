@@ -45,7 +45,6 @@
       hunspell
       hunspellDicts.en_GB-ise
       nfs-utils
-      blackbox-terminal
       nixd
       podman-compose
       steam
