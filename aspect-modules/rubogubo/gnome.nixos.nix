@@ -44,9 +44,9 @@
         "org/gnome/shell/extensions/system-monitor".show-swap = true;
         # set wallpapers
         "org/gnome/desktop/background" = {
-          picture-uri = "${../../modules/background/light/us.jpg}";
+          picture-uri = "${../../background/light/us.jpg}";
           # picture-uri-dark = toString ./background/dark/Firefox_wallpaper.png;
-          picture-uri-dark = "${../../modules/background/dark/Starchitect.jpg}";
+          picture-uri-dark = "${../../background/dark/Starchitect.jpg}";
         };
         "org/gnome/desktop/interface".accent-color = "green";
         "org/gnome/shell/extensions/nightthemeswitcher/time" = {
