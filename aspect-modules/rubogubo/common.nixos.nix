@@ -67,6 +67,8 @@ in
       yq
       home-manager
 
+      codex
+
       cachix
 
       # Command Line
