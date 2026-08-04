@@ -63,6 +63,17 @@
             share = true;
           };
         };
+        hanseo-password = {
+          module = {
+            name = "users";
+            input = "clan-core";
+          };
+          roles.default.tags."desktop" = { };
+          roles.default.settings = {
+            user = "hanseo";
+            share = true;
+          };
+        };
         root-password = {
           module = {
             name = "users";

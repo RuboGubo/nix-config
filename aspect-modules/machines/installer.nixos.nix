@@ -4,8 +4,8 @@
   # explicit endpoint gives it the same composition boundary as deployed
   # machines and a place for future installer-specific aspects.
   imports = [
+    aspects.ssh.nixos
     aspects.rubogubo.ssh.nixos
-    aspects.ssh.known-hosts.nixos
   ];
 
   # The NixOS installer profile defaults to passwordless root access. This
