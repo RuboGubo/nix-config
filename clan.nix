@@ -64,22 +64,6 @@
           roles.server.tags."all" = { };
           roles.client.tags."all" = { };
         };
-        rubogubo = {
-          module = {
-            name = "rubogubo";
-            input = "self";
-          };
-
-          roles.server.tags."server" = { };
-          roles.server.extraModules = [
-            inputs.home-manager.nixosModules.home-manager
-          ];
-          roles.desktop.tags."desktop" = { };
-          roles.desktop.extraModules = [
-            inputs.home-manager.nixosModules.home-manager
-            inputs.nix-flatpak.nixosModules.nix-flatpak
-          ];
-        };
         rubogubo-password = {
           module = {
             name = "users";
@@ -112,15 +96,6 @@
             user = "gss";
             share = true;
           };
-        };
-        local = {
-          module = {
-            name = "local";
-            input = "self";
-          };
-
-          roles.server.tags."server" = { };
-          roles.desktop.tags."desktop" = { };
         };
         wifi = {
           module = {

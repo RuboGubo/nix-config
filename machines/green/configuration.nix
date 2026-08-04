@@ -7,6 +7,7 @@
   imports = [
     ./disko.nix
     inputs.self.modules.nixos.hardware-stability
+    inputs.self.aspects.machines.green.nixos
   ];
   networking.networkmanager.enable = true;
   networking.useNetworkd = false;

@@ -8,6 +8,7 @@
   imports = [
     ./disko.nix
     clan-core.nixosModules.installer
+    inputs.self.aspects.machines.installer.nixos
   ];
 
   clan.core.deployment.requireExplicitUpdate = true;
