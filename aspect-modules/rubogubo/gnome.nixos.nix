@@ -12,7 +12,7 @@
       dconf.settings."org/gnome/shell".favorite-apps = lib.mkForce [
         "firefox.desktop"
         "app.zen_browser.zen.desktop"
-        "org.gnome.Console.desktop"
+        "com.raggesilver.BlackBox.desktop"
         "dev.zed.Zed.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
