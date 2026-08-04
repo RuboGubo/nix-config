@@ -1,6 +1,6 @@
-{ self, pkgs, ... }:
+{ aspects, pkgs, ... }:
 {
-  imports = [ self.aspects.local.common.nixos ];
+  imports = [ aspects.local.common.nixos ];
 
   i18n.inputMethod = {
     enable = true;

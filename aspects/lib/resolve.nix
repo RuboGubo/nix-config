@@ -16,6 +16,20 @@ let
   resolve =
     tree:
     let
+      # Apply the resolved tree directly to function-valued modules. Using
+      # `_module.args` here would be too late: the module system resolves a
+      # function's `imports` before evaluating `_module.args` from config.
+      withAspects =
+        module:
+        if builtins.isFunction module then
+          lib.setFunctionArgs
+            (args: module (args // { aspects = resolved; }))
+            (builtins.removeAttrs (builtins.functionArgs module) [ "aspects" ])
+        else if builtins.isAttrs module && module ? imports then
+          module // { imports = map withAspects module.imports; }
+        else
+          module;
+
       resolveNode =
         path: node:
         let
@@ -42,9 +56,7 @@ let
                   throw "aspects: ${lib.concatStringsSep "." path} includes missing child '${name}'"
               ) node._include;
 
-          selectedNames = builtins.filter (
-            name: !(builtins.elem name (node._exclude or [ ]))
-          ) includedNames;
+          selectedNames = builtins.filter (name: !(builtins.elem name (node._exclude or [ ]))) includedNames;
 
           importsFor =
             moduleType:
@@ -63,13 +75,14 @@ let
               in
               lib.optional (imports != [ ]) {
                 name = moduleType;
-                value = { inherit imports; };
+                value.imports = map withAspects imports;
               }
             ) moduleTypes
           );
         in
         children // resolvedModules;
+      resolved = resolveNode [ ] tree;
     in
-    resolveNode [ ] tree;
+    resolved;
 in
 resolve

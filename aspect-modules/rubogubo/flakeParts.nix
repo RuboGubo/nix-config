@@ -1,4 +1,4 @@
-{ self, ... }:
+{ aspects, ... }:
 {
   clan.modules.rubogubo = {
     _class = "clan.service";
@@ -7,11 +7,11 @@
     manifest.categories = [ "User" ];
 
     roles.server.perInstance.nixosModule = {
-      imports = [ self.aspects.rubogubo.server.nixos ];
+      imports = [ aspects.rubogubo.server.nixos ];
     };
 
     roles.desktop.perInstance.nixosModule = {
-      imports = [ self.aspects.rubogubo.desktop.nixos ];
+      imports = [ aspects.rubogubo.desktop.nixos ];
     };
   };
 }

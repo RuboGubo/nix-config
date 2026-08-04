@@ -1,4 +1,4 @@
-{ self, ... }:
+{ aspects, ... }:
 {
   clan.modules.local = {
     _class = "clan.service";
@@ -7,11 +7,11 @@
     manifest.categories = [ "User" ];
 
     roles.server.perInstance.nixosModule = {
-      imports = [ self.aspects.local.common.nixos ];
+      imports = [ aspects.local.common.nixos ];
     };
 
     roles.desktop.perInstance.nixosModule = {
-      imports = [ self.aspects.local.desktop.nixos ];
+      imports = [ aspects.local.desktop.nixos ];
     };
   };
 }

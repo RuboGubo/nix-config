@@ -30,7 +30,8 @@ let
       }
     ) left right;
 
-  parseNamespace = source: name:
+  parseNamespace =
+    source: name:
     let
       parts = lib.splitString "." name;
       invalidPart = builtins.any (
@@ -42,7 +43,9 @@ let
     else
       parts;
 
-  insertAtPath = tree: path: value: mergeNode tree (lib.setAttrByPath path value);
+  insertAtPath =
+    tree: path: value:
+    mergeNode tree (lib.setAttrByPath path value);
 
   loadDirectory =
     pathParts: directory:
@@ -73,9 +76,10 @@ let
           parts = lib.splitString "." stem;
           moduleType = if parts == [ ] then null else lib.last parts;
           namespace = if parts == [ ] then [ ] else lib.init parts;
-          validNamespace = !(builtins.any (
-            part: part == "" || builtins.elem part moduleTypes || lib.hasPrefix "_" part
-          ) namespace);
+          validNamespace =
+            !(builtins.any (
+              part: part == "" || builtins.elem part moduleTypes || lib.hasPrefix "_" part
+            ) namespace);
         in
         if isCandidate && builtins.elem moduleType moduleTypes then
           if validNamespace then

@@ -1,6 +1,6 @@
-{ self, ... }:
+{ aspects, ... }:
 {
-  imports = [ self.aspects.steam.nixos ];
+  imports = [ aspects.steam.nixos ];
 
   test.customSteam = true;
 }

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs,
+  aspects,
   ...
 }:
 let
@@ -45,7 +46,7 @@ in
   home-manager.users."rubogubo" = {
     imports = [
       inputs.self.modules.homeManager.zsh
-      inputs.self.aspects.rubogubo.devenv.home
+      aspects.rubogubo.devenv.home
     ];
     home.stateVersion = "25.11";
 

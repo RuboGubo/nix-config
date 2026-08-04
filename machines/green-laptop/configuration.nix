@@ -1,8 +1,8 @@
-{ inputs, pkgs, ... }:
+{ aspects, pkgs, ... }:
 {
   imports = [
     ./disko.nix
-    inputs.self.aspects.machines."green-laptop".nixos
+    aspects.machines."green-laptop".nixos
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -29,9 +29,9 @@ An ordinary flake-parts module can define an aspect at any depth:
   };
 
   aspects.rubogubo.desktop.steam.nixos =
-    { self, ... }:
+    { aspects, ... }:
     {
-      imports = [ self.aspects.steam.nixos ];
+      imports = [ aspects.steam.nixos ];
       programs.steam.remotePlay.openFirewall = true;
     };
 }
@@ -47,8 +47,11 @@ Every namespace aggregates matching modules from its immediate children. Thus
 `inputs.self.aspects.rubogubo.desktop.nixos` also includes the Steam module.
 Use `_include`, `_exclude`, or `_aggregate = false` to control aggregation.
 Modules reuse other modules through ordinary Nix `imports`; `aspects` provides
-no separate inheritance mechanism. The module evaluator must receive `self`
-through `specialArgs` when an import references `self.aspects`.
+no separate inheritance mechanism. Every resolved endpoint injects the complete
+tree as the `aspects` module argument, so aspect modules can import one another
+without receiving `self` through `specialArgs`. The initial module that enters
+the aspect tree still uses the flake output, or can receive
+`aspects = self.aspects` through its evaluator's `specialArgs`.
 
 ## Directory loader
 

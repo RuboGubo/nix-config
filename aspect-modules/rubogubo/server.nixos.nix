@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ inputs, aspects, ... }:
 {
-  imports = [ inputs.self.aspects.rubogubo.common.nixos ];
+  imports = [ aspects.rubogubo.common.nixos ];
 
   home-manager.users."rubogubo".imports = [
     inputs.self.modules.homeManager.gss

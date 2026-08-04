@@ -15,9 +15,9 @@ let
   };
 
   # Covers arbitrary namespace nesting, parent aggregation, and composition
-  # through an ordinary `imports = [ self.aspects.steam.nixos ];` declaration.
+  # through an ordinary `imports = [ aspects.steam.nixos ];` declaration. Each
+  # endpoint injects the resolved tree, so no `self` specialArg is required.
   steamEvaluation = lib.evalModules {
-    specialArgs = { self = result; };
     modules = [
       result.aspects.rubogubo.desktop.nixos
       {

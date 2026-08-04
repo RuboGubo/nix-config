@@ -1,12 +1,12 @@
-{ pkgs, inputs, ... }:
+{ pkgs, aspects, ... }:
 {
   imports = [
-    inputs.self.aspects.rubogubo.common.nixos
-    inputs.self.aspects.rubogubo.gnome.nixos
-    inputs.self.aspects.rubogubo.flatpak.nixos
-    inputs.self.aspects.rubogubo.podman.nixos
-    inputs.self.aspects.hardware.printer.nixos
-    inputs.self.aspects.hardware.fingerprint.nixos
+    aspects.rubogubo.common.nixos
+    aspects.rubogubo.gnome.nixos
+    aspects.rubogubo.flatpak.nixos
+    aspects.rubogubo.podman.nixos
+    aspects.hardware.printer.nixos
+    aspects.hardware.fingerprint.nixos
     # inputs.self.modules.nixos.gss
   ];
 
@@ -19,9 +19,9 @@
 
   home-manager.users."rubogubo" = {
     imports = [
-      inputs.self.aspects.rubogubo.accounts.home
-      inputs.self.aspects.vpn.uni.home
-      inputs.self.aspects.rubogubo.profile.home
+      aspects.rubogubo.accounts.home
+      aspects.vpn.uni.home
+      aspects.rubogubo.profile.home
     ];
 
     home.username = "rubogubo";

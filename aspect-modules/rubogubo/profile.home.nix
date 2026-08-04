@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ aspects, ... }:
 {
-  imports = [ inputs.self.aspects.rubogubo.documents.home ];
+  imports = [ aspects.rubogubo.documents.home ];
 }

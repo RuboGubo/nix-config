@@ -1,13 +1,14 @@
 {
   config,
   inputs,
+  aspects,
   ...
 }:
 {
   imports = [
     ./disko.nix
     inputs.self.modules.nixos.hardware-stability
-    inputs.self.aspects.machines.green.nixos
+    aspects.machines.green.nixos
   ];
   networking.networkmanager.enable = true;
   networking.useNetworkd = false;
