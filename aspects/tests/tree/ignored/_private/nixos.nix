@@ -1,3 +1,0 @@
-{
-  test.ignoredDirectory = false;
-}

@@ -13,7 +13,7 @@
     import-tree.url = "github:vic/import-tree";
 
     aspects = {
-      url = "path:./aspects";
+      url = "gitlab:rubogubo/aspects";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs-lib.follows = "clan-core/nixpkgs";
     };

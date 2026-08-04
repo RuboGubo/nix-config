@@ -1,3 +1,0 @@
-{
-  test.homeType = true;
-}

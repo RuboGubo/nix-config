@@ -34,14 +34,18 @@
         ]
       },
       "locked": {
-        "path": "./aspects",
-        "type": "path"
+        "lastModified": 1785852171,
+        "narHash": "sha256-UEMh5NP7Ps9V41fQMsHjaidBd5rkSXsYs1CVTIM1dh0=",
+        "owner": "rubogubo",
+        "repo": "aspects",
+        "rev": "77392d1efe58bc4a6a2aaf907a89c7a7c5cf587f",
+        "type": "gitlab"
       },
       "original": {
-        "path": "./aspects",
-        "type": "path"
-      },
-      "parent": []
+        "owner": "rubogubo",
+        "repo": "aspects",
+        "type": "gitlab"
+      }
     },
     "clan-core": {
       "inputs": {

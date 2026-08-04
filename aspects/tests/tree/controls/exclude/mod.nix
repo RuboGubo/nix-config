@@ -1,3 +1,0 @@
-{
-  _exclude = [ "excluded" ];
-}

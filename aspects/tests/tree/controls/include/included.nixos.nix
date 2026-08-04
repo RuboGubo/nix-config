@@ -1,3 +1,0 @@
-{
-  test.included = true;
-}

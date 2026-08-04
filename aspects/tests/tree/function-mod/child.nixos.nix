@@ -1,3 +1,0 @@
-{
-  test.functionModChild = true;
-}
