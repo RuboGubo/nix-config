@@ -12,6 +12,8 @@ let
   };
 in
 {
+  imports = [ aspects.rubogubo.ssh.nixos ];
+
   users.users.rubogubo = {
     description = "RuboGubo";
     isNormalUser = lib.mkForce true;
