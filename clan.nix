@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.clan-core.flakeModules.default
-    ./services/flake-module.nix
   ];
   clan = {
     inherit self;

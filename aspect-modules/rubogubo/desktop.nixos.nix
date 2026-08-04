@@ -5,6 +5,8 @@
     aspects.rubogubo.gnome.nixos
     aspects.rubogubo.flatpak.nixos
     aspects.rubogubo.podman.nixos
+    aspects.rubogubo.ssh.nixos
+    
     aspects.hardware.printer.nixos
     aspects.hardware.fingerprint.nixos
   ];

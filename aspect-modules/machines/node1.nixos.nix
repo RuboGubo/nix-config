@@ -5,7 +5,6 @@
     aspects.local.common.nixos
     aspects.rubogubo.server.nixos
     aspects.gss.server.nixos
-    aspects.rubogubo.ssh.nixos
     aspects.ssh.known-hosts.nixos
   ];
 }
