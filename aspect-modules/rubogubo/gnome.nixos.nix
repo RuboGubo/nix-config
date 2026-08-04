@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  profilePicture = ../../services/rubogubo/RuboGubo.png;
+  profilePicture = ./RuboGubo.png;
   accountsServiceUser = pkgs.writeText "accountsservice-rubogubo" ''
     [User]
     Icon=/var/lib/AccountsService/icons/rubogubo
