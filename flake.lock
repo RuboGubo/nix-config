@@ -58,11 +58,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1785683662,
-        "narHash": "sha256-GiKT/0FMVkOQUAkU5L62wO25ImiqPUFNCPaqZ4LQH3Y=",
-        "rev": "c8741f96ae7024a00e729065eb89dddba657e59d",
+        "lastModified": 1785792016,
+        "narHash": "sha256-hOJWsGKPzK3dMhoJ5pGDzyyorBoKXd5U77uT3f2QZA8=",
+        "rev": "59395870566f4ba8cde5cad07b1ece1d35b1800b",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/c8741f96ae7024a00e729065eb89dddba657e59d.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/59395870566f4ba8cde5cad07b1ece1d35b1800b.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -130,11 +130,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785666098,
-        "narHash": "sha256-RBXKtKl1e6af3xdDZOXxQOX8QPcFVH3XqF2oSy5o1o8=",
-        "rev": "9648ff368a4a81c9f788dc5e1ce115d39fbbc602",
+        "lastModified": 1785769407,
+        "narHash": "sha256-GstEMM47F3UzwKCmSHhU0MM/qvQUzeZi3s0hNQkOn7k=",
+        "rev": "fd0386a934e308c571bcb1f8f763cc3c86b18d6a",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/9648ff368a4a81c9f788dc5e1ce115d39fbbc602.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/data-mesher/archive/fd0386a934e308c571bcb1f8f763cc3c86b18d6a.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -325,11 +325,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1785483748,
-        "narHash": "sha256-II2tuu61ElXqjvw0FyZPlwzFrz6zWLczg8xljsZyQRg=",
-        "rev": "59ea0b1c043c463e39fcb3cfb9a5c8bcf0777c72",
+        "lastModified": 1785747939,
+        "narHash": "sha256-NqaCaIITVSDaBYdcWcfCyEu1erL7paTPEQbISQp9xwQ=",
+        "rev": "104240a772428cc2e20d8fd86c9ddbb886bbaff2",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1044894.59ea0b1c043c/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1046984.104240a77242/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -353,11 +353,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1785571196,
-        "narHash": "sha256-KoTsyMQqnXQZq8deCEnu4QkyldkwH/bpMMhUcfMdGIw=",
+        "lastModified": 1785692966,
+        "narHash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
+        "rev": "643809054d65fdd466a63e3155b8c498cb483c04",
         "type": "github"
       },
       "original": {
@@ -412,11 +412,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1785709710,
-        "narHash": "sha256-c44KAwtrYR6SQBrBQiYMXrJlDYJIyEIuar9BTlu9djA=",
+        "lastModified": 1785792356,
+        "narHash": "sha256-OG2qqr9AGlB+m9vdQDz+RQC/nNtFL+AzzuyRWmN2IBI=",
         "ref": "refs/heads/main",
-        "rev": "bba7e9d57f6d0a0ba76ddd20912764702447d302",
-        "revCount": 148,
+        "rev": "526383fe380d84945dcab1f3c9fdc24c94c13fdd",
+        "revCount": 150,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
@@ -608,11 +608,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1785458093,
-        "narHash": "sha256-NTSplsI48Z0q4Ze1IKEBXcf1dVilk+tR7P/tJAJ0QKk=",
+        "lastModified": 1785713868,
+        "narHash": "sha256-RM27L4MdvxY88ePZmFlc8iMOel4XOKoDGQsX6v8ijgE=",
         "ref": "refs/heads/main",
-        "rev": "e53f3625eff860e0369239cd0698b57bd0cab0fa",
-        "revCount": 136,
+        "rev": "274932a2c5c8c48cd760d45de7c500a6bdb45d08",
+        "revCount": 139,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/sticks-and-stones.git"
       },
