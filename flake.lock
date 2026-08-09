@@ -250,11 +250,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786031233,
-        "narHash": "sha256-TIDlLTLI1/pB7IqgjzcKQjpODQsZE2oII4XGG9B6KjI=",
+        "lastModified": 1786286733,
+        "narHash": "sha256-7dN93WKkEERgutPtTjK7SY3ZarO2LAU33A1+vKu+7cc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7834e82588860aaf780cec1366524456a70898d7",
+        "rev": "367f7ef80856d18438953d54dda235d42a46ba31",
         "type": "github"
       },
       "original": {
@@ -416,11 +416,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1786101538,
-        "narHash": "sha256-DD7GmJ4Zwl6MNm73l9ni1bot7/I009/iCU925ut8A6Y=",
+        "lastModified": 1786239618,
+        "narHash": "sha256-FvMuntnpgvtDG6GzDA+ArxgOKI6qnnMIOF8ezPN6S3I=",
         "ref": "refs/heads/main",
-        "rev": "65661db09cd8c52cdc0a3641549f4e89e27acd46",
-        "revCount": 152,
+        "rev": "cd97039890455a1c5cdc2dc5bd4212b0e9075e60",
+        "revCount": 153,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
@@ -439,11 +439,11 @@
         "rust-flake": "rust-flake_2"
       },
       "locked": {
-        "lastModified": 1786286419,
-        "narHash": "sha256-CMO4ZoaCiunFWNOhYzKvDJ1qOq6Ku9+A/22lRbYuz7I=",
+        "lastModified": 1786287012,
+        "narHash": "sha256-vqeAp/F8grLeKy7NFj824zCg1mBE6qid5AdF7h23KBQ=",
         "ref": "refs/heads/main",
-        "rev": "99ca4f90dd96427ab0da264c57b2136b3db2e585",
-        "revCount": 103,
+        "rev": "0d12f6629933fe77d331074f4127460ef53b5899",
+        "revCount": 104,
         "type": "git",
         "url": "https://gitlab.com/client-projects19/public-projects/primesrust.git"
       },
