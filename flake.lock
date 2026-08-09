@@ -62,11 +62,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1786219436,
-        "narHash": "sha256-9XUHj92KxMzTrYBP1tQ6UHyjEybtq0sjsLGMnJq7+ZQ=",
-        "rev": "3726d4b0f6f509e2f426c9b63c13e50891d84796",
+        "lastModified": 1786288122,
+        "narHash": "sha256-JwxeGIGvemEqg4FaAI9NXYEZ/Sct2hcbRyH65SmiWL0=",
+        "rev": "407c7d19524e2d6d622bd5a829cc178ba454a69f",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/3726d4b0f6f509e2f426c9b63c13e50891d84796.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/407c7d19524e2d6d622bd5a829cc178ba454a69f.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -439,11 +439,11 @@
         "rust-flake": "rust-flake_2"
       },
       "locked": {
-        "lastModified": 1786287012,
-        "narHash": "sha256-vqeAp/F8grLeKy7NFj824zCg1mBE6qid5AdF7h23KBQ=",
+        "lastModified": 1786288417,
+        "narHash": "sha256-wZ520DJaQ2Twb0fgqwndV+bFERIXIKTka1NJC2GfxPI=",
         "ref": "refs/heads/main",
-        "rev": "0d12f6629933fe77d331074f4127460ef53b5899",
-        "revCount": 104,
+        "rev": "eafb4bf3ebb46f94661bb1b18ba330662e14fe1f",
+        "revCount": 106,
         "type": "git",
         "url": "https://gitlab.com/client-projects19/public-projects/primesrust.git"
       },
