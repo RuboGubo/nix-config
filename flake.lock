@@ -439,11 +439,11 @@
         "rust-flake": "rust-flake_2"
       },
       "locked": {
-        "lastModified": 1786288417,
-        "narHash": "sha256-wZ520DJaQ2Twb0fgqwndV+bFERIXIKTka1NJC2GfxPI=",
+        "lastModified": 1786289116,
+        "narHash": "sha256-mRnp1U+U9PjYlpgcwwbIXKrIyV4xkHq/FZzEoMg3eG4=",
         "ref": "refs/heads/main",
-        "rev": "eafb4bf3ebb46f94661bb1b18ba330662e14fe1f",
-        "revCount": 106,
+        "rev": "6b69e9a2c6784dda7ce2d1e18a34e826fa53821f",
+        "revCount": 107,
         "type": "git",
         "url": "https://gitlab.com/client-projects19/public-projects/primesrust.git"
       },
