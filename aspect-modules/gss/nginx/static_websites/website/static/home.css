@@ -23,7 +23,7 @@ header p {
     width: auto;
     height: 80px;
     margin-right: 2ch;
-    padding-bottom: 10px;
+    padding-bottom: 4px;
 }
 
 .InfoBlock {
@@ -44,6 +44,10 @@ article {
     margin-top: 40px;
     max-width: 350px ;
     flex-shrink: 1;
+
+    h3 {
+        text-align: left;
+    }
 }
 
 #Title {
