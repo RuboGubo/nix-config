@@ -117,7 +117,7 @@
         "-m"
         "admin@greensiren.co.uk"
         "--domains"
-        "greensiren.co.uk,sticks-and-stones.greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com"
+        "greensiren.co.uk,sticks-and-stones.greensiren.co.uk,recipes.greensiren.co.uk,portainer.greensiren.co.uk,primes.greensiren.co.uk,nextcloud.greensiren.co.uk,documentation.greensiren.co.uk,mail.greensiren.co.uk,ticket-plus.greensiren.co.uk,backend-ticket-plus.greensiren.co.uk,api.primes.greensiren.co.uk,swimming.greensiren.co.uk,rubenward.com,hanseolee.com,rubogubo.com"
       ];
       volumes = [
         "certbot-webroot:/var/www/certbot/:rw"
