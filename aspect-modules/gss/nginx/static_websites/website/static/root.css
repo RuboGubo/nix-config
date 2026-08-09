@@ -26,6 +26,8 @@ select {
 
 body {
     background-color: var(--Background);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 h1 {
