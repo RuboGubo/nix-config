@@ -31,16 +31,16 @@
       ];
     };
 
-    # primes = {
-    #   build.image = lib.mkForce (inputs.primes.packages.${pkgs.stdenv.hostPlatform.system}.container);
-    #   service = {
-    #     useHostStore = true;
-    #     restart = "unless-stopped";
-    #     ports = [ "8000:8000" ];
-    #     env_file = [ vars.secret-env.path ];
-    #     depends_on = [ "prod-postgres" ];
-    #   };
-    # };
+    primes = {
+      build.image = lib.mkForce (inputs.primes.packages.${pkgs.stdenv.hostPlatform.system}.container);
+      service = {
+        useHostStore = true;
+        restart = "unless-stopped";
+        ports = [ "8000:8000" ];
+        env_file = [ vars.secret-env.path ];
+        depends_on = [ "prod-postgres" ];
+      };
+    };
 
     sticks-and-stones = {
       service = {
