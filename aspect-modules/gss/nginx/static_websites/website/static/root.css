@@ -61,12 +61,12 @@ a {
     width: auto;
     padding-right: 1ex;
     padding-left: 1ex;
-    border: 1px solid white;
+    border: 1px solid var(--text);
     border-radius: 5px;
     background-color: transparent;
     text-decoration: none;
     text-align: center;
-    fill: white;
+    fill: var(--text);
     color: var(--text);
     display: block;
     transition: all 0.1s;
