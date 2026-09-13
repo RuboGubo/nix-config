@@ -389,6 +389,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1770107345,
+        "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4533d9293756b63904b7238acb84ac8fe4c8c2c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1782959384,
         "narHash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM=",
         "owner": "nixos",
@@ -413,14 +429,15 @@
           "nixpkgs"
         ],
         "rust-flake": "rust-flake",
-        "systems": "systems_2"
+        "systems": "systems_2",
+        "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1787018223,
-        "narHash": "sha256-i3DJJYNY0onH1Fx0f6dA5Kvfuz3og8mTEjGN5NH5FtQ=",
+        "lastModified": 1789294271,
+        "narHash": "sha256-V+gnLVuEL1psb/lWkx9jXl6zsVvmUUcP/hHd3HOC7UA=",
         "ref": "refs/heads/main",
-        "rev": "ed82879408206275bbab3d92bb76e03209d0fd31",
-        "revCount": 159,
+        "rev": "764662f6f2c9967e073bf7f0fdb5939fdae0c698",
+        "revCount": 166,
         "type": "git",
         "url": "ssh://git@gitlab.com/RuboGubo/personal-website.git"
       },
@@ -469,7 +486,7 @@
         "personal-website": "personal-website",
         "primes": "primes",
         "sticks-and-stones": "sticks-and-stones",
-        "treefmt-nix": "treefmt-nix_3"
+        "treefmt-nix": "treefmt-nix_4"
       }
     },
     "rust-flake": {
@@ -495,7 +512,7 @@
     "rust-flake_2": {
       "inputs": {
         "crane": "crane_2",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
@@ -609,7 +626,7 @@
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay_3",
-        "treefmt-nix": "treefmt-nix_2"
+        "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
         "lastModified": 1786394688,
@@ -679,6 +696,24 @@
     },
     "treefmt-nix_2": {
       "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1786901030,
+        "narHash": "sha256-WSFCsDSE5ffgD2MqzkM2CYjeFiKhRF/dJUN8uedb6YE=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "27b3b12a8e6375f28ebe122f07d230ca5459bbfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_3": {
+      "inputs": {
         "nixpkgs": [
           "sticks-and-stones",
           "nixpkgs"
@@ -698,7 +733,7 @@
         "type": "github"
       }
     },
-    "treefmt-nix_3": {
+    "treefmt-nix_4": {
       "inputs": {
         "nixpkgs": [
           "clan-core",
