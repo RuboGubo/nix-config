@@ -77,7 +77,7 @@
         "443:443"
       ];
       volumes = [
-        # Mount only our overrides. Mounting the entire directory 
+        # Mount only our overrides. Mounting the entire directory
         # hides important files
         "${./nginx/config/nginx.conf}:/etc/nginx/nginx.conf:ro"
         "${./nginx/config/error.conf}:/etc/nginx/error.conf:ro"

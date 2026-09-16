@@ -5,27 +5,21 @@
     aspects.rubogubo.gnome.nixos
     aspects.rubogubo.flatpak.nixos
     aspects.rubogubo.podman.nixos
+    aspects.rubogubo.fonts.nixos
 
     aspects.hardware.printer.nixos
     aspects.hardware.fingerprint.nixos
   ];
-
-  fonts.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.noto-fonts
-    pkgs.noto-fonts-cjk-sans
-  ];
-  fonts.enableDefaultPackages = true;
 
   home-manager.users."rubogubo" = {
     imports = [
       aspects.rubogubo.accounts.home
       aspects.vpn.uni.home
       aspects.rubogubo.profile.home
+      aspects.rubogubo.fonts.home
     ];
 
     home.username = "rubogubo";
-    fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
       # (import ../../modules/kakao.nix)
       # kakao
@@ -50,9 +44,6 @@
       steam
 
       wireshark
-      # Font
-      nerd-fonts.jetbrains-mono
-      noto-fonts
       nanum
       networkmanager-fortisslvpn
       resources
