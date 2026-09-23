@@ -26,6 +26,7 @@
       xclip
       firefox
       thunderbird
+      anki
       # rustup
       # discord
       python3
