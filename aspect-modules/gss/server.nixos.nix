@@ -4,6 +4,18 @@
   config,
   ...
 }:
+let
+  # Patch both the CLI's bundled modules and the modules used by arion.eval.
+  arionSource = pkgs.applyPatches {
+    name = "arion-journald-settings-source";
+    src = inputs.arion;
+    postPatch = ''
+      substituteInPlace src/nix/modules/nixos/container-systemd.nix \
+        --replace-fail 'services.journald.console = "/dev/console";' \
+        'services.journald.settings.Journal = { ForwardToConsole = true; TTYPath = "/dev/console"; };'
+    '';
+  };
+in
 {
   imports = [ inputs.arion.nixosModules.arion ];
 
@@ -36,6 +48,7 @@
   };
 
   virtualisation.arion = {
+    package = import "${arionSource}/nix/arion.nix" { inherit pkgs; };
     backend = "podman-socket";
 
     projects.gss = {
