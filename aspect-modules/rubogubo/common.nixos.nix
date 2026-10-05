@@ -67,6 +67,9 @@ in
       yq
       home-manager
 
+      gcli
+      glab
+
       codex
 
       cachix
