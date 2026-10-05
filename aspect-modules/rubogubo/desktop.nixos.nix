@@ -46,7 +46,7 @@
 
       wireshark
       nanum
-      networkmanager-fortisslvpn
+      networkmanager-openconnect
       resources
 
       # COM1008 tools
