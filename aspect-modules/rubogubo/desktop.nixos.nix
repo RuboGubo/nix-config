@@ -48,9 +48,6 @@
       nanum
       networkmanager-openconnect
       resources
-
-      # COM1008 tools
-      insomnia
     ];
 
     programs.nh = {
