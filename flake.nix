@@ -4,6 +4,12 @@
     nixpkgs.follows = "clan-core/nixpkgs";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Working alternative recommended in nixpkgs PR #436278.
+    kakaotalk = {
+      url = "github:aanhlongg/kakaotalk-nix/mkwindowsapp";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     clan-core.inputs.flake-parts.follows = "flake-parts";
 

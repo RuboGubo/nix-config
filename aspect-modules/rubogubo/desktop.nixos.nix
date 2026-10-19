@@ -13,6 +13,7 @@
 
   home-manager.users."rubogubo" = {
     imports = [
+      aspects.kakao.home
       aspects.rubogubo.accounts.home
       aspects.vpn.uni.home
       aspects.rubogubo.profile.home
@@ -21,8 +22,6 @@
 
     home.username = "rubogubo";
     home.packages = with pkgs; [
-      # (import ../../modules/kakao.nix)
-      # kakao
       xclip
       firefox
       thunderbird
