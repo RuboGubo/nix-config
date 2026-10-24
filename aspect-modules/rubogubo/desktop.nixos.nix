@@ -6,6 +6,7 @@
     aspects.rubogubo.flatpak.nixos
     aspects.rubogubo.podman.nixos
     aspects.rubogubo.fonts.nixos
+    aspects.vpn.uni.nixos
 
     aspects.hardware.printer.nixos
     aspects.hardware.fingerprint.nixos

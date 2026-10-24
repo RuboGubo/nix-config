@@ -1,0 +1,24 @@
+diff --git a/src/lea_provider.cpp b/src/lea_provider.cpp
+--- a/src/lea_provider.cpp
++++ b/src/lea_provider.cpp
+@@ -245,8 +245,10 @@ int lea_get_params(OSSL_PARAM params[]) {
+     if (p != nullptr && !OSSL_PARAM_set_int(p, 0)) return 0;
+     p = OSSL_PARAM_locate(params, OSSL_CIPHER_PARAM_HAS_RAND_KEY);
+     if (p != nullptr && !OSSL_PARAM_set_int(p, 0)) return 0;
++#ifdef OSSL_CIPHER_PARAM_ENCRYPT_THEN_MAC
+     p = OSSL_PARAM_locate(params, OSSL_CIPHER_PARAM_ENCRYPT_THEN_MAC);
+     if (p != nullptr && !OSSL_PARAM_set_int(p, 0)) return 0;
++#endif
+     return 1;
+ }
+ 
+@@ -261,7 +263,9 @@ const OSSL_PARAM *lea_gettable_params(void *) {
+         OSSL_PARAM_int(OSSL_CIPHER_PARAM_CTS, nullptr),
+         OSSL_PARAM_int(OSSL_CIPHER_PARAM_TLS1_MULTIBLOCK, nullptr),
+         OSSL_PARAM_int(OSSL_CIPHER_PARAM_HAS_RAND_KEY, nullptr),
++#ifdef OSSL_CIPHER_PARAM_ENCRYPT_THEN_MAC
+         OSSL_PARAM_int(OSSL_CIPHER_PARAM_ENCRYPT_THEN_MAC, nullptr),
++#endif
+         OSSL_PARAM_END
+     };
+     return table;
