@@ -71,6 +71,7 @@
         "Catppuccin"
       ];
       extraPackages = with pkgs; [
+        nixd
         nil
         rust-analyzer
         taplo
