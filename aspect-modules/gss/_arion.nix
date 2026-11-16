@@ -73,8 +73,9 @@
       image = "nginx:latest";
       restart = "on-failure:5";
       ports = [
-        "80:80"
-        "443:443"
+        # Public ports are owned by the NixOS nginx frontend.
+        "127.0.0.1:8081:80"
+        "127.0.0.1:8444:443"
       ];
       volumes = [
         # Mount only our overrides. Mounting the entire directory

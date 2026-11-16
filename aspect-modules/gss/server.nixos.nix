@@ -2,22 +2,15 @@
   pkgs,
   inputs,
   config,
+  aspects,
   ...
 }:
-let
-  # Patch both the CLI's bundled modules and the modules used by arion.eval.
-  arionSource = pkgs.applyPatches {
-    name = "arion-journald-settings-source";
-    src = inputs.arion;
-    postPatch = ''
-      substituteInPlace src/nix/modules/nixos/container-systemd.nix \
-        --replace-fail 'services.journald.console = "/dev/console";' \
-        'services.journald.settings.Journal = { ForwardToConsole = true; TTYPath = "/dev/console"; };'
-    '';
-  };
-in
 {
-  imports = [ inputs.arion.nixosModules.arion ];
+  imports = [
+    inputs.arion.nixosModules.arion
+    aspects.gss.firefly.nixos
+    aspects.gss.nginx.nixos
+  ];
 
   programs.ssh.knownHosts."gitlab.com".publicKey =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
@@ -48,7 +41,8 @@ in
   };
 
   virtualisation.arion = {
-    package = import "${arionSource}/nix/arion.nix" { inherit pkgs; };
+    # The pinned Arion already supports the new journald settings options.
+    package = import "${inputs.arion}/nix/arion.nix" { inherit pkgs; };
     backend = "podman-socket";
 
     projects.gss = {
