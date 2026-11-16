@@ -19,13 +19,14 @@ cat .env | clan vars set <host> gss/secret-env
 The host owns public TCP ports 80 and 443. HTTP requests default to Compose
 nginx at `127.0.0.1:8081`, preserving the Host header and forwarding legacy
 Certbot challenges. HTTPS uses SNI passthrough: every hostname except
-`firefly.greensiren.co.uk` goes to Compose nginx at `127.0.0.1:8444`.
+`firefly.greensiren.co.uk` and `firefly-importer.greensiren.co.uk` goes to
+Compose nginx at `127.0.0.1:8444`.
 Compose keeps its existing TLS certificates, routes, Nextcloud FPM setup, and
 WebSocket handling. Connections without SNI also go to Compose.
 
 Firefly uses the host's PHP-FPM and nginx, with a local TLS listener at
-`127.0.0.1:8443`. NixOS ACME manages only Firefly's certificate. Firefly starts
-with SQLite in `/var/lib/firefly-iii`; its persistent application key comes
+`127.0.0.1:8443`. The data importer shares that listener, and NixOS ACME manages
+both certificates. Firefly starts with SQLite in `/var/lib/firefly-iii`; its persistent application key comes
 from the Clan `firefly/app-key` generator. Back up both its data and key.
 
 Initial deployment:
@@ -49,6 +50,19 @@ TLS passthrough currently presents the frontend's address to the legacy
 nginx, rather than the original client IP. Firefly's local TLS listener also
 sees the frontend address. Preserving client IPs would require coordinated
 PROXY protocol configuration on both ends.
+
+## Firefly data importer
+
+The NixOS module runs the importer at
+`https://firefly-importer.greensiren.co.uk`. Add an A record for
+`firefly-importer` pointing to node1 (`178.79.150.220`) before deploying so ACME
+can issue its certificate. Its state lives in `/var/lib/firefly-iii-data-importer`.
+
+In Firefly's OAuth settings, create a client with callback URL
+`https://firefly-importer.greensiren.co.uk/callback` and uncheck **Confidential**.
+Open the importer, enter the client ID, and authorize access. The importer
+already has Firefly's HTTPS URL configured; no access token needs to be stored
+in Nix. See the [upstream OAuth instructions](https://docs.firefly-iii.org/how-to/firefly-iii/features/api/).
 
 ## How to migrate
 

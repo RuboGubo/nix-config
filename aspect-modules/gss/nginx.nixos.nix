@@ -17,11 +17,12 @@
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
 
-    # Keep legacy TLS termination and certificates in Compose. Only Firefly's
-    # SNI name is routed to the NixOS HTTPS virtual host below.
+    # Keep legacy TLS termination and certificates in Compose. Firefly and its
+    # importer use the NixOS HTTPS virtual hosts on the shared local listener.
     streamConfig = ''
       map $ssl_preread_server_name $tls_backend {
         firefly.greensiren.co.uk 127.0.0.1:8443;
+        firefly-importer.greensiren.co.uk 127.0.0.1:8443;
         default                 127.0.0.1:8444;
       }
 
